@@ -1,14 +1,11 @@
 # 设置默认行为，以防用户没有设置 core.autocrlf。
 * text=auto
-
 # 明确声明始终要规范化并在检出时转换为本机行尾的文本文件。
 *.cs text diff=csharp
 *.cginc text
 *.shader text
-
 # 声明在检出时始终具有 CRLF 行尾的文件。
 *.sln text eol=crlf
-
 # 标明所有真正的二进制文件，不应修改。
 *.png binary
 *.jpg binary
@@ -26,9 +23,8 @@
 *.dll binary
 *.so binary
 *.a binary
-*.dylib binary
+*.dylib filter=lfs diff=lfs merge=lfs -text
 *.unitypackage binary
-
 # Unity 文件
 *.meta text merge=unityyamlmerge eol=lf
 *.unity text merge=unityyamlmerge eol=lf
@@ -41,5 +37,3 @@
 *.dwlt text eol=lf
 *.json text eol=lf
 *.txt text eol=lf
-
-
