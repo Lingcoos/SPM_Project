@@ -83,13 +83,7 @@ filetree
 ├── LICENSE.txt
 ├── README.md
 ├── /images/
-├── /Assets/
-├── /Library/
-├── /Logs/
-├── /obj/
-├── /Packages/
-├── /ProjectSettings/
-└── /UserSettings/
+└── /PixelFantasy2/
 ```
 
 
