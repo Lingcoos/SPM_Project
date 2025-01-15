@@ -9,7 +9,6 @@ Pixel Fantasy II is a pixel anime game based on Unity.
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -58,7 +57,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
 
 ### 上手指南
 
-
+请在`dev`分支进行开发！
 
 
 ###### 开发前的配置要求
@@ -68,12 +67,12 @@ Pixel Fantasy II is a pixel anime game based on Unity.
 
 ###### **安装步骤**
 
-1. Download Unity Engine [https://unity.com/](https://unity.com/)
+1. Download [Unity](https://unity.com/)
 2. Clone the repo
-
 ```sh
 git clone https://github.com/Lingcoos/SPM_Project.git
 ```
+1. Use Unity to open the project
 
 ### 文件目录说明
 
@@ -94,7 +93,7 @@ filetree
 
 ### 开发的架构 
 
-请阅读[ARCHITECTURE.md](https://github.com/Lingcoos/SPM_Project/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
+Please read [ARCHITECTURE.md](https://github.com/Lingcoos/SPM_Project/blob/master/ARCHITECTURE.md) to check the architecture of the project.
 
 ### 部署
 
@@ -107,7 +106,9 @@ Windows
 
 ### 贡献者
 
-请阅读**CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
++ [WEI TAO](https://github.com/Lingcoos)
++ [Wang Zhenghan](https://github.com/wnagbi)
++ [Qiu Zixi](https://github.com/vousmevoyez7)
 
 #### 如何参与开源项目
 
@@ -126,9 +127,12 @@ Windows
 
 该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
 
+对于初学者，当然也可以使用Github Desktop来进行可视化管理。
+> 再次提醒，不要再main分支开发！一定要求换到dev分支进行开发！
+
 ### 作者
 
-WEI TAO &ensp; 1210028255
++ [WEI TAO](https://github.com/Lingcoos)
 
 
  *您也可以在贡献者名单中参看所有参与该项目的开发者。*
@@ -138,7 +142,6 @@ WEI TAO &ensp; 1210028255
 该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt)
 
 ### 鸣谢
-
 
 - [wt](https://github.com/Lingcoos)
 
@@ -155,5 +158,3 @@ WEI TAO &ensp; 1210028255
 [issues-url]: https://img.shields.io/github/issues/Lingcoos/SPM_Project.svg
 [license-shield]: https://img.shields.io/github/license/Lingcoos/SPM_Project.svg?style=flat-square
 [license-url]: https://github.com/Lingcoos/SPM_Project/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/Lingcoos
