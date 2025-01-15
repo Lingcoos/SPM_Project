@@ -16,7 +16,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
 
 <p align="center">
   <a href="https://github.com/Lingcoos/SPM_Project/">
-    <img src="images/128.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">"Pixel Fantasy II</h3>
@@ -63,7 +63,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
 
 ###### 开发前的配置要求
 
-1. Unity 2022.3.44f1
+1. Unity 2022.3.55f1
 2. Visual Studio 2022
 
 ###### **安装步骤**
@@ -82,8 +82,10 @@ filetree
 ├── ARCHITECTURE.md
 ├── LICENSE.txt
 ├── README.md
-├── /images/
-└── /PixelFantasy2/
+├── /Assets/
+├── /Packages/
+├── /ProjectSettings/
+└── /images/
 ```
 
 
