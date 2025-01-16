@@ -45,7 +45,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
           - [开发前的配置要求](#开发前的配置要求)
           - [**安装步骤**](#安装步骤)
     - [文件目录说明](#文件目录说明)
-    - [开发的架构](#开发的架构)
+    - [开发手册](#开发手册)
     - [部署](#部署)
     - [使用到的框架](#使用到的框架)
     - [贡献者](#贡献者)
@@ -56,7 +56,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
     - [鸣谢](#鸣谢)
 
 ### 上手指南
-
+参考[开发手册](#开发手册)
 请在`dev`分支进行开发！
 
 
@@ -82,6 +82,12 @@ filetree
 ├── LICENSE.txt
 ├── README.md
 ├── /Assets/
+├────── /Animation/
+├────── /Animator/
+├────── /Materials/
+├────── /Prefabs/
+├────── /Scenes/
+├────── /Scripts/
 ├── /Packages/
 ├── /ProjectSettings/
 └── /images/
@@ -91,7 +97,7 @@ filetree
 
 
 
-### 开发的架构 
+### 开发手册
 
 Please read [ARCHITECTURE.md](https://github.com/Lingcoos/SPM_Project/blob/master/ARCHITECTURE.md) to check the architecture of the project.
 
