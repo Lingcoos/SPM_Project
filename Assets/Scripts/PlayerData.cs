@@ -18,20 +18,43 @@ public class PlayerData : SingleBaseManager<PlayerData>
     private const float MAX_HEALTH = 9999;
     private const float MAX_ATTACK = 999;
     private const float MAX_DEFENSE = 999;
+    private const float MAX_SPEED = 99;
 
     // The attributes of player
+    [Header("Player Info")]
     private int gold;   // the number of gold
     private int crystal;    // the number of crystal(global)
     private int level;  // the level of player
     private int exp;    // the number of experience
     private int killNum;    // the number of killed monsters
+    private int x_pos;  // the x position of player
+    private int y_pos;  // the y position of player
 
-    private float maxHealth;    // the maximum health of player
+    [Header("Player Base Attributes")]
+    private float baseMaxHealth = 100;    // the basic health of player
+    private float baseAttack = 10;    // the basic attack of player
+    private float baseDefense = 5;    // the basic defense of player
+    private float baseSpeed = 5;    // the speed of player
+
+    [Header("Player Buff Attributes")]
+    private float healthBuff = 0;   // the health buff of player
+    private float attackBuff = 0;   // the attack buff of player
+    private float defenseBuff = 0;  // the defense buff of player
+    private float speedBuff = 0;    // the speed buff of player
+
+    [Header("Player Current Attributes")]
+    private float currentMaxHealth;    // currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum health of player
     private float currentHealth;    // the current health of player
-    private float currentAttack;    // the current attack of player
-    private float currentDefense;   // the current defense of player
+    private float currentAttack;    // currentAttack = baseAttack + level * 2 + attackBuff;  // the current attack of player
+    private float currentDefense;   // currentDefense = baseDefense + level * 1 + defenseBuff;  // the current defense of player
+    private float currentSpeed;   // currentSpeed = speed + speedBuff;  // the current speed of player
 
-    // Constructor
+
+    // Constructor:
+    // Goid, Crystal, Level, Exp, KillNum,
+    // HealthBuff, AttackBuff, DefenseBuff, SpeedBuff,
+    // MaxHealth, CurrentHealth, CurrentAttack, CurrentDefense, CurrentSpeed,
+    // X_pos, Y_pos
     public int Gold
     {
         get { return gold; }
@@ -87,18 +110,43 @@ public class PlayerData : SingleBaseManager<PlayerData>
                 killNum = value;
         }
     }
-
-    public float MaxHealth
+    
+    public float HealthBuff
     {
-        get { return maxHealth; }
+        get { return healthBuff; }
+        set { healthBuff = value; }
+    }
+
+    public float AttackBuff
+    {
+        get { return attackBuff; }
+        set { attackBuff = value; }
+    }
+
+    public float DefenseBuff
+    {
+        get { return defenseBuff; }
+        set { defenseBuff = value; }
+    }
+
+    public float SpeedBuff
+    {
+        get { return speedBuff; }
+        set { speedBuff = value; }
+    }
+
+
+    public float CurrentMaxHealth
+    {
+        get { return currentMaxHealth; }
         set 
         {
             if (value < 0)
-                maxHealth = 0;
+                currentMaxHealth = 0;
             else if(value > MAX_HEALTH)
-                maxHealth = MAX_HEALTH;
+                currentMaxHealth = MAX_HEALTH;
             else
-                maxHealth = value; 
+                currentMaxHealth = value; 
         }
     }
 
@@ -109,8 +157,8 @@ public class PlayerData : SingleBaseManager<PlayerData>
         {
             if (value < 0)
                 currentHealth = 0;
-            else if (value > maxHealth)
-                currentHealth = maxHealth;
+            else if (value > currentMaxHealth)
+                currentHealth = currentMaxHealth;
             else
                 currentHealth = value;
         }
@@ -142,5 +190,100 @@ public class PlayerData : SingleBaseManager<PlayerData>
             else
                 currentDefense = value;
         }
+    }
+
+    public float CurrentSpeed
+    {
+        get { return currentSpeed; }
+        set
+        {
+            if (value < 0)
+                currentSpeed = 0;
+            else if (value > MAX_SPEED)
+                currentSpeed = MAX_SPEED;
+            else
+                currentSpeed = value;
+        }
+    }
+
+    public int X_pos
+    {
+        get { return x_pos; }
+        set { x_pos = value; }
+    }
+
+    public int Y_pos
+    {
+        get { return y_pos; }
+        set { y_pos = value; }
+    }
+
+
+
+
+    public void UpdateAttribute()
+    {
+        currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum health of player
+        currentHealth = baseMaxHealth + level * 10 + healthBuff;  // the current health of player
+        currentAttack = baseAttack + level * 2 + attackBuff;  // the current attack of player
+        currentDefense = baseDefense + level * 1 + defenseBuff;  // the current defense of player
+        currentSpeed = baseSpeed + speedBuff;  // the current speed of player
+    }
+
+    public void Upgrade()
+    {
+        while(exp >= level * 100)
+        {
+            exp -= level * 100;
+            level++;
+        }
+        UpdateAttribute();
+    }
+
+    public void UpdateAllData()
+    {
+        Upgrade();
+        UpdateAttribute();
+    }
+
+    public void InitData()  // init data for a new game
+    {
+        PlayerPrefs.SetInt("Gold", 0);
+        //PlayerPrefs.SetInt("Crystal", 0);     // global crystal
+        PlayerPrefs.SetInt("Level", 1);
+        PlayerPrefs.SetInt("Exp", 0);
+        PlayerPrefs.SetInt("KillNum", 0);
+        PlayerPrefs.SetFloat("MaxHealth", baseMaxHealth);
+        PlayerPrefs.SetFloat("CurrentHealth", baseMaxHealth);
+        PlayerPrefs.SetFloat("CurrentAttack", baseAttack);
+        PlayerPrefs.SetFloat("CurrentDefense", baseDefense);
+        PlayerPrefs.SetFloat("CurrentSpeed", baseSpeed);
+    }
+    public void SaveData()
+    {
+        UpdateAllData();
+        PlayerPrefs.SetInt("Gold", Gold);
+        PlayerPrefs.SetInt("Crystal", Crystal);
+        PlayerPrefs.SetInt("Level", Level);
+        PlayerPrefs.SetInt("Exp", Exp);
+        PlayerPrefs.SetInt("KillNum", KillNum);
+        PlayerPrefs.SetFloat("MaxHealth", currentMaxHealth);
+        PlayerPrefs.SetFloat("CurrentHealth", CurrentHealth);
+        PlayerPrefs.SetFloat("CurrentAttack", CurrentAttack);
+        PlayerPrefs.SetFloat("CurrentDefense", CurrentDefense);
+        PlayerPrefs.SetFloat("CurrentSpeed", CurrentSpeed);
+    }
+    public void LoadData()
+    {
+        Gold = PlayerPrefs.GetInt("Gold", gold);
+        Crystal = PlayerPrefs.GetInt("Crystal", crystal);
+        Level = PlayerPrefs.GetInt("Level", level);
+        Exp = PlayerPrefs.GetInt("Exp", exp);
+        KillNum = PlayerPrefs.GetInt("KillNum", killNum);
+        MaxHealth = PlayerPrefs.GetFloat("MaxHealth", currentMaxHealth);
+        CurrentHealth = PlayerPrefs.GetFloat("CurrentHealth", currentHealth);
+        CurrentAttack = PlayerPrefs.GetFloat("CurrentAttack", currentAttack);
+        CurrentDefense = PlayerPrefs.GetFloat("CurrentDefense", currentDefense);
+        CurrentSpeed = PlayerPrefs.GetFloat("CurrentSpeed", currentSpeed);
     }
 }
