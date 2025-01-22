@@ -18,7 +18,8 @@ public class PlayerMoveState : IState
 
     public void OnUpData()
     {
-       
+        if (!player.isRuning)
+            player.TransitionState(PlayerStateType.Idle);
     }
     public void OnFixUpData()
     {

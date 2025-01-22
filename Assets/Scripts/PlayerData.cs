@@ -264,7 +264,7 @@ public class PlayerData : SingleBaseManager<PlayerData>
         UpdateAllData();
         PlayerPrefs.SetInt("Gold", Gold);
         PlayerPrefs.SetInt("Crystal", Crystal);
-        PlayerPrefs.SetInt("Level", Level);
+        PlayerPrefs.SetInt("Level", level);
         PlayerPrefs.SetInt("Exp", Exp);
         PlayerPrefs.SetInt("KillNum", KillNum);
         PlayerPrefs.SetFloat("MaxHealth", currentMaxHealth);
@@ -277,10 +277,10 @@ public class PlayerData : SingleBaseManager<PlayerData>
     {
         Gold = PlayerPrefs.GetInt("Gold", gold);
         Crystal = PlayerPrefs.GetInt("Crystal", crystal);
-        Level = PlayerPrefs.GetInt("Level", level);
+        level = PlayerPrefs.GetInt("Level", level);
         Exp = PlayerPrefs.GetInt("Exp", exp);
         KillNum = PlayerPrefs.GetInt("KillNum", killNum);
-        MaxHealth = PlayerPrefs.GetFloat("MaxHealth", currentMaxHealth);
+        currentMaxHealth = PlayerPrefs.GetFloat("MaxHealth", currentMaxHealth);
         CurrentHealth = PlayerPrefs.GetFloat("CurrentHealth", currentHealth);
         CurrentAttack = PlayerPrefs.GetFloat("CurrentAttack", currentAttack);
         CurrentDefense = PlayerPrefs.GetFloat("CurrentDefense", currentDefense);

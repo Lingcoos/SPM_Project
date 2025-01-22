@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Move();
+        
         currentState.OnUpData();
         
     }
@@ -59,17 +60,17 @@ public class Player : MonoBehaviour
     public void OnMove(InputValue value)
     {
         InputValue = value.Get<Vector2>();
-        Debug.Log("移动数据：" + InputValue);
+        //Debug.Log("移动数据：" + InputValue);
     }
     public void Move()
     {
         if (InputValue.magnitude > 0.0001f) 
-        {
             isRuning = true;    
-        }
+        else
+            isRuning = false;
         ani.SetFloat("LookX",InputValue.x);
         ani.SetFloat("LookY",InputValue.y);
-        rig.velocity = InputValue * Time.deltaTime*playerSpeed;
+        rig.velocity =10 *InputValue * Time.deltaTime*playerSpeed;
         //Debug.Log("速度" + rig.velocity);
     }
 }
