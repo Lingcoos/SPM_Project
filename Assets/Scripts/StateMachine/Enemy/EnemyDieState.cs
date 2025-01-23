@@ -2,24 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : IState
+public class EnemyDieState : IState
 {
-    private Player player;
-    public PlayerMoveState(Player player)
+    private Enemy enemy;
+    public EnemyDieState(Enemy enemy)
     {
-        this.player = player;
+        this.enemy = enemy;
     }
 
     public void OnEnter()
     {
-        player.ani.Play("Move");
+       
     }
 
 
     public void OnUpData()
     {
-        if (!player.isRuning)
-            player.TransitionState(PlayerStateType.Idle);
+
     }
     public void OnFixUpData()
     {

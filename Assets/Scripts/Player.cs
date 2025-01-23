@@ -64,12 +64,12 @@ public class Player : MonoBehaviour
     public void Move()
     {
         if (InputValue.magnitude > 0.0001f) 
-        {
             isRuning = true;    
-        }
+        else
+            isRuning = false;
         ani.SetFloat("LookX",InputValue.x);
         ani.SetFloat("LookY",InputValue.y);
-        rig.velocity = InputValue * Time.deltaTime*playerSpeed;
+        rig.velocity =  InputValue *  playerSpeed;
         //Debug.Log("ËÙ¶È" + rig.velocity);
     }
 }
