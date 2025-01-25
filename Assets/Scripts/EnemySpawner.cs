@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
             spawnCounter = timeToSpawn;
 
 
-            Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation);
+            Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation,transform);
         }
     }
     public Vector3 SelectSpawnPoint() 

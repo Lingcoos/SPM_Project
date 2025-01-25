@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     public void OnMove(InputValue value)
     {
         InputValue = value.Get<Vector2>();
-        Debug.Log("移动数据：" + InputValue);
+        //Debug.Log("移动数据：" + InputValue);
     }
     public void Move()
     {

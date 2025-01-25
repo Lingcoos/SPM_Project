@@ -8,7 +8,9 @@ public enum EnemyStateType
 public class Enemy : MonoBehaviour
 {
     public float enemySpeed;
+    public float Health = 10000;
 
+    public GameObject exp;
 
 
     private Rigidbody2D rig;
@@ -41,16 +43,21 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         ChasePlayer();
+        if (Health <= 0) 
+        {
+            Instantiate(exp, transform.position,Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
     public void ChasePlayer() 
     {
         Vector2 dir = (target.position - transform.position).normalized;
-        Debug.Log("方向"+ dir);
+        //Debug.Log("方向"+ dir);
         if (dir.x > 0)
             spr.flipX = true;
         else
             spr.flipX = false;
         rig.velocity = dir * enemySpeed ;
-        Debug.Log("敌人速度" + rig.velocity);
+        //Debug.Log("敌人速度" + rig.velocity);
     }
 }
