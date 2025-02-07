@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ExpController : MonoBehaviour
 {
     public int currentExperience;
     public List<int> expLevels;
     public int currentLevel = 1, levelCount;
+    public UnityEvent levelUpEvent;
 
     private UIController UIController;
 
@@ -25,6 +27,7 @@ public class ExpController : MonoBehaviour
         {
 
             LevelUp();
+            levelUpEvent?.Invoke();
         }
         UIController.UpdateExp(currentExperience, expLevels[currentLevel],currentLevel);
     }

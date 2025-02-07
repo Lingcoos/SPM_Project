@@ -31,20 +31,20 @@ public class PlayerData : SingleBaseManager<PlayerData>
     private int y_pos;  // the y position of player
 
     [Header("Player Base Attributes")]
-    private float baseMaxHealth = 100;    // the basic health of player
+    private float baseMaxHealth = 100;    // the basic curHealth of player
     private float baseAttack = 10;    // the basic attack of player
     private float baseDefense = 5;    // the basic defense of player
     private float baseSpeed = 5;    // the speed of player
 
     [Header("Player Buff Attributes")]
-    private float healthBuff = 0;   // the health buff of player
+    private float healthBuff = 0;   // the curHealth buff of player
     private float attackBuff = 0;   // the attack buff of player
     private float defenseBuff = 0;  // the defense buff of player
     private float speedBuff = 0;    // the speed buff of player
 
     [Header("Player Current Attributes")]
-    private float currentMaxHealth;    // currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum health of player
-    private float currentHealth;    // the current health of player
+    private float currentMaxHealth;    // currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum curHealth of player
+    private float currentHealth;    // the current curHealth of player
     private float currentAttack;    // currentAttack = baseAttack + level * 2 + attackBuff;  // the current attack of player
     private float currentDefense;   // currentDefense = baseDefense + level * 1 + defenseBuff;  // the current defense of player
     private float currentSpeed;   // currentSpeed = speed + speedBuff;  // the current speed of player
@@ -223,8 +223,8 @@ public class PlayerData : SingleBaseManager<PlayerData>
 
     public void UpdateAttribute()
     {
-        currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum health of player
-        currentHealth = baseMaxHealth + level * 10 + healthBuff;  // the current health of player
+        currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum curHealth of player
+        currentHealth = baseMaxHealth + level * 10 + healthBuff;  // the current curHealth of player
         currentAttack = baseAttack + level * 2 + attackBuff;  // the current attack of player
         currentDefense = baseDefense + level * 1 + defenseBuff;  // the current defense of player
         currentSpeed = baseSpeed + speedBuff;  // the current speed of player

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 581454857990019075}
   - component: {fileID: 4722758893824490783}
   - component: {fileID: 1683501947853551986}
+  - component: {fileID: 9150836905400637616}
   m_Layer: 0
   m_Name: Silm
   m_TagString: Enemy
@@ -101,8 +102,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 2
+  colliderDamage: 1
+  colliderDisntance: 0.5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
   Health: 10
-  exp: {fileID: 5387252906530313811, guid: 561f3a3f50ff57e41aa4be94fa0c2228, type: 3}
+  OnHurt:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4664279740342761942}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: EnemyHurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4664279740342761942}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: EnemyDestory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ani: {fileID: 0}
 --- !u!50 &581454857990019075
 Rigidbody2D:
   serializedVersion: 4
@@ -196,3 +232,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9150836905400637616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215741157100996140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4336ed0a2104f1745aefb1ac4849250c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  propPrefab:
+  - prefab: {fileID: 5387252906530313811, guid: 561f3a3f50ff57e41aa4be94fa0c2228, type: 3}
+    PropPercentage: 100

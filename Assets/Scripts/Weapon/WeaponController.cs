@@ -5,11 +5,16 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     [Header("Weapon Stats")]
+    public int level;
     public GameObject prefab;
     public float damage;
+    public int count;
     public float speed;
+    public float turnSpeed;
+    public float timer;
     public float cooldownDuration;
     float currentCooldown;
+    
 
     protected virtual void Start()
     {
@@ -21,8 +26,18 @@ public class WeaponController : MonoBehaviour
         if (currentCooldown <= 0f)
             Attack();
     }
+    protected virtual void Refresh() 
+    {
+        
+    }
     protected virtual void Attack() 
     {
         currentCooldown = cooldownDuration;
     }
+    protected virtual void OnEnable()
+    {
+        level++;
+    }
+  
+    
 }

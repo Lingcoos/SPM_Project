@@ -12,13 +12,13 @@ public class EnemyMoveState : IState
 
     public void OnEnter()
     {
-        
+        enemy.ani.Play("Move");
     }
 
 
     public void OnUpData()
     {
-      
+        enemy.ChasePlayer();
     }
     public void OnFixUpData()
     {

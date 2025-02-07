@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Knife : MonoBehaviour
 {
+    KnifeController weapon;
+    private void Start()
+    {
+        weapon = transform.parent.parent.GetComponent<KnifeController>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Enemy")) 
         {
-            //Debug.Log("Hit!");
-            collision.GetComponent<Enemy>().Health -= transform.parent.parent.GetComponent<KnifeController>().damage;
+            collision.GetComponent<Enemy>().GetDamage(weapon.damage);
+            DamageNumberController.instance.SpawnDamage(weapon.damage,collision.transform.position);
         }
     }
 }

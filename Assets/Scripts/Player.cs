@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 public enum PlayerStateType
 {
     Idle, Move, Hurt, Die
@@ -13,20 +14,29 @@ public class Player : MonoBehaviour
     [Header("Player")]
     public float playerSpeed;
 
+    public UnityEvent onHurt;
+    public UnityEvent onDie;
 
-
-
-
+    private float curHealth;
+    
+    
     [HideInInspector] public bool isRuning;
+    [HideInInspector] public bool isHurt;
+
+    private Color originColor;
     private Vector2 InputValue;
     [HideInInspector]public Animator ani;
     private Rigidbody2D rig;
+    private SpriteRenderer sr;
     private IState currentState;
     private Dictionary<PlayerStateType,IState> states = new Dictionary<PlayerStateType,IState>();
     private void Awake()
     {
         ani = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        curHealth = PlayerData.getInstance().CurrentHealth;
+        originColor = sr.color;
         states.Add(PlayerStateType.Idle, new PlayerIdleState(this));
         states.Add(PlayerStateType.Move, new PlayerMoveState(this));
         states.Add(PlayerStateType.Hurt, new PlayerHurtState(this));
@@ -71,5 +81,28 @@ public class Player : MonoBehaviour
         ani.SetFloat("LookY",InputValue.y);
         rig.velocity =  InputValue *  playerSpeed;
         //Debug.Log("ËÙ¶È" + rig.velocity);
+    }
+    public void GetDamage(float damage) 
+    {
+        if (damage <= 0)
+            return;
+        curHealth -= damage;
+        onHurt?.Invoke();
+        
+    }
+    public void PlayerHurt() 
+    {
+        isHurt = true;
+        FlashColor(0.5f);
+    }
+    private void FlashColor(float time)
+    {
+        sr.material.color = Color.red;
+        Invoke("ResetColor", time);
+    }
+    private void ResetColor()
+    {
+
+        sr.material.color = originColor;
     }
 }
