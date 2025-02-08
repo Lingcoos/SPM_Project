@@ -42,13 +42,74 @@
 #### 移动
 #### 攻击
 #### PlayerData 玩家数据储存
-用途：储存玩家数据
-调用方法：
+储存玩家数据，一般情况下使用该函数的方法来调用或改变变量。
+##### 常量定义
+定义角色数值的最大值。一般情况下 **不要** 变更常量。
++ MAX_GOLD
++ MAX_CRYSTAL
++ MAX_LEVEL
++ MAX_EXP
++ MAX_KILLNUM
++ MAX_HEALTH
++ MAX_ATTACK
++ MAX_DEFFENSE
++ MAX_SPEED
+
+##### 储存的角色数据
+函数对以下变量进行操作：
++ gold
++ crystal
++ level
++ exp
++ killNum
++ x_pos
++ y_pos
++ baseMaxHealth
++ baseAttack
++ baseDefense
++ baseSpeed
++ healthBuff
++ attackBuff
++ defenseBuff
++ speedBuff
++ currentMaxHealth
++ currentHealth
++ currentAttack
++ currentDefense
++ currentSpeed
+
+##### 构造器
+使用get/set方法定义构造器。
+一般情况下， **不要修改** 构造器的逻辑处理方法。
+
+##### 调用方法
+使用 `PlayerData.getInstance().[Variable];`  来调用。
 ```c#
+// 数据处理: Gold, Crystal, Exp, KillNum, HealthBuff, AttackBuff, DefenseBuff, SpeedBuff, CurrentMaxHealth, CurrentHealth, CurrentAttack, CurrentDefense, CurrentSoeed, X_pos, Y_pos
 int currentgold = PlayerData.getInstance().Gold;   // 获取 `gold 并且赋值给 `currentgold
 PlayerData.getInstance().Gold = 0;   // 设置 `gold 为 0
 PlayerData.getInstance().Gold += 100;   // 增加 100 `gold
 ```
+
+使用 `PlayerData.getInstance().[Function()];`  来调用。
++ UpgradeAttribute: 更新角色属性值
++ Upgrade: 进行升级处理
++ UpdateAllData: 更新所有角色数据
+
+一般情况下只需要调用 `PlayerData.getInstance().UpdateAllData();` 方法即可。
++ InitData: 初始化角色数据
++ SaveData: 存档
++ LoadData: 读档
+
+```c#
+// 数据操作: UpgradeAttribute, Upgrade, UpdateAllData, InitData, SaveData, LoadData
+PlayerData.getInstance().UpdateAllData();
+```
+
+
+
+
+
 #### 音效
 
 ### 非功能类
