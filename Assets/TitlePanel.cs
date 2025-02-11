@@ -30,9 +30,9 @@ public class TitlePanel : MonoBehaviour
     void EndGame()
     {
         // Save Game
-        PlayerData.Instance.SaveData();
+        PlayerData.getInstance().SaveData();
         // Quit Game
-        Application.quit();
+        //Application.quit();
     }
 
 
