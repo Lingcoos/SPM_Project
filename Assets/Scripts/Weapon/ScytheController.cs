@@ -23,5 +23,11 @@ public class ScytheController : WeaponController
     {
         return timer;
     }
-    
+
+    public void levelUp()
+    {
+        level++;
+        count+=2;
+
+    }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Weapon))]
 public class WeaponController : MonoBehaviour
 {
     [Header("Weapon Stats")]
