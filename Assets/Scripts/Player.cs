@@ -4,21 +4,29 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+
+/// <summary>
+/// Enum for player state
+/// </summary>
 public enum PlayerStateType
 {
     Idle, Move, Hurt, Die
 }
+
+/// <summary>
+/// This class is responsible for the player's movement, health, and state transitions.
+/// </summary>
 public class Player : MonoBehaviour
 {
     [Header("Player")]
-    public float playerSpeed;
+    public float curMaxHealth;
+    public float curHealth;
+    public float curSpeed;
 
     public UnityEvent onHurt;
     public UnityEvent onDie;
 
-    private float curHealth;
-    
-    
+
     [HideInInspector] public bool isRuning;
     [HideInInspector] public bool isHurt;
 
@@ -29,12 +37,22 @@ public class Player : MonoBehaviour
     private SpriteRenderer sr;
     private IState currentState;
     private Dictionary<PlayerStateType,IState> states = new Dictionary<PlayerStateType,IState>();
+
+
+    /// <summary>
+    /// When the player is created, the player's state is set to idle.
+    /// </summary>
     private void Awake()
     {
         ani = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        curHealth = PlayerData.getInstance().CurrentHealth;
+
+        PlayerData.getInstance().CurrentMaxHealth = curMaxHealth;
+        PlayerData.getInstance().CurrentHealth = curMaxHealth;
+        PlayerData.getInstance().CurrentSpeed = curSpeed;
+
+
         originColor = sr.color;
         states.Add(PlayerStateType.Idle, new PlayerIdleState(this));
         states.Add(PlayerStateType.Move, new PlayerMoveState(this));
@@ -43,7 +61,7 @@ public class Player : MonoBehaviour
         TransitionState(PlayerStateType.Idle);
     }
 
-
+    
     public void TransitionState(PlayerStateType type) 
     {
         if (currentState != null) 
@@ -58,7 +76,11 @@ public class Player : MonoBehaviour
     {
         Move();
         currentState.OnUpData();
-        
+
+        curMaxHealth = PlayerData.getInstance().CurrentMaxHealth;
+        curHealth = PlayerData.getInstance().CurrentHealth;
+        curSpeed = PlayerData.getInstance().CurrentSpeed;
+
     }
     private void FixedUpdate()
     {
@@ -78,14 +100,14 @@ public class Player : MonoBehaviour
             isRuning = false;
         ani.SetFloat("LookX",InputValue.x);
         ani.SetFloat("LookY",InputValue.y);
-        rig.velocity =  InputValue *  playerSpeed;
+        rig.velocity = InputValue * PlayerData.getInstance().CurrentSpeed;
         //Debug.Log("ËÙ¶È" + rig.velocity);
     }
     public void GetDamage(float damage) 
     {
         if (damage <= 0)
             return;
-        curHealth -= damage;
+        PlayerData.getInstance().CurrentHealth -= damage;
         onHurt?.Invoke();
         
     }
