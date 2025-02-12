@@ -40,7 +40,7 @@ public class PickUp : MonoBehaviour
         {
             case PickUpTpye.Exp:
                 PlayerData.getInstance().Exp += (int)value;
-                Debug.Log("Exp: "+ PlayerData.getInstance().Exp);
+                //Debug.Log("Exp: "+ PlayerData.getInstance().Exp);
                 Destroy(gameObject);
                 break;
             case PickUpTpye.Coin:

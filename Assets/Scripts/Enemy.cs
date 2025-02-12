@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour
 
 
     
-    private bool isHurt;
-    private bool isDie;
+    //private bool isHurt;
+    //private bool isDie;
     [HideInInspector]public Animator ani;
     private PickUpGenerator pickUpGenerator;
     private Rigidbody2D rig;
@@ -103,11 +103,11 @@ public class Enemy : MonoBehaviour
 
     public void EnemyHurt() 
     {
-        isHurt = true;  
+        //isHurt = true;  
     }
     public void EnemyDestory() 
     {
-        isDie = true;
+        //isDie = true;
         pickUpGenerator.DropItems();
         Destroy(gameObject);
     }

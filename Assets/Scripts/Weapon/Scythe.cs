@@ -17,7 +17,7 @@ public class Scythe : MonoBehaviour
     {
         
         dirPoint.transform.Translate(weapon.speed * Vector3.right * Time.deltaTime);
-        transform.Rotate(Vector3.forward * weapon.turnSpeed, Space.Self);
+        transform.Rotate(-Vector3.forward * weapon.turnSpeed * Time.deltaTime, Space.Self);
         if (finishTimer) 
         {
             //Debug.Log("yes");
