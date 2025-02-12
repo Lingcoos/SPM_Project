@@ -2819,7 +2819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c406fbf3ee079184981358e834b0550e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  curMaxHealth: 100
+  curHealth: 100
+  curSpeed: 5
   onHurt:
     m_PersistentCalls:
       m_Calls:
