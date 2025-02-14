@@ -1,29 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class WeaponList : MonoBehaviour
 {
     public GameObject[] weaponList;
     public List<GameObject> weaponBag;
+    private Weapon weapon;
     private int levelUpID;
 
     private void Start()
     {
         
     }
-    public void GetWeapon(int id) 
+    public void GetWeapon(int index) //ÅÐ¶ÏÎäÆ÷ÊÇ·ñ»ñµÃ
     {
-        if (CheckWeapon(weaponList[id]))
+        if (CheckWeapon(weaponList[index]))
         {
-            weaponList[id].SetActive(true);
-            weaponBag.Add(weaponList[id]);
+            weaponList[index].SetActive(true);
+            weaponBag.Add(weaponList[index]);
+            
         }
         else
         {
             weaponBag[levelUpID].GetComponent<Weapon>().LevelUp();
         }
     }
+
 
     public bool CheckWeapon(GameObject obj) 
     {
@@ -36,13 +40,7 @@ public class WeaponList : MonoBehaviour
             }
         }
         return true;
-        //foreach (var weapon in weaponBag) 
-        //{
-        //    if (weapon == obj)
-        //    { 
-        //        return false;
-        //    }
-        //}
-        //return true;
+
     }
+
 }

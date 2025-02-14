@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     [Header("Weapon Stats")]
-    public int level;
+    [HideInInspector]public int level;
     public GameObject prefab;
     public float damage;
     public int count;
@@ -15,14 +15,18 @@ public class WeaponController : MonoBehaviour
     public float timer;
     public float cooldownDuration;
     float currentCooldown;
-    
+
+    public string[] levelUpDescrible;
+    [HideInInspector]public Weapon weapon;
 
     protected virtual void Start()
     {
         currentCooldown =cooldownDuration;
+        weapon = GetComponent<Weapon>();
     }
     protected virtual void Update() 
     {
+        weapon.weaponLevel = level;
         currentCooldown -= Time.deltaTime;
         if (currentCooldown <= 0f)
             Attack();

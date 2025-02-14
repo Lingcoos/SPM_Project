@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     private Dictionary<PlayerStateType,IState> states = new Dictionary<PlayerStateType,IState>();
 
 
+
     /// <summary>
     /// When the player is created, the player's state is set to idle.
     /// </summary>
@@ -49,7 +50,7 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         PlayerData.getInstance().CurrentMaxHealth = curMaxHealth;
-        PlayerData.getInstance().CurrentHealth = curMaxHealth;
+        PlayerData.getInstance().CurrentHealth = curHealth;
         PlayerData.getInstance().CurrentSpeed = curSpeed;
 
 
@@ -76,7 +77,6 @@ public class Player : MonoBehaviour
     {
         Move();
         currentState.OnUpData();
-
         curMaxHealth = PlayerData.getInstance().CurrentMaxHealth;
         curHealth = PlayerData.getInstance().CurrentHealth;
         curSpeed = PlayerData.getInstance().CurrentSpeed;
@@ -84,14 +84,17 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
         currentState.OnFixUpData();
     }
-    public void OnMove(InputValue value)
+    #region Input
+    public void OnMove(InputAction.CallbackContext ctx)
     {
-        InputValue = value.Get<Vector2>();
-        //Debug.Log("ÒÆ¶¯Êý¾Ý£º" + InputValue);
+        InputValue = ctx.ReadValue<Vector2>();
+        //Debug.Log("ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ý£ï¿½" + InputValue);
     }
+
+    #endregion
+
     public void Move()
     {
         if (InputValue.magnitude > 0.0001f) 
@@ -101,7 +104,7 @@ public class Player : MonoBehaviour
         ani.SetFloat("LookX",InputValue.x);
         ani.SetFloat("LookY",InputValue.y);
         rig.velocity = InputValue * PlayerData.getInstance().CurrentSpeed;
-        //Debug.Log("ËÙ¶È" + rig.velocity);
+        //Debug.Log("ï¿½Ù¶ï¿½" + rig.velocity);
     }
     public void GetDamage(float damage) 
     {
