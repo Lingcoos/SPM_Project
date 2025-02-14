@@ -2659,7 +2659,7 @@ MonoBehaviour:
       - m_Target: {fileID: 888084774}
         m_TargetAssemblyTypeName: GameSettingController, Assembly-CSharp
         m_MethodName: ToggleFullScreen
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

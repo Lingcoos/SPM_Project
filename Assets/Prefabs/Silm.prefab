@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 293027049, guid: 841e9e5bd855dc8458e31a2a0b0d32fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -247,4 +247,4 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   propPrefab:
   - prefab: {fileID: 5387252906530313811, guid: 561f3a3f50ff57e41aa4be94fa0c2228, type: 3}
-    PropPercentage: 100
+    PropPercentage: 60
