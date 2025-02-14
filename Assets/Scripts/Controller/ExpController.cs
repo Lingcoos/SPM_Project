@@ -14,6 +14,8 @@ public class ExpController : MonoBehaviour
 
     private void Start()
     {
+        PlayerData.getInstance().Exp = 0;
+        PlayerData.getInstance().Level = currentLevel;
         UIController = GetComponent<UIController>();
         while (expLevels.Count < levelCount) 
         {

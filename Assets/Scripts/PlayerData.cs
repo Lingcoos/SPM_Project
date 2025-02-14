@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
 /// <summary>
 /// This class is used to store the data of player. It is a singleton class.
 /// If you want to add new attributes, you can add them here. 
@@ -32,23 +34,16 @@ public class PlayerData : SingleBaseManager<PlayerData>
 
     [Header("Player Base Attributes")]
     private float baseMaxHealth = 100;    // the basic curHealth of player
-    private float baseAttack = 10;    // the basic attack of player
+    //private float baseAttack = 10;    // the basic attack of player
     private float baseDefense = 5;    // the basic defense of player
     private float baseSpeed = 5;    // the speed of player
 
-    [Header("Player Buff Attributes")]
-    private float healthBuff = 0;   // the curHealth buff of player
-    private float attackBuff = 0;   // the attack buff of player
-    private float defenseBuff = 0;  // the defense buff of player
-    private float speedBuff = 0;    // the speed buff of player
-
     [Header("Player Current Attributes")]
-    private float currentMaxHealth;    // currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum curHealth of player
+    private float currentMaxHealth; // currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum curHealth of player
     private float currentHealth;    // the current curHealth of player
-    private float currentAttack;    // currentAttack = baseAttack + level * 2 + attackBuff;  // the current attack of player
+    //private float currentAttack;    // currentAttack = baseAttack + level * 2 + attackBuff;  // the current attack of player
     private float currentDefense;   // currentDefense = baseDefense + level * 1 + defenseBuff;  // the current defense of player
     private float currentSpeed;   // currentSpeed = speed + speedBuff;  // the current speed of player
-
 
     // Constructor:
     // Goid, Crystal, Level, Exp, KillNum,
@@ -96,6 +91,19 @@ public class PlayerData : SingleBaseManager<PlayerData>
                 exp = value;
         }
     }
+    public int Level 
+    { 
+        get { return level; }
+        set
+        {
+            if (value < 0)
+                level = 0;
+            else if (value > MAX_LEVEL)
+                level = MAX_LEVEL;
+            else
+                level = value;
+        }
+    }
 
     public int KillNum
     {
@@ -111,29 +119,29 @@ public class PlayerData : SingleBaseManager<PlayerData>
         }
     }
     
-    public float HealthBuff
-    {
-        get { return healthBuff; }
-        set { healthBuff = value; }
-    }
+    //public float HealthBuff
+    //{
+    //    get { return healthBuff; }
+    //    set { healthBuff = value; }
+    //}
 
-    public float AttackBuff
-    {
-        get { return attackBuff; }
-        set { attackBuff = value; }
-    }
+    //public float AttackBuff
+    //{
+    //    get { return attackBuff; }
+    //    set { attackBuff = value; }
+    //}
 
-    public float DefenseBuff
-    {
-        get { return defenseBuff; }
-        set { defenseBuff = value; }
-    }
+    //public float DefenseBuff
+    //{
+    //    get { return defenseBuff; }
+    //    set { defenseBuff = value; }
+    //}
 
-    public float SpeedBuff
-    {
-        get { return speedBuff; }
-        set { speedBuff = value; }
-    }
+    //public float SpeedBuff
+    //{
+    //    get { return speedBuff; }
+    //    set { speedBuff = value; }
+    //}
 
 
     public float CurrentMaxHealth
@@ -164,19 +172,19 @@ public class PlayerData : SingleBaseManager<PlayerData>
         }
     }
 
-    public float CurrentAttack
-    {
-        get { return currentAttack; }
-        set
-        {
-            if (value < 0)
-                currentAttack = 0;
-            else if (value > MAX_ATTACK)
-                currentAttack = MAX_ATTACK;
-            else
-                currentAttack = value;
-        }
-    }
+    //public float CurrentAttack
+    //{
+    //    get { return currentAttack; }
+    //    set
+    //    {
+    //        if (value < 0)
+    //            currentAttack = 0;
+    //        else if (value > MAX_ATTACK)
+    //            currentAttack = MAX_ATTACK;
+    //        else
+    //            currentAttack = value;
+    //    }
+    //}
 
     public float CurrentDefense
     {
@@ -218,34 +226,17 @@ public class PlayerData : SingleBaseManager<PlayerData>
         set { y_pos = value; }
     }
 
-
-
-
-    public void UpdateAttribute()
-    {
-        currentMaxHealth = baseMaxHealth + level * 10 + healthBuff;  // the maximum curHealth of player
-        currentHealth = baseMaxHealth + level * 10 + healthBuff;  // the current curHealth of player
-        currentAttack = baseAttack + level * 2 + attackBuff;  // the current attack of player
-        currentDefense = baseDefense + level * 1 + defenseBuff;  // the current defense of player
-        currentSpeed = baseSpeed + speedBuff;  // the current speed of player
-    }
-
-    public void Upgrade()
-    {
-        while(exp >= level * 100)
-        {
-            exp -= level * 100;
-            level++;
-        }
-        UpdateAttribute();
-    }
-
     public void UpdateAllData()
     {
-        Upgrade();
-        UpdateAttribute();
+        currentMaxHealth = baseMaxHealth + level * 10;  // the maximum curHealth of player
+        currentSpeed = baseSpeed + level * 1;   // the speed of player
+        currentDefense = baseDefense + level * 1;   // the basic defense of player
     }
 
+    /// <summary>
+    /// This function is used to init data for a new game.
+    /// Including set all attributes to default value.
+    /// </summary>
     public void InitData()  // init data for a new game
     {
         PlayerPrefs.SetInt("Gold", 0);
@@ -255,13 +246,17 @@ public class PlayerData : SingleBaseManager<PlayerData>
         PlayerPrefs.SetInt("KillNum", 0);
         PlayerPrefs.SetFloat("MaxHealth", baseMaxHealth);
         PlayerPrefs.SetFloat("CurrentHealth", baseMaxHealth);
-        PlayerPrefs.SetFloat("CurrentAttack", baseAttack);
+        //PlayerPrefs.SetFloat("CurrentAttack", baseAttack);
         PlayerPrefs.SetFloat("CurrentDefense", baseDefense);
         PlayerPrefs.SetFloat("CurrentSpeed", baseSpeed);
     }
-    public void SaveData()
+
+    /// <summary>
+    /// This function is used to save data of player.
+    /// Save all attributes to PlayerPrefs.
+    /// </summary>
+    public void SaveAllData()
     {
-        UpdateAllData();
         PlayerPrefs.SetInt("Gold", Gold);
         PlayerPrefs.SetInt("Crystal", Crystal);
         PlayerPrefs.SetInt("Level", level);
@@ -269,11 +264,15 @@ public class PlayerData : SingleBaseManager<PlayerData>
         PlayerPrefs.SetInt("KillNum", KillNum);
         PlayerPrefs.SetFloat("MaxHealth", currentMaxHealth);
         PlayerPrefs.SetFloat("CurrentHealth", CurrentHealth);
-        PlayerPrefs.SetFloat("CurrentAttack", CurrentAttack);
+        //PlayerPrefs.SetFloat("CurrentAttack", CurrentAttack);
         PlayerPrefs.SetFloat("CurrentDefense", CurrentDefense);
         PlayerPrefs.SetFloat("CurrentSpeed", CurrentSpeed);
     }
-    public void LoadData()
+
+    /// <summary>
+    /// This function is used to load data of player.
+    /// </summary>
+    public void LoadAllData()
     {
         Gold = PlayerPrefs.GetInt("Gold", gold);
         Crystal = PlayerPrefs.GetInt("Crystal", crystal);
@@ -282,7 +281,7 @@ public class PlayerData : SingleBaseManager<PlayerData>
         KillNum = PlayerPrefs.GetInt("KillNum", killNum);
         currentMaxHealth = PlayerPrefs.GetFloat("MaxHealth", currentMaxHealth);
         CurrentHealth = PlayerPrefs.GetFloat("CurrentHealth", currentHealth);
-        CurrentAttack = PlayerPrefs.GetFloat("CurrentAttack", currentAttack);
+        //CurrentAttack = PlayerPrefs.GetFloat("CurrentAttack", currentAttack);
         CurrentDefense = PlayerPrefs.GetFloat("CurrentDefense", currentDefense);
         CurrentSpeed = PlayerPrefs.GetFloat("CurrentSpeed", currentSpeed);
     }

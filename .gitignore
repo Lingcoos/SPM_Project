@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Visual Studio Code auto-generated files
+.vscode/
+
 # Gradle cache directory
 .gradle/
 

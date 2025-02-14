@@ -74,13 +74,13 @@ public class WeaponSelectController : MonoBehaviour
 
     }
     #endregion
-    public void FinishSelect() 
+    public void FinishSelect() //Clear Weapon Selection when finish selecting
     {
         Destroy(left);
         Destroy(mid);
         Destroy(right);
     }
-    public void LevelMaxRemove(string name) 
+    public void LevelMaxRemove(string name) //Use name to remove weapon when its level reach max
     {
         selectWeapon.RemoveAll(obj =>obj.name == name);
     }

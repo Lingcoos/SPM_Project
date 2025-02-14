@@ -34,30 +34,30 @@ public class WeaponSelect : MonoBehaviour
         {
             //Debug.Log("没有获得");
             nameBox.text = "New! " + weaponName;
-           
-
-
         }
         else 
-        {
-            nameBox.text = "LevelUp! " + weaponName;
+        {        
             switch (weapon.weaponLevel)
             {
                 case 1:
                     describle.text = levelDescrible[0];
-                    Debug.Log(1);
+                    nameBox.text = "Level 1 " + weaponName;
                     break;
                 case 2:
                     describle.text = levelDescrible[1];
+                    nameBox.text = "Level 2 " + weaponName;
                     break;
                 case 3:
                     describle.text = levelDescrible[2];
+                    nameBox.text = "Level 3 " + weaponName;
                     break;
                 case 4:
                     describle.text = levelDescrible[3];
+                    nameBox.text = "Level 4 " + weaponName;
                     break;
                 case 5:
                     describle.text = levelDescrible[4];
+                    nameBox.text = "Level 5 " + weaponName;
                     break;
             }
         }
