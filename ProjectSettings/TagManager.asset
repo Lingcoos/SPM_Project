@@ -7,7 +7,6 @@ TagManager:
   - Enemy
   - PickUp
   - WeaponController
-  - Map
   layers:
   - Default
   - TransparentFX

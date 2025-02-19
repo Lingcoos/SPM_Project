@@ -8,13 +8,9 @@ public class GameSettingController : MonoBehaviour
 {
     public TMP_Dropdown resolutionDropDown;
     [SerializeField]private Resolution[] resolutions;
-    private void Awake()
-    {
-        Screen.fullScreen = true;
-    }
     private void Start()
     {
-        
+        Screen.fullScreen = true;
         resolutions =Screen.resolutions;
         resolutionDropDown.ClearOptions();
 
@@ -25,7 +21,7 @@ public class GameSettingController : MonoBehaviour
             string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
 
-           
+            // 检查当前分辨率
             if (resolutions[i].width == Screen.currentResolution.width &&
                 resolutions[i].height == Screen.currentResolution.height)
             {
@@ -42,9 +38,9 @@ public class GameSettingController : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    public void ToggleFullScreen(bool isFullScreen) 
+    public void ToggleFullScreen() 
     {
-        Screen.fullScreen =isFullScreen;
+        Screen.fullScreen =!Screen.fullScreen;
     }
 }
 
