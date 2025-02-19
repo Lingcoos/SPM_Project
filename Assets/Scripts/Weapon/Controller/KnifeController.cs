@@ -36,8 +36,34 @@ public class KnifeController : WeaponController
     }
     public void levelUp() 
     {
-        level++;
-        count++;
+        switch (level)
+        {
+            case 0:
+                level++;
+                count++;
+                break;
+            case 1:
+                level++;
+                count++;
+                break;
+            case 2:
+                count ++;
+                level++;
+                break;
+            case 3:
+                count ++;
+                level++;
+                break;
+            case 4:
+                count ++;
+                level++;
+                break;
+            case 5:
+                GetComponent<Weapon>().isLevelMax = true;
+                WeaponSelectController.instance.LevelMaxRemove("Scythe");
+                weapon.weaponLevel++;
+                break;
+        }
         for (int i = 0; i < transform.GetChild(0).childCount; i++) 
         {
             Destroy(transform.GetChild(0).GetChild(i).gameObject);

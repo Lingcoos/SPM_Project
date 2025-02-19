@@ -249,15 +249,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  prefab: {fileID: 0}
-  damage: 0
-  count: 0
-  speed: 0
-  turnSpeed: 0
+  prefab: {fileID: 7621892496773281985, guid: 230ebba9089781a4c9658e0d999bda57, type: 3}
+  damage: 10
+  count: 1
+  speed: 10
+  turnSpeed: 2000
   timer: 0
-  cooldownDuration: 0
+  cooldownDuration: 1
   levelUpDescrible: []
   weapon: {fileID: 0}
+  offset: {x: 0, y: 1, z: 0}
+  target: {x: 0, y: 2, z: 0}
+  isRotating: 1
+  swords: []
+  enemies: []
+  availableTargets: []
 --- !u!114 &53390613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,7 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   prefab: {fileID: 2967669472186092887, guid: c2ae42566e0d43a45b22918a65cb9088, type: 3}
-  damage: 10
+  damage: 5
   count: 1
   speed: 300
   turnSpeed: 0
@@ -652,7 +658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8972593}
   m_AnchorMax: {x: 0.32235417, y: 1}
-  m_AnchoredPosition: {x: 0.103149414, y: 0.18774414}
+  m_AnchoredPosition: {x: 0.103271484, y: 0.18774414}
   m_SizeDelta: {x: 0.20629883, y: -0.37549973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218181238
@@ -3485,7 +3491,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

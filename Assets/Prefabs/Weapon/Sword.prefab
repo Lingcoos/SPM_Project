@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4640211524001329971
+--- !u!1 &7621892496773281985
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2551309687390586460}
-  - component: {fileID: 5069934999575013526}
-  - component: {fileID: 4340425970446466277}
-  - component: {fileID: 393323400085398084}
+  - component: {fileID: 1443703148666656899}
+  - component: {fileID: 272957777232062958}
+  - component: {fileID: 3084830060007237314}
+  - component: {fileID: 2397887577439946835}
   m_Layer: 0
-  m_Name: i_knife_0
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2551309687390586460
+--- !u!4 &1443703148666656899
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640211524001329971}
+  m_GameObject: {fileID: 7621892496773281985}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9281419, w: 0.3722265}
+  m_LocalPosition: {x: -0.017, y: 0.91, z: 0}
+  m_LocalScale: {x: 3.2333, y: 3.2333, z: 3.2333}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5649738692665320015}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5069934999575013526
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 136.294}
+--- !u!212 &272957777232062958
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640211524001329971}
+  m_GameObject: {fileID: 7621892496773281985}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,38 +74,40 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 172fefa53c90c3a4483dd002060d69d1, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: f519e1c716999e940b09fa12554fe9ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.13, y: 0.08}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4340425970446466277
+--- !u!114 &3084830060007237314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640211524001329971}
+  m_GameObject: {fileID: 7621892496773281985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbcdb24df2ce33348bbbfe2539ad4504, type: 3}
+  m_Script: {fileID: 11500000, guid: 73d57588dc9467849a3a136b334386fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirPoint: {fileID: 7290742086054301290}
---- !u!61 &393323400085398084
+  rotationSpeed: 200
+  enemy: {fileID: 0}
+  weapon: {fileID: 0}
+--- !u!61 &2397887577439946835
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640211524001329971}
+  m_GameObject: {fileID: 7621892496773281985}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -131,48 +133,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0030311048, y: 0.05910486}
+  m_Offset: {x: -0.0970457, y: 0.096627474}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 0.13, y: 0.08}
+    pivot: {x: 0.80326784, y: 0.19803916}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1769452, y: 1.0223634}
+  m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!1 &7290742086054301290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5649738692665320015}
-  m_Layer: 0
-  m_Name: Scyth
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5649738692665320015
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7290742086054301290}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.667, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2551309687390586460}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
