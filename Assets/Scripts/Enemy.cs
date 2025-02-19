@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public float colliderDamage;
     public float colliderDisntance;
     public LayerMask playerMask;
-    public float Health = 10000;
+    public float Health;
 
     public UnityEvent OnHurt;
     public UnityEvent OnDie;
@@ -58,16 +58,12 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        if (Health <= 0) 
-        {
-            
-            OnDie?.Invoke();
-        }
+
         currentState.OnUpData();
     }
     private void FixedUpdate()
     {
-        ColliderAttack();
+        //ColliderAttack();
         currentState.OnFixUpData();
     }
     public void ChasePlayer()
@@ -87,7 +83,10 @@ public class Enemy : MonoBehaviour
         Health -= damage;
         FlashColor(0.5f);
         OnHurt?.Invoke();
-
+        if (Health <= 0)
+        {
+            OnDie?.Invoke();
+        }
 
     }
     private void FlashColor(float time)
@@ -122,9 +121,16 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmos()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, colliderDisntance);
+        if (collision.CompareTag("Player")) 
+        {
+            collision.GetComponent<Player>().GetDamage(colliderDamage);
+        }
     }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(transform.position, colliderDisntance);
+    //}
 }
