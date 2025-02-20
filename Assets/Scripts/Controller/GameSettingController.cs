@@ -2,15 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class GameSettingController : MonoBehaviour
 {
+    [Header("语言")]
+    public Dropdown languageDropDown;
+    
+    [Header("分辨率")]
     public TMP_Dropdown resolutionDropDown;
     [SerializeField]private Resolution[] resolutions;
-    private void Start()
+    private void Awake()
     {
         Screen.fullScreen = true;
+    }
+    private void Start()
+    {
+        InitializeLanguageDropDown();
         resolutions =Screen.resolutions;
         resolutionDropDown.ClearOptions();
 
@@ -21,7 +31,7 @@ public class GameSettingController : MonoBehaviour
             string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
 
-            // 检查当前分辨率
+           
             if (resolutions[i].width == Screen.currentResolution.width &&
                 resolutions[i].height == Screen.currentResolution.height)
             {
@@ -38,9 +48,26 @@ public class GameSettingController : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    public void ToggleFullScreen() 
+    public void ToggleFullScreen(bool isFullScreen) 
     {
-        Screen.fullScreen =!Screen.fullScreen;
+        Screen.fullScreen =isFullScreen;
     }
+    public void InitializeLanguageDropDown() 
+    {
+        languageDropDown.ClearOptions();
+        var locales =LocalizationSettings.AvailableLocales.Locales;
+        foreach (var locale in locales) 
+        {
+            languageDropDown.options.Add(new Dropdown.OptionData(locale.LocaleName));
+        }
+        
+        languageDropDown.RefreshShownValue();
+    }
+    public void SetLanguage(int index) 
+    {
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+    }
+
+
 }
 
