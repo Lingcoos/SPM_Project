@@ -42,7 +42,7 @@ public class SwordController : WeaponController
         {
             Transform sword =swords[i];
             Transform target = sword.GetComponent<Sword>().enemy;
-            if (target == null)
+            if (target == null || transform.position == target.position)
             {
                 AssignTarget(sword);
             }

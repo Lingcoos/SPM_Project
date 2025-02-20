@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class GameSettingController : MonoBehaviour
 {
+    [Header("”Ô—‘")]
+    public Dropdown languageDropDown;
+    
+    [Header("∑÷±Ê¬ ")]
     public TMP_Dropdown resolutionDropDown;
     [SerializeField]private Resolution[] resolutions;
     private void Awake()
@@ -14,7 +20,7 @@ public class GameSettingController : MonoBehaviour
     }
     private void Start()
     {
-        
+        InitializeLanguageDropDown();
         resolutions =Screen.resolutions;
         resolutionDropDown.ClearOptions();
 
@@ -46,5 +52,22 @@ public class GameSettingController : MonoBehaviour
     {
         Screen.fullScreen =isFullScreen;
     }
+    public void InitializeLanguageDropDown() 
+    {
+        languageDropDown.ClearOptions();
+        var locales =LocalizationSettings.AvailableLocales.Locales;
+        foreach (var locale in locales) 
+        {
+            languageDropDown.options.Add(new Dropdown.OptionData(locale.LocaleName));
+        }
+        
+        languageDropDown.RefreshShownValue();
+    }
+    public void SetLanguage(int index) 
+    {
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+    }
+
+
 }
 
