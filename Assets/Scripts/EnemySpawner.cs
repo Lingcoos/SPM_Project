@@ -22,9 +22,9 @@ public class EnemySpawner : MonoBehaviour
         if (spawnCounter <= 0)
         {
             spawnCounter = timeToSpawn;
-
-
-            Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation,transform);
+            //Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation,transform);
+            GameObject silm = ObjPoolManager.instance.GetObj("Silm");
+            silm.transform.position = SelectSpawnPoint();
         }
     }
     public Vector3 SelectSpawnPoint() 

@@ -14,15 +14,16 @@ public class Enemy : MonoBehaviour
     public float colliderDamage;
     public float colliderDisntance;
     public LayerMask playerMask;
-    public float Health = 10000;
+    public float Health;
+    public float maxHealht;
 
     public UnityEvent OnHurt;
     public UnityEvent OnDie;
 
 
-    
-    //private bool isHurt;
-    //private bool isDie;
+
+    private bool isHurt;
+    public bool isDie;
     [HideInInspector]public Animator ani;
     private PickUpGenerator pickUpGenerator;
     private Rigidbody2D rig;
@@ -32,8 +33,10 @@ public class Enemy : MonoBehaviour
     private IState currentState;
     Dictionary<EnemyStateType,IState> states = new Dictionary<EnemyStateType,IState>();
 
+
     private void Awake()
     {
+        maxHealht = Health;
         target = FindAnyObjectByType<Player>().transform;
         ani = GetComponent<Animator>(); 
         rig = GetComponent<Rigidbody2D>();
@@ -47,6 +50,14 @@ public class Enemy : MonoBehaviour
         states.Add(EnemyStateType.Die, new EnemyDieState(this));
         TransitionState(EnemyStateType.Move);
     }
+    private void OnEnable()
+    {
+
+        Health = maxHealht;
+        isDie = false;
+        sr.color = originColor;
+    
+    }
     public void TransitionState(EnemyStateType type) 
     {
         if (currentState != null)
@@ -58,16 +69,12 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        if (Health <= 0) 
-        {
-            
-            OnDie?.Invoke();
-        }
+
         currentState.OnUpData();
     }
     private void FixedUpdate()
     {
-        ColliderAttack();
+        //ColliderAttack();
         currentState.OnFixUpData();
     }
     public void ChasePlayer()
@@ -85,9 +92,13 @@ public class Enemy : MonoBehaviour
     public void GetDamage(float damage) 
     {
         Health -= damage;
-        FlashColor(0.5f);
+        FlashColor(0.1f);
         OnHurt?.Invoke();
-
+        if (Health <= 0)
+        {
+            isDie = true;
+            OnDie.Invoke();
+        }
 
     }
     private void FlashColor(float time)
@@ -99,6 +110,7 @@ public class Enemy : MonoBehaviour
     {
         
         sr.material.color = originColor;
+
     }
 
     public void EnemyHurt() 
@@ -107,9 +119,10 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDestory() 
     {
-        //isDie = true;
+       
         pickUpGenerator.DropItems();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        ObjPoolManager.instance.ReturnObj(gameObject);
     }
     public void ColliderAttack() 
     {
@@ -122,9 +135,16 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmos()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, colliderDisntance);
+        if (collision.CompareTag("Player")) 
+        {
+            collision.GetComponent<Player>().GetDamage(colliderDamage);
+        }
     }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(transform.position, colliderDisntance);
+    //}
 }

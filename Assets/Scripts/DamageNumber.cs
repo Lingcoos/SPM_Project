@@ -21,7 +21,7 @@ public class DamageNumber : MonoBehaviour
             lifeCounter -= Time.deltaTime;
             if (lifeCounter <= 0) 
             {
-                Destroy(gameObject);
+                ObjPoolManager.instance.ReturnObj(gameObject);
             }
         }
     }
