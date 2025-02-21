@@ -16,12 +16,12 @@ public class Sword : MonoBehaviour
             {
                 float damage = collision.GetComponent<Enemy>().Health;
                 collision.GetComponent<Enemy>().GetDamage(damage);
-               
+
             }
-            else 
+            else
             {
                 collision.GetComponent<Enemy>().GetDamage(weapon.damage);
-                DamageNumberController.instance.SpawnDamage(weapon.damage, collision.transform.position);
+            DamageNumberController.instance.SpawnDamage(weapon.damage, collision.transform.position);
             }
 
         }

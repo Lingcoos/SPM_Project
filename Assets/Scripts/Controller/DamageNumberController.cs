@@ -14,8 +14,9 @@ public class DamageNumberController : MonoBehaviour
     public void SpawnDamage(float damageAmount, Vector3 location) 
     {
         int rounded =Mathf.RoundToInt(damageAmount);
-
-        DamageNumber newDamage = Instantiate(numberToSpawn, location, Quaternion.identity, numberCanvas);
+        //Instantiate(numberToSpawn, location, Quaternion.identity, numberCanvas)
+        DamageNumber newDamage = ObjPoolManager.instance.GetObj("DamageNumber").GetComponent<DamageNumber>();
+        newDamage.transform.position = location;
         newDamage.Setup(rounded);
         newDamage.gameObject.SetActive(true);
     }

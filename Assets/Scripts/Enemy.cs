@@ -15,14 +15,15 @@ public class Enemy : MonoBehaviour
     public float colliderDisntance;
     public LayerMask playerMask;
     public float Health;
+    public float maxHealht;
 
     public UnityEvent OnHurt;
     public UnityEvent OnDie;
 
 
-    
-    //private bool isHurt;
-    //private bool isDie;
+
+    private bool isHurt;
+    public bool isDie;
     [HideInInspector]public Animator ani;
     private PickUpGenerator pickUpGenerator;
     private Rigidbody2D rig;
@@ -32,8 +33,10 @@ public class Enemy : MonoBehaviour
     private IState currentState;
     Dictionary<EnemyStateType,IState> states = new Dictionary<EnemyStateType,IState>();
 
+
     private void Awake()
     {
+        maxHealht = Health;
         target = FindAnyObjectByType<Player>().transform;
         ani = GetComponent<Animator>(); 
         rig = GetComponent<Rigidbody2D>();
@@ -46,6 +49,14 @@ public class Enemy : MonoBehaviour
         states.Add(EnemyStateType.Hurt, new EnemyHurtState(this));
         states.Add(EnemyStateType.Die, new EnemyDieState(this));
         TransitionState(EnemyStateType.Move);
+    }
+    private void OnEnable()
+    {
+
+        Health = maxHealht;
+        isDie = false;
+        sr.color = originColor;
+    
     }
     public void TransitionState(EnemyStateType type) 
     {
@@ -81,11 +92,12 @@ public class Enemy : MonoBehaviour
     public void GetDamage(float damage) 
     {
         Health -= damage;
-        FlashColor(0.5f);
+        FlashColor(0.1f);
         OnHurt?.Invoke();
         if (Health <= 0)
         {
-            OnDie?.Invoke();
+            isDie = true;
+            OnDie.Invoke();
         }
 
     }
@@ -98,6 +110,7 @@ public class Enemy : MonoBehaviour
     {
         
         sr.material.color = originColor;
+
     }
 
     public void EnemyHurt() 
@@ -106,9 +119,10 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDestory() 
     {
-        //isDie = true;
+       
         pickUpGenerator.DropItems();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        ObjPoolManager.instance.ReturnObj(gameObject);
     }
     public void ColliderAttack() 
     {
