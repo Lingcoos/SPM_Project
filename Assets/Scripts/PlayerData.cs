@@ -45,6 +45,10 @@ public class PlayerData : SingleBaseManager<PlayerData>
     private float currentDefense;   // currentDefense = baseDefense + level * 1 + defenseBuff;  // the current defense of player
     private float currentSpeed;   // currentSpeed = speed + speedBuff;  // the current speed of player
 
+
+    [Header("Game Setting")]
+    private int resolutionIndex;
+    private int languageIndex;
     // Constructor:
     // Goid, Crystal, Level, Exp, KillNum,
     // HealthBuff, AttackBuff, DefenseBuff, SpeedBuff,
@@ -226,6 +230,17 @@ public class PlayerData : SingleBaseManager<PlayerData>
         set { y_pos = value; }
     }
 
+    public int Resolution 
+    {
+        get { return resolutionIndex;  }
+        set { resolutionIndex = value; }
+    }
+    public int Language 
+    {
+        get { return languageIndex;  }
+        set { languageIndex = value; }
+    }
+
     public void UpdateAllData()
     {
         currentMaxHealth = baseMaxHealth + level * 10;  // the maximum curHealth of player
@@ -269,9 +284,16 @@ public class PlayerData : SingleBaseManager<PlayerData>
         PlayerPrefs.SetFloat("CurrentSpeed", CurrentSpeed);
     }
 
+
+    public void SaveGameSetting() 
+    {
+        PlayerPrefs.SetInt("Resolution", Resolution);
+        PlayerPrefs.SetInt("Language", Language);
+    }
     /// <summary>
     /// This function is used to load data of player.
     /// </summary>
+    /// 
     public void LoadAllData()
     {
         Gold = PlayerPrefs.GetInt("Gold", gold);
@@ -284,5 +306,10 @@ public class PlayerData : SingleBaseManager<PlayerData>
         //CurrentAttack = PlayerPrefs.GetFloat("CurrentAttack", currentAttack);
         CurrentDefense = PlayerPrefs.GetFloat("CurrentDefense", currentDefense);
         CurrentSpeed = PlayerPrefs.GetFloat("CurrentSpeed", currentSpeed);
+    }
+    public void LoadGameSetting() 
+    {
+        Resolution = PlayerPrefs.GetInt("Resolution");
+        Language = PlayerPrefs.GetInt("Language");
     }
 }

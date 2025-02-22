@@ -79,6 +79,7 @@ public class GameSettingController : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
+        
         resolutionDropDown.AddOptions(options);
         resolutionDropDown.value = currentResolutionIndex;
         resolutionDropDown.RefreshShownValue();
@@ -91,12 +92,15 @@ public class GameSettingController : MonoBehaviour
         {
             languageDropDown.options.Add(new Dropdown.OptionData(locale.LocaleName));
         }
-        
+        PlayerData.getInstance().LoadGameSetting();
+        languageDropDown.value = PlayerData.getInstance().Language;
         languageDropDown.RefreshShownValue();
     }
     public void SetLanguage(int index) 
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+        PlayerData.getInstance().Language = index;
+        PlayerData.getInstance().SaveGameSetting();
     }
 
 

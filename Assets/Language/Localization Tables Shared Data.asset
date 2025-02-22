@@ -27,6 +27,14 @@ MonoBehaviour:
     m_Key: ExitButton
     m_Metadata:
       m_Items: []
+  - m_Id: 717477469356032
+    m_Key: BackButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 731727839494144
+    m_Key: ContinueButton
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
