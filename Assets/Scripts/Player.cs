@@ -112,6 +112,10 @@ public class Player : MonoBehaviour
             return;
         PlayerData.getInstance().CurrentHealth -= damage;
         onHurt?.Invoke();
+        if (PlayerData.getInstance().CurrentHealth <= 0) 
+        {
+            onDie?.Invoke();
+        }
         
     }
     public void PlayerHurt() 

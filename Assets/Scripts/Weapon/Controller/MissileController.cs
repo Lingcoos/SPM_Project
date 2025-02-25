@@ -10,8 +10,6 @@ public class MissileController : WeaponController
     public float missileAttackRangeIn;
 
 
-    public UnityEvent onAim;
-
     protected override void Attack()
     {
         base.Attack();

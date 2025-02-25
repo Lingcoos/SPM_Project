@@ -5,28 +5,50 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+
+    public float initalSpawnInterval;
+    public float minSpawnInterval;
+    public float accelerationFactor;
+    public float maxDifficultyTime;
+
+
+
     public GameObject enemyToSpawn;
-    public float timeToSpawn;
     private float spawnCounter;
 
     public Transform minSpawn;
     public Transform maxSpawn;
 
+
+    private float gameTime;
     private void Start()
     {
-        spawnCounter = timeToSpawn;
+        spawnCounter = initalSpawnInterval;
     }
     private void Update()
     {
         spawnCounter -= Time.deltaTime;
+        gameTime += Time.deltaTime;
+
         if (spawnCounter <= 0)
         {
-            spawnCounter = timeToSpawn;
+            spawnCounter = GetCurrentSpawnInterval();
             //Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation,transform);
             GameObject silm = ObjPoolManager.instance.GetObj("Silm");
             silm.transform.position = SelectSpawnPoint();
         }
+        Debug.Log("ÏÖÔÚË¢¹ÖÆµÂÊ: " + GetCurrentSpawnInterval());
     }
+
+    public float GetCurrentSpawnInterval() 
+    {
+        float t = Mathf.Clamp01(gameTime / maxDifficultyTime);
+        float difficulty = Mathf.Pow(t, accelerationFactor*10);
+        float currentInterval = Mathf.Lerp(initalSpawnInterval,minSpawnInterval, difficulty);
+        return currentInterval;
+    }
+
+
     public Vector3 SelectSpawnPoint() 
     {
         Vector3 spawnPoint = Vector3.zero;

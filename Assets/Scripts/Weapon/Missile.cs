@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
+    public AnimationClip targetAnimation;
+
+
+
+
+    private Animator ani;
+    private float originSpeed;
     private CapsuleCollider2D col;
     private MissileController weapon;
     private SpriteRenderer sr;
@@ -13,6 +20,8 @@ public class Missile : MonoBehaviour
     
     private void Start()
     {
+        ani = GetComponent<Animator>();
+        originSpeed = ani.speed;
         col = GetComponent<CapsuleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         originColor = sr.color;
@@ -20,11 +29,21 @@ public class Missile : MonoBehaviour
         weapon = FindObjectOfType<MissileController>();
         startTime = Time.time;
 
+
+        float animationLength = targetAnimation.length;
+        ani.speed = animationLength/weapon.timer;
     }
     private void Update()
     {
-        Aiming();
-        Fire();
+        //Aiming();
+
+    }
+
+
+    public void SetAnimationDuration(float newDuration) 
+    {
+        float animationLength = targetAnimation.length;
+        ani.speed = animationLength / newDuration;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,18 +55,11 @@ public class Missile : MonoBehaviour
     }
     public void Fire() 
     {
-        if (sr.color == targetColor) 
-        {
-            col.enabled = true;
-            Invoke("MissileDestroy", 0.1f);
-        }
+        col.enabled = true;
+        Invoke("MissileDestroy", 0.1f);
+
     }
-    public void Aiming() 
-    {
-        float time = (Time.time - startTime) / weapon.timer;
-        time = Mathf.Clamp01(time);
-        sr.color =Color.Lerp(originColor, targetColor, time);
-    }
+
     private void MissileDestroy() 
     {
         Destroy(gameObject);

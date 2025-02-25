@@ -107,7 +107,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
-  Health: 20
+  Health: 10
   maxHealht: 0
   OnHurt:
     m_PersistentCalls:
