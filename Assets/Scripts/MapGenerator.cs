@@ -7,13 +7,14 @@ public class MapGenerator : MonoBehaviour
 {
     public Tilemap tileMap;
     public TileBase tile;
-    public Transform player;
+    private Transform player;
     public int renderDistance;
 
     private Vector3 lastPlayerPos;
 
     private void Start()
     {
+        player = FindAnyObjectByType<Player>().transform;
         GenerateTiles();
         lastPlayerPos = tileMap.WorldToCell(player.position);
     }

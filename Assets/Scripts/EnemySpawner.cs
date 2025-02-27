@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject silm = ObjPoolManager.instance.GetObj("Silm");
             silm.transform.position = SelectSpawnPoint();
         }
-        Debug.Log("现在刷怪频率: " + GetCurrentSpawnInterval());
+        //Debug.Log("现在刷怪频率: " + GetCurrentSpawnInterval());
     }
 
     public float GetCurrentSpawnInterval() 

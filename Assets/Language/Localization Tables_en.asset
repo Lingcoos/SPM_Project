@@ -38,6 +38,118 @@ MonoBehaviour:
     m_Localized: Continue
     m_Metadata:
       m_Items: []
+  - m_Id: 2151970847719424
+    m_Localized: Scyth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2151973704040448
+    m_Localized: NUM + 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2151976908488704
+    m_Localized: NUM + 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2151975377567744
+    m_Localized: ATT + 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2152270388133888
+    m_Localized: 'CD / 2 '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2152282975240192
+    m_Localized: 'NUM + 2 '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303811816390656
+    m_Localized: Sword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303827754745856
+    m_Localized: Knife
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303917831618560
+    m_Localized: Missile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303323339358208
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303367010451456
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303375461974016
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303383221436416
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303391400329216
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303306180460544
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303297447919616
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303288933482496
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303245321109504
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303175032963072
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303170461171712
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303166468194304
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303162357776384
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303156439613440
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303081260908544
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2310380914343936
+    m_Localized: Get Scythe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2430558926929920
+    m_Localized: Get Missile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2430694344228864
+    m_Localized: Get Sword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2430925538459648
+    m_Localized: Get Knife
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

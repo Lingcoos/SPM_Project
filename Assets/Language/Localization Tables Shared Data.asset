@@ -35,6 +35,118 @@ MonoBehaviour:
     m_Key: ContinueButton
     m_Metadata:
       m_Items: []
+  - m_Id: 2151970847719424
+    m_Key: scythe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2310380914343936
+    m_Key: scytheLevel0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2151973704040448
+    m_Key: scytheLevel1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2151975377567744
+    m_Key: scytheLevel2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2151976908488704
+    m_Key: scytheLevel3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2152270388133888
+    m_Key: scytheLevel4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2152282975240192
+    m_Key: scytheLevel5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303917831618560
+    m_Key: missile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2430558926929920
+    m_Key: missileLevel0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303081260908544
+    m_Key: missileLevel1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303156439613440
+    m_Key: missileLevel2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303162357776384
+    m_Key: missileLevel3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303166468194304
+    m_Key: missileLevel4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303170461171712
+    m_Key: missileLevel5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303827754745856
+    m_Key: knife
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2430925538459648
+    m_Key: knifeLevel0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303175032963072
+    m_Key: knifeLevel1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303245321109504
+    m_Key: knifeLevel2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303288933482496
+    m_Key: knifeLevel3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303297447919616
+    m_Key: knifeLevel4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303306180460544
+    m_Key: knifeLevel5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303811816390656
+    m_Key: sword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2430694344228864
+    m_Key: swordLevel0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303323339358208
+    m_Key: swordLevel1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303367010451456
+    m_Key: swordLevel2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303375461974016
+    m_Key: swordLevel3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303383221436416
+    m_Key: swordLevel4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2303391400329216
+    m_Key: swordLevel5
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

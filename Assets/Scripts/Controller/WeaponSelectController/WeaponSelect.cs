@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-    public enum WeaponType 
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.UI;
+public enum WeaponType 
     {
-        knife, scythe,missile,Sword
+        knife, scythe,missile,sword
     }
 public class WeaponSelect : MonoBehaviour
 {
@@ -14,13 +17,13 @@ public class WeaponSelect : MonoBehaviour
     [SerializeField] private WeaponType weaponType;
     [HideInInspector]public Weapon weapon;
     [HideInInspector]public WeaponList weaponList;
-    public TMP_Text nameBox;
-    public TMP_Text describle;
-    public string[] levelDescrible;
+    public Text nameBox;
+    public Text describle;
 
+    public LocalizedString describleString;
+    public LocalizedString nameString;
     private void Start()
     {
-        
         weaponList = FindObjectOfType<WeaponList>();
         weapon = weaponList.weaponList[id-1].GetComponent<Weapon>();
     }
@@ -30,37 +33,12 @@ public class WeaponSelect : MonoBehaviour
     }
     public void DescribleGenerator() //Updata Describle of Selection Weapoin
     {
-        if (!weapon.isGet)
-        {
-            //Debug.Log("没有获得");
-            nameBox.text = "New! " + weaponName;
-        }
-        else 
-        {        
-            switch (weapon.weaponLevel)
-            {
-                case 1:
-                    describle.text = levelDescrible[0];
-                    nameBox.text = "Level 1 " + weaponName;
-                    break;
-                case 2:
-                    describle.text = levelDescrible[1];
-                    nameBox.text = "Level 2 " + weaponName;
-                    break;
-                case 3:
-                    describle.text = levelDescrible[2];
-                    nameBox.text = "Level 3 " + weaponName;
-                    break;
-                case 4:
-                    describle.text = levelDescrible[3];
-                    nameBox.text = "Level 4 " + weaponName;
-                    break;
-                case 5:
-                    describle.text = levelDescrible[4];
-                    nameBox.text = "Level 5 " + weaponName;
-                    break;
-            }
-        }
+        int level = weapon.weaponLevel;
+        nameString.TableEntryReference = $"{weaponType}";
+        nameBox.text = $"Lv.{level} {nameString.GetLocalizedString()}";
+        describleString.TableEntryReference = $"{weaponType}Level{level}";
+        describle.text = describleString.GetLocalizedString();
+
     }
     public void ChangeGet() //Change Weapon whether get
     {
@@ -84,7 +62,7 @@ public class WeaponSelect : MonoBehaviour
                 weaponList.GetWeapon(2);
                 ChangeGet();
                 break;
-            case WeaponType.Sword:
+            case WeaponType.sword:
                 weaponList.GetWeapon(3);
                 ChangeGet();
                 break;

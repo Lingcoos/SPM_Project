@@ -1418,7 +1418,7 @@ MonoBehaviour:
   count: 1
   speed: 0
   turnSpeed: 0
-  timer: 4
+  timer: 2
   cooldownDuration: 8
   levelUpDescrible: []
   weapon: {fileID: 0}
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   weaponId: 3
   weaponLevel: 0
   weaponName: Missile
-  isLevelMax: 0
+  isLevelMax: 1
   isGet: 0
   levelUp:
     m_PersistentCalls:
@@ -4786,7 +4786,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileMap: {fileID: 1891285209}
   tile: {fileID: 11400000, guid: e7974f555e2cba5428c378bb727199b0, type: 2}
-  player: {fileID: 1416417708}
   renderDistance: 20
 --- !u!1 &1362955159
 GameObject:
@@ -6425,71 +6424,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621243159}
   m_CullTransparentMesh: 1
---- !u!1001 &1667378228
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4664279740342761942, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: Health
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569061708467602475, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9215741157100996140, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_Name
-      value: Silm
-      objectReference: {fileID: 0}
-    - target: {fileID: 9215741157100996140, guid: f2b92c45529b4c8499464d44df202041, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f2b92c45529b4c8499464d44df202041, type: 3}
 --- !u!1 &1676295099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8246,4 +8180,3 @@ SceneRoots:
   - {fileID: 1416417708}
   - {fileID: 1840385705}
   - {fileID: 889057793}
-  - {fileID: 1667378228}

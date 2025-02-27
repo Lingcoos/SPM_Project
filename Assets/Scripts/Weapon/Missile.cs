@@ -5,10 +5,11 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     public AnimationClip targetAnimation;
+    public AnimationClip missileAnimation;
+    public GameObject missile;
 
 
-
-
+    private Animator missileAni;
     private Animator ani;
     private float originSpeed;
     private CapsuleCollider2D col;
@@ -21,6 +22,7 @@ public class Missile : MonoBehaviour
     private void Start()
     {
         ani = GetComponent<Animator>();
+        missileAni = missile.GetComponent<Animator>();
         originSpeed = ani.speed;
         col = GetComponent<CapsuleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -32,6 +34,9 @@ public class Missile : MonoBehaviour
 
         float animationLength = targetAnimation.length;
         ani.speed = animationLength/weapon.timer;
+        float missileAnimationLength = missileAnimation.length;
+        missileAni.speed = missileAnimationLength / weapon.timer;
+        
     }
     private void Update()
     {
