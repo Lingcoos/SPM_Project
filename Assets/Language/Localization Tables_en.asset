@@ -150,6 +150,10 @@ MonoBehaviour:
     m_Localized: Get Knife
     m_Metadata:
       m_Items: []
+  - m_Id: 2804847370960896
+    m_Localized: Multiplayer
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

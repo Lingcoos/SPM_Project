@@ -1,9 +1,10 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MapGenerator : MonoBehaviour
+public class MapGeneratorNetWork : NetworkBehaviour
 {
     public Tilemap tileMap;
     public TileBase tile;
@@ -12,18 +13,18 @@ public class MapGenerator : MonoBehaviour
 
     private Vector3 lastPlayerPos;
 
-    private void Start()
+
+    public override void OnStartLocalPlayer()
     {
-        
-        if(FindAnyObjectByType<Player>() != null)
-            player = FindAnyObjectByType<Player>().transform;                    
+        player = FindAnyObjectByType<PlayerNetWrok>().transform;
         GenerateTiles();
         lastPlayerPos = tileMap.WorldToCell(player.position);
     }
+
+
+    
     private void Update()
     {
-        if(player == null)
-            player = FindAnyObjectByType<PlayerNetWrok>().transform;
         Vector3 currentPlayerCell = tileMap.WorldToCell(player.position);
         if (currentPlayerCell != lastPlayerPos)
         {
@@ -34,6 +35,7 @@ public class MapGenerator : MonoBehaviour
 
         }
     }
+    [Server]
     private void GenerateTiles() // Generate Tiles
     {
         Vector3Int playerCell = tileMap.WorldToCell(player.position);
@@ -53,6 +55,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+    [Server]
     private void DeleteTiles()  //Delete Tiles
     {
         Vector3Int playerCell = tileMap.WorldToCell(player.position);

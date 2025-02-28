@@ -7,17 +7,9 @@ using UnityEngine.Events;
 using Mirror;
 
 /// <summary>
-/// Enum for player state
+/// This class is responsible for the player's movement, health, and state transitions online.
 /// </summary>
-public enum PlayerStateType
-{
-    Idle, Move, Hurt, Die
-}
-
-/// <summary>
-/// This class is responsible for the player's movement, health, and state transitions.
-/// </summary>
-public class Player : MonoBehaviour
+public class PlayerNetWrok : NetworkBehaviour
 {
     [Header("Player")]
     public float curMaxHealth;
@@ -46,24 +38,30 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        
+
+
+    }
+    public override void OnStartLocalPlayer()
+    {
         ani = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-
         PlayerData.getInstance().CurrentMaxHealth = curMaxHealth;
         PlayerData.getInstance().CurrentHealth = curHealth;
         PlayerData.getInstance().CurrentSpeed = curSpeed;
 
-
+        Camera.main.transform.SetParent(transform);
+        Camera.main.transform.localPosition = new Vector3(0, 0, Camera.main.transform.position.z);
         originColor = sr.color;
-        states.Add(PlayerStateType.Idle, new PlayerIdleState(this));
-        states.Add(PlayerStateType.Move, new PlayerMoveState(this));
-        states.Add(PlayerStateType.Hurt, new PlayerHurtState(this));
-        states.Add(PlayerStateType.Die, new PlayerDieState(this));
+        states.Add(PlayerStateType.Idle, new PlayerIdleStateOnline(this));
+        states.Add(PlayerStateType.Move, new PlayerMoveStateOnline(this));
+        states.Add(PlayerStateType.Hurt, new PlayerHurtStateOnline(this));
+        states.Add(PlayerStateType.Die, new PlayerDieStateOnline(this));
+        
         TransitionState(PlayerStateType.Idle);
     }
 
-    
     public void TransitionState(PlayerStateType type) 
     {
         if (currentState != null) 
@@ -76,7 +74,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-
+        if (!isLocalPlayer) 
+            return;
         Move();
         currentState.OnUpData();
         curMaxHealth = PlayerData.getInstance().CurrentMaxHealth;
@@ -106,7 +105,7 @@ public class Player : MonoBehaviour
         ani.SetFloat("LookX",InputValue.x);
         ani.SetFloat("LookY",InputValue.y);
         rig.velocity = InputValue * PlayerData.getInstance().CurrentSpeed;
-        
+        //Debug.Log("�ٶ�" + rig.velocity);
     }
     public void GetDamage(float damage) 
     {
