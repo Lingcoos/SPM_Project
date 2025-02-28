@@ -36,15 +36,15 @@ public class EnemySpawner : MonoBehaviour
         maxSpawn = maxSpawnOffset + player.transform.position;
         if (spawnCounter <= 0)
         {
-            spawnCounter = GetCurrentSpawnInterval();
-            //Instantiate(enemyToSpawn, SelectSpawnPoint(), transform.rotation,transform);
+            spawnCounter = GetCurrentSpawnInterval();            
             GameObject silm = ObjPoolManager.instance.GetObj("Silm");
             silm.transform.position = SelectSpawnPoint();
         }
-        //Debug.Log("现在刷怪频率: " + GetCurrentSpawnInterval());
+        //Debug.Log(GetCurrentSpawnInterval());
+        
     }
 
-    public float GetCurrentSpawnInterval() 
+    public float GetCurrentSpawnInterval()  //刷怪间隔计算
     {
         float t = Mathf.Clamp01(gameTime / maxDifficultyTime);
         float difficulty = Mathf.Pow(t, accelerationFactor*10);
@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-    public Vector3 SelectSpawnPoint() 
+    public Vector3 SelectSpawnPoint() //怪物刷新点计算
     {
         Vector3 spawnPoint = Vector3.zero;
         bool spawnVerticalEdge = Random.Range(0f, 1f) > 0.5f;

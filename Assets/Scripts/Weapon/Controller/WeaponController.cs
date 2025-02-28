@@ -15,8 +15,6 @@ public class WeaponController : MonoBehaviour
     public float timer;
     public float cooldownDuration;
     float currentCooldown;
-
-    public string[] levelUpDescrible;
     [HideInInspector]public Weapon weapon;
 
     protected virtual void Start()
@@ -30,6 +28,13 @@ public class WeaponController : MonoBehaviour
         currentCooldown -= Time.deltaTime;
         if (currentCooldown <= 0f)
             Attack();
+        else
+            CDTime();
+
+    }
+    protected virtual void CDTime() 
+    {
+
     }
     protected virtual void Refresh() 
     {

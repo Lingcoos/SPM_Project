@@ -203,7 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
   propPrefab:
-  - prefab: {fileID: 5387252906530313811, guid: 561f3a3f50ff57e41aa4be94fa0c2228, type: 3}
+  - prefabName: Exp
+    prefab: {fileID: 5387252906530313811, guid: 561f3a3f50ff57e41aa4be94fa0c2228, type: 3}
     PropPercentage: 40
 --- !u!61 &1021163275186765755
 BoxCollider2D:

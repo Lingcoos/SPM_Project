@@ -14,7 +14,9 @@ public class PickUpGenerator : MonoBehaviour
         {
             if (Random.Range(0f, 100f) <= propprefab.PropPercentage) 
             {
-                Instantiate(propprefab.prefab, pos + offset, Quaternion.identity);
+                GameObject item = ObjPoolManager.instance.GetObj(propprefab.prefabName);
+                item.transform.position = pos + offset;
+                //Instantiate(propprefab.prefab, pos + offset, Quaternion.identity);
             }
         }
     }
@@ -28,6 +30,7 @@ public class PickUpGenerator : MonoBehaviour
 
 public class PropPrefab 
 {
+    public string prefabName;
     public GameObject prefab;
     [Range(0f, 100f)] public float PropPercentage;
 }

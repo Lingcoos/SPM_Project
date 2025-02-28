@@ -22,7 +22,7 @@ public class KnifeController : WeaponController
             Vector3 rota = Vector3.forward * 360 * i / count;
             Transform newKnife = Instantiate(prefab, rotationPoint.transform.position, Quaternion.identity, rotationPoint.transform).transform;
             newKnife.Rotate(rota);
-            newKnife.Translate(newKnife.up * 1.5f, Space.World);
+            newKnife.Translate(newKnife.up * 2f, Space.World);
         }
     }
 
