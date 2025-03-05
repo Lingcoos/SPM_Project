@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 33216406698520745}
   - component: {fileID: 3056895962218438919}
   m_Layer: 5
-  m_Name: Sword
+  m_Name: Funnel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,9 +300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480d8d6d6fc4d0c4caa03625414e476b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
-  weaponName: Funnel
-  weaponType: 4
+  id: 4
+  weaponName: Sword
+  weaponType: 3
   weapon: {fileID: 0}
   weaponList: {fileID: 5969583636261653715, guid: b5a1688702a43ef4eab2eab7c7b4d4fb, type: 3}
   nameBox: {fileID: 9043272842124071834}
@@ -325,6 +325,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  localize: {fileID: 0}
   references:
     version: 2
     RefIds: []

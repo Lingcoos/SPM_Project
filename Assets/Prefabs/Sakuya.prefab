@@ -169,16 +169,16 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: OnEsc
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_ActionId: d6139193-8dfd-4f67-aeec-31d3def17dc2
     m_ActionName: Player/Esc[/Keyboard/escape]
@@ -399,6 +399,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5368196439301774238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2408569444424941357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7106484317302953221}
+  m_Layer: 0
+  m_Name: FunnelRotationPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7106484317302953221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408569444424941357}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7399970235359657846}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4022167622595972986
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +515,6 @@ MonoBehaviour:
   turnSpeed: 2000
   timer: 0
   cooldownDuration: 1
-  levelUpDescrible: []
   weapon: {fileID: 0}
   offset: {x: 0, y: 1, z: 0}
   target: {x: 0, y: 2, z: 0}
@@ -526,6 +556,7 @@ Transform:
   - {fileID: 2183557359487074983}
   - {fileID: 3774175109585834913}
   - {fileID: 3258524568270973047}
+  - {fileID: 7399970235359657846}
   m_Father: {fileID: 2844380417027082318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5347833453964025236
@@ -545,8 +576,99 @@ MonoBehaviour:
   - {fileID: 5601862737654324122}
   - {fileID: 8352307116319291242}
   - {fileID: 4022167622595972986}
+  - {fileID: 4518819320504244757}
   weaponBag:
-  - {fileID: 8216542668976148886}
+  - {fileID: 4518819320504244757}
+--- !u!1 &4518819320504244757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7399970235359657846}
+  - component: {fileID: 7330320791345953340}
+  - component: {fileID: 6971781710473631014}
+  m_Layer: 0
+  m_Name: FunnelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7399970235359657846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518819320504244757}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7106484317302953221}
+  m_Father: {fileID: 3773855755671553903}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7330320791345953340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518819320504244757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e86c71a84e63324dbacfc6cafae256b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponId: 5
+  weaponLevel: 0
+  weaponName: Funnel
+  isLevelMax: 0
+  isGet: 0
+  levelUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6971781710473631014}
+        m_TargetAssemblyTypeName: FunnelController, Assembly-CSharp
+        m_MethodName: levelUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6971781710473631014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518819320504244757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8427d0a988313e24bb0d3b5754db1439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  prefab: {fileID: 6354791427497113880, guid: 6bd800f79800d964f9f593fddf9f94a9, type: 3}
+  damage: 5
+  count: 4
+  speed: 100
+  turnSpeed: 0
+  timer: 0
+  cooldownDuration: 2
+  weapon: {fileID: 0}
+  rotationPoint: {fileID: 2408569444424941357}
+  laser: {fileID: 933854184870290384, guid: 005949db6e79c254194c3d3cf82ee8c3, type: 3}
+  funnels: []
 --- !u!1 &5601862737654324122
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +755,6 @@ MonoBehaviour:
   turnSpeed: 500
   timer: 1
   cooldownDuration: 5
-  levelUpDescrible: []
   weapon: {fileID: 0}
   shootPoint: {fileID: 1288435268792516941}
 --- !u!1 &8216542668976148886
@@ -653,7 +774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5368196439301774238
 Transform:
   m_ObjectHideFlags: 0
@@ -722,7 +843,6 @@ MonoBehaviour:
   turnSpeed: 0
   timer: 0
   cooldownDuration: 0
-  levelUpDescrible: []
   weapon: {fileID: 0}
   rotationPoint: {fileID: 1315928884694558240}
 --- !u!1 &8352307116319291242
@@ -810,7 +930,6 @@ MonoBehaviour:
   turnSpeed: 0
   timer: 2
   cooldownDuration: 8
-  levelUpDescrible: []
   weapon: {fileID: 0}
   missileAttackRangeOut: 9
   missileAttackRangeIn: 5

@@ -6,6 +6,10 @@ using UnityEngine;
 public class FunnelController : WeaponController
 {
     public GameObject rotationPoint;
+    public GameObject laser;
+    public List<GameObject> funnels;
+
+
 
     protected override void Start()
     {
@@ -14,6 +18,7 @@ public class FunnelController : WeaponController
         {
             Vector3 rota = Vector3.forward * 360 * i / count;
             Transform funnel = Instantiate(prefab, rotationPoint.transform.position, Quaternion.identity, rotationPoint.transform).transform;
+            funnels.Add(funnel.gameObject);
             funnel.Rotate(rota);
             funnel.Translate(funnel.up * 1f, Space.World);
 
@@ -22,7 +27,7 @@ public class FunnelController : WeaponController
     protected override void Attack()
     {
         base.Attack();
-        Debug.Log("¹¥»÷£¡£¡");
+        ShootLaser(funnels);
     }
     protected override void CDTime()
     {
@@ -30,11 +35,13 @@ public class FunnelController : WeaponController
     }
     protected override void Refresh()
     {
-        for(int i = 0; i < count; i++) 
+        funnels.Clear();
+        for (int i = 0; i < count; i++) 
         {
             Vector3  rota = Vector3.forward * 360 *i / count;
             Transform funnel = Instantiate(prefab, rotationPoint.transform.position, Quaternion.identity, rotationPoint.transform).transform;
-            funnel.Rotate(rota);
+            funnels.Add(funnel.gameObject);
+            funnel.Rotate(rota);          
             funnel.Translate(funnel.up* 1.5f,Space.World);
 
         }
@@ -42,5 +49,23 @@ public class FunnelController : WeaponController
     public void Rotation() 
     {
         rotationPoint.transform.rotation = Quaternion.Euler(0f, 0f, rotationPoint.transform.rotation.eulerAngles.z + (speed * Time.deltaTime));
+    }
+    public void ShootLaser(List<GameObject> objs) 
+    {
+        for (int i = 0; i < objs.Count; i++) 
+        {
+            Instantiate(laser, objs[i].transform.position, objs[i].transform.rotation * Quaternion.Euler(0, 0, 90f), objs[i].transform);
+        }
+        
+    }
+    public void levelUp()
+    {
+        level++;
+        count++;
+        for (int i = 0; i < transform.GetChild(0).childCount; i++)
+        {
+            Destroy(transform.GetChild(0).GetChild(i).gameObject);
+        }
+        Refresh();
     }
 }

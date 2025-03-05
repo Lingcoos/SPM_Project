@@ -151,6 +151,30 @@ MonoBehaviour:
     m_Key: MutiStartButton
     m_Metadata:
       m_Items: []
+  - m_Id: 4523613880451072
+    m_Key: funnel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523767459086336
+    m_Key: funnelLevel0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523831086678016
+    m_Key: funnelLevel1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523835792687104
+    m_Key: funnelLevel2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523856768401408
+    m_Key: funnelLevel3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523873969242112
+    m_Key: funnelLevel5
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

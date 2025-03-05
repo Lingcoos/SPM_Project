@@ -150,6 +150,26 @@ MonoBehaviour:
     m_Localized: "\u591A\u4EBA\u6E38\u620F"
     m_Metadata:
       m_Items: []
+  - m_Id: 4523613880451072
+    m_Localized: "\u6D6E\u6E38\u70AE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523831086678016
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523835792687104
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523856768401408
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523873969242112
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
