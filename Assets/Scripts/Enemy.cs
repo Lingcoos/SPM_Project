@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
 
 
-    private bool isHurt;
+    public bool isHurt;
     public bool isDie;
     [HideInInspector]public Animator ani;
     private PickUpGenerator pickUpGenerator;
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private Color originColor;
     private IState currentState;
+    private float originSpeed;
     Dictionary<EnemyStateType,IState> states = new Dictionary<EnemyStateType,IState>();
 
 
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         pickUpGenerator = GetComponent<PickUpGenerator>();
         originColor = sr.color;
+        originSpeed = enemySpeed;
         states.Add(EnemyStateType.Idle, new EnemyIdleState(this));
         states.Add(EnemyStateType.Move, new EnemyMoveState(this));
         states.Add(EnemyStateType.Attack, new EnemyAttackState(this));
@@ -56,9 +58,10 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
-
+        enemySpeed = originSpeed;
         Health = maxHealht;
         isDie = false;
+        isHurt = false;
         sr.color = originColor;
 
     }
@@ -96,16 +99,14 @@ public class Enemy : MonoBehaviour
     public void GetDamage(float damage) 
     {
         Health -= damage;
-        FlashColor(0.1f);
         OnHurt?.Invoke();
         if (Health <= 0)
-        {
-            isDie = true;
+        { 
             OnDie.Invoke();
         }
 
     }
-    private void FlashColor(float time)
+    public void FlashColor(float time)
     {
         sr.material.color = Color.red;
         Invoke("ResetColor", time);
@@ -114,18 +115,23 @@ public class Enemy : MonoBehaviour
     {
         
         sr.material.color = originColor;
+        isHurt = false;
 
     }
 
-    public void EnemyHurt() 
+    public void EnemeyHurt() 
     {
-        //isHurt = true;  
+        isHurt = true;
     }
-    public void EnemyDestory() 
+    public void EnemyDie() 
     {
-       
+        isDie = true;
+    }
+    public void EnemyDestroy() 
+    {
+        PlayerData.getInstance().KillNum++;
         pickUpGenerator.DropItems();
-        //Destroy(gameObject);
+        isDie = false;
         ObjPoolManager.instance.ReturnObj(gameObject);
     }
     public void ColliderAttack() 

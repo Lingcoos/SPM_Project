@@ -60,8 +60,34 @@ public class FunnelController : WeaponController
     }
     public void levelUp()
     {
-        level++;
-        count++;
+        switch (level)
+        {
+            case 0:
+                count++;
+                level++;
+                break;
+            case 1:
+                count++;
+                level++;
+                break;
+            case 2:
+                count ++;
+                level++;
+                break;
+            case 3:
+                count++;
+                level++;
+                break;
+            case 4:
+                count++;
+                level++;
+                break;
+            case 5:
+                GetComponent<Weapon>().isLevelMax = true;
+                WeaponSelectController.instance.LevelMaxRemove("Funnel");
+                weapon.weaponLevel++;
+                break;
+        }
         for (int i = 0; i < transform.GetChild(0).childCount; i++)
         {
             Destroy(transform.GetChild(0).GetChild(i).gameObject);

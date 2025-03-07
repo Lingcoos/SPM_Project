@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_LaserShader
-  m_Shader: {fileID: -6465566751694194690, guid: 2bdf6f5172b80074b9e3ee14753245b3, type: 3}
+  m_Name: ScythTexture
+  m_Shader: {fileID: -6465566751694194690, guid: 6eef5f4f419ccec409513a425b60cb13, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,6 +23,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 172fefa53c90c3a4483dd002060d69d1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SwordTexture:
+        m_Texture: {fileID: 2800000, guid: 6b8d34f748720d24189f751e5df563a5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -36,15 +44,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _LaserEdgeSmooth: 1.96
-    - _LaserScale: 5
-    - _LaserThick: -0.3
+    m_Floats: []
     m_Colors:
-    - _Color: {r: 0.56005, g: 0.7048905, b: 1.8443023, a: 1}
-    - _LaserSpeed: {r: -1, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.042172026, g: 0.016441299, b: 0.13831575, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &716936861203556561
+--- !u!114 &1309887388134867091
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

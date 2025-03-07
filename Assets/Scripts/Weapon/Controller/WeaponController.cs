@@ -14,7 +14,7 @@ public class WeaponController : MonoBehaviour
     public float turnSpeed;
     public float timer;
     public float cooldownDuration;
-    float currentCooldown;
+    [HideInInspector]public float currentCooldown;
     [HideInInspector]public Weapon weapon;
 
     protected virtual void Start()

@@ -8,7 +8,7 @@ using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 public enum WeaponType 
     {
-        knife, scythe,missile,sword,funnel
+        knife, scythe,missile,sword,funnel,tornado
     }
 public class WeaponSelect : MonoBehaviour
 {
@@ -68,6 +68,10 @@ public class WeaponSelect : MonoBehaviour
                 break;
             case WeaponType.funnel:
                 weaponList.GetWeapon(4);
+                ChangeGet();
+                break;
+            case WeaponType.tornado:
+                weaponList.GetWeapon(5);
                 ChangeGet();
                 break;
         }

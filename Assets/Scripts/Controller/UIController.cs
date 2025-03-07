@@ -16,6 +16,8 @@ public class UIController : MonoBehaviour
     private float originalSize;
     [Header("Esc Panel")]
     public GameObject escPanel;
+    [Header("Kill Number")]
+    public Text killNumber;
 
 
 
@@ -40,6 +42,7 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         SetHPValue(PlayerData.getInstance().CurrentHealth / PlayerData.getInstance().CurrentMaxHealth);
+        setKillNumber();
     }
 
     public void UpdateExp(int currtExp,int levelExp,int currtLevel)
@@ -51,6 +54,10 @@ public class UIController : MonoBehaviour
     public void SetHPValue(float fillPercent)
     {
         hpMaskimage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, fillPercent * originalSize);
+    }
+    public void setKillNumber() 
+    {
+        killNumber.text = "Kill Number " + PlayerData.getInstance().KillNum.ToString();
     }
     public void QuitGame() 
     {

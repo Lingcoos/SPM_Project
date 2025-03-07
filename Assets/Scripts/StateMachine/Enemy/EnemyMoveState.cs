@@ -12,13 +12,21 @@ public class EnemyMoveState : IState
 
     public void OnEnter()
     {
-        enemy.ani.Play("Move");
+        
     }
 
 
     public void OnUpData()
     {
         enemy.ChasePlayer();
+        if (enemy.isHurt) 
+        {
+            enemy.TransitionState(EnemyStateType.Hurt);
+        }
+        if (enemy.isDie && !enemy.isHurt) 
+        {
+            enemy.TransitionState(EnemyStateType.Die);
+        }
     }
     public void OnFixUpData()
     {

@@ -11,7 +11,7 @@ public class Laser : MonoBehaviour
     }
     private void OnEnable()
     {
-        Invoke("LaserDestory", 0.2f);
+        Invoke("LaserDestory", 0.5f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

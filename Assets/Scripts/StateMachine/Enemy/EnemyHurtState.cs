@@ -12,13 +12,20 @@ public class EnemyHurtState : IState
 
     public void OnEnter()
     {
-       
+        enemy.FlashColor(0.1f);
+        
     }
-
-
     public void OnUpData()
     {
-
+        if (enemy.isDie&& !enemy.isHurt) 
+        {
+            enemy.TransitionState(EnemyStateType.Die);
+        }
+        if (!enemy.isHurt) 
+        {
+            enemy.TransitionState(EnemyStateType.Move);
+        }
+        
     }
     public void OnFixUpData()
     {
@@ -26,7 +33,7 @@ public class EnemyHurtState : IState
     }
     public void OnExit()
     {
-
+        
     }
 
 }

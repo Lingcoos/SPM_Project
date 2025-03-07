@@ -12,13 +12,16 @@ public class EnemyDieState : IState
 
     public void OnEnter()
     {
-       
+        enemy.EnemyDestroy();
     }
 
 
     public void OnUpData()
     {
-
+        if (!enemy.isDie) 
+        {
+            enemy.TransitionState(EnemyStateType.Move);
+        }
     }
     public void OnFixUpData()
     {
@@ -26,7 +29,7 @@ public class EnemyDieState : IState
     }
     public void OnExit()
     {
-
+        enemy.isDie = false;
     }
 
 }
