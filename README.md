@@ -18,7 +18,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">"Pixel Fantasy II</h3>
+  <h3 align="center">Pixel Fantasy II</h3>
   <p align="center">
     A pixel anime game！
     <br />
@@ -84,18 +84,16 @@ filetree
 ├── /Assets/
 ├────── /Animation/
 ├────── /Animator/
+├────── /Language/
 ├────── /Materials/
 ├────── /Prefabs/
 ├────── /Scenes/
 ├────── /Scripts/
+├────── /.../
 ├── /Packages/
 ├── /ProjectSettings/
 └── /images/
 ```
-
-
-
-
 
 ### 开发手册
 
@@ -107,7 +105,7 @@ Windows
 
 ### 使用到的框架
 
-- [暂无]()
+- [Mirror](https://github.com/MirrorNetworking/Mirror)
 
 
 ### 贡献者
@@ -126,8 +124,6 @@ Windows
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-
 
 ### 版本控制
 
@@ -149,7 +145,8 @@ Windows
 
 ### 鸣谢
 
-- [wt](https://github.com/Lingcoos)
+- Zeng Ao
+- Li Zixu
 
 
 <!-- links -->
