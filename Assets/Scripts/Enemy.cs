@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     private Color originColor;
     private IState currentState;
     private float originSpeed;
+    public bool live;
     Dictionary<EnemyStateType,IState> states = new Dictionary<EnemyStateType,IState>();
 
 
@@ -58,11 +59,14 @@ public class Enemy : MonoBehaviour
     }
     private void OnEnable()
     {
+        live = true;
         enemySpeed = originSpeed;
         Health = maxHealht;
         isDie = false;
         isHurt = false;
         sr.color = originColor;
+        TransitionState(EnemyStateType.Move);
+        Debug.Log("生命" + Health + "是否死亡"+isDie+"是否受伤" +isHurt);
 
     }
     public void TransitionState(EnemyStateType type) 
@@ -126,6 +130,7 @@ public class Enemy : MonoBehaviour
     public void EnemyDie() 
     {
         isDie = true;
+        live = false;
     }
     public void EnemyDestroy() 
     {
