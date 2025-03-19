@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using UnityEngine;
 
 public class WeaponSelectController : MonoBehaviour
@@ -15,6 +16,7 @@ public class WeaponSelectController : MonoBehaviour
     private GameObject mid;
     public List<GameObject> selectWeapon;
     public static WeaponSelectController instance;
+
     private void Awake()
     {
         instance = this;
