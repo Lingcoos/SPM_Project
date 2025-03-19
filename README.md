@@ -56,7 +56,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
     - [Acknowledgment](#acknowledgment)
 
 ### Quick Guide
-Please Refer [Develop Guide](#Develop Guide)
+Please Refer [Develop Guide](#develop-guide)
 **Please develop in `dev` branch!**
 
 
