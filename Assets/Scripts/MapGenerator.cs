@@ -8,14 +8,14 @@ public class MapGenerator : MonoBehaviour
     public Tilemap tileMap;
     public TileBase tile;
     private Transform player;
-    public int renderDistance;
+    public int renderDistance; //Generator distance
 
     private Vector3 lastPlayerPos;
 
     private void Start()
     {
         
-        if(FindAnyObjectByType<Player>() != null)
+        if(FindAnyObjectByType<Player>() != null)  // Avoid error
             player = FindAnyObjectByType<Player>().transform;                    
         GenerateTiles();
         lastPlayerPos = tileMap.WorldToCell(player.position);
@@ -25,7 +25,7 @@ public class MapGenerator : MonoBehaviour
         if(player == null)
             player = FindAnyObjectByType<PlayerNetWrok>().transform;
         Vector3 currentPlayerCell = tileMap.WorldToCell(player.position);
-        if (currentPlayerCell != lastPlayerPos)
+        if (currentPlayerCell != lastPlayerPos) // Check whether player movew
         {
 
             GenerateTiles();

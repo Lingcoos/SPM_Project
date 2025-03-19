@@ -17,7 +17,7 @@ public class EnemyHurtState : IState
     }
     public void OnUpData()
     {
-        if (enemy.isDie&& !enemy.isHurt) 
+        if (enemy.isDie&& enemy.isHurt) 
         {
             enemy.TransitionState(EnemyStateType.Die);
         }
