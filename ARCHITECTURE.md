@@ -32,7 +32,7 @@ Development Manual, which is this document
 #### README.md
 Project description document
 #### LICENCE.txt
-Software License Agreement. This project is not open source yet. If open source, please comply with the `MIT Agreement`
+Software License Agreement. This project is not open source yet. If open source, please comply with the `GPL`
 #### Others
 Undocumented files generally **do not need** to be modified manually.
 
