@@ -141,7 +141,7 @@ For beginners, you can also use `Github Desktop` for visual management.
 ### License
 
 
-This project is licensed under the MIT license, see [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt) for details.
+This project is licensed under the GPL license, see [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE) for details.
 
 ### Acknowledgment
 
@@ -159,5 +159,4 @@ This project is licensed under the MIT license, see [LICENSE.txt](https://github
 [issues-shield]: https://img.shields.io/github/issues/Lingcoos/SPM_Project.svg?style=flat-square
 [issues-url]: https://img.shields.io/github/issues/Lingcoos/SPM_Project.svg
 [license-shield]: https://img.shields.io/github/license/Lingcoos/SPM_Project.svg?style=flat-square
-[license-url]: https://github.com/Lingcoos/SPM_Project/blob/main/LICENSE.txt
-
+[license-url]: https://github.com/Lingcoos/SPM_Project/blob/master/LICENSE
