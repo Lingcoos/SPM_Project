@@ -25,7 +25,7 @@ Pixel Fantasy II is a pixel anime game based on Unity.
     <a href="https://github.com/Lingcoos/SPM_Project"><strong>Project Document »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Lingcoos/SPM_Project">Game Demo</a>
+    <a href="https://github.com/Lingcoos/SPM_Project/releases">Game Demo</a>
     ·
     <a href="https://github.com/Lingcoos/SPM_Project/issues">Report Bug</a>
     ·
