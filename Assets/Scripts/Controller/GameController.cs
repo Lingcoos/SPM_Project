@@ -3,27 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TitlePanelController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-    [SerializeField] private GameObject titileFirst;
+    [SerializeField] private GameObject EscFirst;
     [SerializeField] private GameObject settingFirst;
     [SerializeField] private GameObject selectFirst;
 
-    private void Start()
+
+    public void EscOpen() 
     {
-        TitleOpen();
-    }
-    public void TitleOpen()
-    {
-        EventSystem.current.SetSelectedGameObject(titileFirst);
+        EventSystem.current.SetSelectedGameObject(EscFirst);
     }
     public void SettingOpen() 
     {
         EventSystem.current.SetSelectedGameObject(settingFirst);
     }
-
-    public void QuitGame() 
+    public void SelectOpen() 
     {
-        Application.Quit();
+        EventSystem.current.SetSelectedGameObject(selectFirst);
     }
 }

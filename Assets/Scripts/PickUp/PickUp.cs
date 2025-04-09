@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum PickUpTpye 
 {
-    Exp, Coin, Blood
+    Exp, Blood
 }
 public class PickUp : MonoBehaviour
 {
@@ -48,14 +48,12 @@ public class PickUp : MonoBehaviour
         {
             case PickUpTpye.Exp:
                 PlayerData.getInstance().Exp += (int)value;
-                //Debug.Log("Exp: "+ PlayerData.getInstance().Exp);
-                
-                break;
-            case PickUpTpye.Coin:
+                //Debug.Log("Exp: "+ PlayerData.getInstance().Exp);          
                 break;
             case PickUpTpye.Blood:
                 break;
-             
+
+
         }
         ObjPoolManager.instance.ReturnObj(gameObject);
 

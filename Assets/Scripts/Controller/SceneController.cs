@@ -13,4 +13,19 @@ public class SceneController : MonoBehaviour
         Time.timeScale = 1.0f;
 
     }
+    public void WaitForAniFinished(string ani)
+    {
+        Animator animator = GameObject.Find(ani).GetComponent<Animator>();
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        // wait for the animation to finish
+        while (stateInfo.normalizedTime < 1.0f)
+        {
+            stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.normalizedTime >= 1.0f)
+            {
+                Teleport("level1");
+                break;
+            }
+        }
+    }
 }

@@ -76,7 +76,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-
         Move();
         currentState.OnUpData();
         curMaxHealth = PlayerData.getInstance().CurrentMaxHealth;

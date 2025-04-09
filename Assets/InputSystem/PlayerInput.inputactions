@@ -231,6 +231,17 @@
                     "action": "Esc",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f406e0b-2d99-402a-aa47-093f1ae0fd76",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
