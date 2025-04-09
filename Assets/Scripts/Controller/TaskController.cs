@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class TaskController : MonoBehaviour
@@ -14,25 +15,26 @@ public class TaskController : MonoBehaviour
     public Text taskDescription;
     public Text taskStatus;
     public Text taskRewards;
-
+    [HideInInspector]public int taskIndex = 1;
     public UnityEvent selectWeapon;
 
     public int status;
 
     private int num;
-
+    private bool isChinese = true;
     private void Awake()
     {
         InitTaskText();
         instance = this;
-        LoadTasks(1);
+        //LoadTasks(taskIndex);
 
     }
     private void Update()
     {
         if (tasks.Count != 0) 
         {
-            
+            //LoadTasks(taskIndex);
+            LoadTaskText();
             CheckTask();
         }
     }
@@ -41,10 +43,20 @@ public class TaskController : MonoBehaviour
     public void LoadTasks(int index)
     {
         XmlDocument xml = new XmlDocument();
+        XmlNodeList nodes;
         xml.Load("Assets/Tasks.xml");
-        XmlNodeList nodes = xml.SelectNodes($"/TaskList/Task{index}/Task");
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
+        {
+            nodes = xml.SelectNodes($"/TaskList/Task{index}/Task_English");
+        }
+        else 
+        {
+            nodes = xml.SelectNodes($"/TaskList/Task{index}/Task_Chinese");            
+        }
+            
         foreach (XmlNode node in nodes)
         {
+            tasks.Clear();
             Task task = new Task();            
             task.ID = int.Parse(node.SelectSingleNode("ID").InnerText);
             //Debug.Log("ID" + int.Parse(node.SelectSingleNode("ID").InnerText));
@@ -54,17 +66,30 @@ public class TaskController : MonoBehaviour
             task.Goal = int.Parse(node.SelectSingleNode("Goal").InnerText);
             task.Reward = node.SelectSingleNode("Reward").InnerText;
             tasks.Add(task);
-            Debug.Log("获得任务");
+            //Debug.Log("获得任务");
         }
         LoadTaskText();
         InitTask();
+        
     }
-    public void LoadTaskText() 
+    public void LoadTaskText()
     {
-        taskName.text = "任务：" + tasks[0].Name.ToString();
-        taskDescription.text = "要求：" + tasks[0].Description.ToString();
-        taskRewards.text = "奖励：" + tasks[0].Reward.ToString();
-        taskStatus.text = "进度：" + $"{status} / {tasks[0].Goal}";
+        
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
+        {
+            taskName.text = "Task：" + tasks[0].Name.ToString();
+            taskDescription.text = "Requirment：" + tasks[0].Description.ToString();
+            taskRewards.text = "Reward：" + tasks[0].Reward.ToString();
+            taskStatus.text = "Progress：" + $"{status} / {tasks[0].Goal}";
+        }
+        else 
+        {
+            taskName.text = "任务：" + tasks[0].Name.ToString();
+            taskDescription.text = "要求：" + tasks[0].Description.ToString();
+            taskRewards.text = "奖励：" + tasks[0].Reward.ToString();
+            taskStatus.text = "进度：" + $"{status} / {tasks[0].Goal}";
+        }
+
 
 
     }
@@ -112,13 +137,13 @@ public class TaskController : MonoBehaviour
                 if (num +1 == PlayerData.getInstance().KillNum )
                 {
                     num = PlayerData.getInstance().KillNum;
-                    Debug.Log("任务进度+1");
+                    //Debug.Log("任务进度+1");
                     status++;
-                    LoadTaskText();
+                    
                 }
                 if (status==10) 
                 {
-                    Debug.Log("完成任务");
+                    //Debug.Log("完成任务");
                     selectWeapon.Invoke();
                     InitTaskText();
                     FinishTask();

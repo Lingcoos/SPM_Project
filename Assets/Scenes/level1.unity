@@ -2300,6 +2300,7 @@ MonoBehaviour:
   taskDescription: {fileID: 661931571}
   taskStatus: {fileID: 1414574633}
   taskRewards: {fileID: 74325275}
+  taskIndex: 1
   selectWeapon:
     m_PersistentCalls:
       m_Calls:
