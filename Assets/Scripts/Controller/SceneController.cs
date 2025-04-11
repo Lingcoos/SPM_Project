@@ -6,6 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+
+    public void TimePause() 
+    {
+        Time.timeScale = 0f;
+    }
+    public void TimeDisPause()
+    {
+        Time.timeScale = 1f;
+    }
+
+
     public void Teleport(string name) 
     {
         // load the scene

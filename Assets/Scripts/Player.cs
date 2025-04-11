@@ -122,6 +122,7 @@ public class Player : MonoBehaviour
     public void PlayerHurt() 
     {
         isHurt = true;
+        Controller.instance.StartVibration(1f, 1f, 0.5f);
         FlashColor(0.5f);
     }
     private void FlashColor(float time)

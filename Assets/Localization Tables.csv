@@ -46,3 +46,5 @@ Key,Id,English(en),Chinese (Simplified)(zh-Hans)
 "tornadoLevel3",5385373701242880,"4","4"
 "tornadoLevel4",5385410053275648,"5","5"
 "tornadoLevel5",5385428256555008,"2","3"
+"TimeText",17368833890320384,"Time","时间"
+"KillNumText",17368921123454976,"Kill","杀敌数"

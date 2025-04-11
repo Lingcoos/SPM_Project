@@ -36,13 +36,15 @@ public class ScytheController : WeaponController
                 level++;
                 break;
             case 1:
+                damage+=5;
                 level++;
                 break;
             case 2:
-                count += 2;
+                damage+=2;
                 level++;
                 break;
             case 3:
+                cooldownDuration/=2;
                 level++;
                 break;
             case 4:
@@ -50,6 +52,7 @@ public class ScytheController : WeaponController
                 level++;
                 break;
             case 5:
+                damage += 10;
                 GetComponent<Weapon>().isLevelMax = true;
                 WeaponSelectController.instance.LevelMaxRemove("Scythe");
                 weapon.weaponLevel++;

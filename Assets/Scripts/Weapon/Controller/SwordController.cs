@@ -37,14 +37,18 @@ public class SwordController : WeaponController
     protected override void Update()
     {
         base.Update();
-        UpdateEnemyList();
+        
         for (int i = 0; i < count; i++) 
         {
             Transform sword =swords[i];
             Transform target = sword.GetComponent<Sword>().enemy;
             if (target == null || target.GetComponent<Enemy>().isDie || transform.position == target.position)
             {
-                
+                //if (target.GetComponent<Enemy>().isDie)
+                //{
+                //    Debug.Log("死亡转换");
+                //}
+                UpdateEnemyList();
                 AssignTarget(sword);
 
             }
@@ -60,9 +64,10 @@ public class SwordController : WeaponController
     {
         if (availableTargets.Count > 0) 
         {
-            Transform target = availableTargets[0];
-            sword.GetComponent<Sword>().enemy = target;
+            Transform target = availableTargets[Random.Range(0, availableTargets.Count - 1)];
             availableTargets.Remove(target);
+            sword.GetComponent<Sword>().enemy = target;
+            
         }
     }
     public void UpdateEnemyList() //更新敌人列表
@@ -113,20 +118,23 @@ public class SwordController : WeaponController
                 level++;
                 break;
             case 1:
+                speed *= 2;
                 level++;
                 break;
             case 2:
-                count += 2;
+                count += 1;
                 level++;
                 break;
             case 3:
+                damage += 5;
                 level++;
                 break;
             case 4:
-                count += 2;
+                count += 1;
                 level++;
                 break;
             case 5:
+                count += 2;
                 GetComponent<Weapon>().isLevelMax = true;
                 WeaponSelectController.instance.LevelMaxRemove("Sword");
                 weapon.weaponLevel++;

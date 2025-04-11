@@ -15,6 +15,7 @@ public class TaskController : MonoBehaviour
     public Text taskDescription;
     public Text taskStatus;
     public Text taskRewards;
+    public bool isHaveTask;
     [HideInInspector]public int taskIndex = 1;
     public UnityEvent selectWeapon;
 
@@ -26,15 +27,15 @@ public class TaskController : MonoBehaviour
     {
         InitTaskText();
         instance = this;
-        //LoadTasks(taskIndex);
+        LoadTasks(taskIndex);
 
     }
     private void Update()
     {
         if (tasks.Count != 0) 
         {
-            //LoadTasks(taskIndex);
-            LoadTaskText();
+            ChangeTasks(taskIndex);
+            
             CheckTask();
         }
     }
@@ -42,6 +43,10 @@ public class TaskController : MonoBehaviour
 
     public void LoadTasks(int index)
     {
+        if (index == 0) 
+        {
+            return;
+        }
         XmlDocument xml = new XmlDocument();
         XmlNodeList nodes;
         xml.Load("Assets/Tasks.xml");
@@ -70,7 +75,43 @@ public class TaskController : MonoBehaviour
         }
         LoadTaskText();
         InitTask();
+        isHaveTask = true;
         
+    }
+    public void ChangeTasks(int index)
+    {
+        if (index == 0)
+        {
+            return;
+        }
+        XmlDocument xml = new XmlDocument();
+        XmlNodeList nodes;
+        xml.Load("Assets/Tasks.xml");
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
+        {
+            nodes = xml.SelectNodes($"/TaskList/Task{index}/Task_English");
+        }
+        else
+        {
+            nodes = xml.SelectNodes($"/TaskList/Task{index}/Task_Chinese");
+        }
+
+        foreach (XmlNode node in nodes)
+        {
+            tasks.Clear();
+            Task task = new Task();
+            task.ID = int.Parse(node.SelectSingleNode("ID").InnerText);
+            //Debug.Log("ID" + int.Parse(node.SelectSingleNode("ID").InnerText));
+            task.Name = node.SelectSingleNode("Name").InnerText;
+            task.Description = node.SelectSingleNode("Description").InnerText;
+            task.Type = int.Parse(node.SelectSingleNode("Type").InnerText);
+            task.Goal = int.Parse(node.SelectSingleNode("Goal").InnerText);
+            task.Reward = node.SelectSingleNode("Reward").InnerText;
+            tasks.Add(task);
+            //Debug.Log("获得任务");
+        }
+        LoadTaskText();
+
     }
     public void LoadTaskText()
     {
@@ -106,6 +147,7 @@ public class TaskController : MonoBehaviour
     public void FinishTask() 
     {
         tasks.Clear();
+        isHaveTask = false;
     }
     public void InitTask() 
     {
@@ -139,7 +181,7 @@ public class TaskController : MonoBehaviour
                     num = PlayerData.getInstance().KillNum;
                     //Debug.Log("任务进度+1");
                     status++;
-                    
+                    LoadTaskText();
                 }
                 if (status==10) 
                 {

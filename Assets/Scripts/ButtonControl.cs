@@ -23,7 +23,7 @@ public class ButtonControl : MonoBehaviour
         if (info.IsName(name)&& info.normalizedTime >= 0.5f) 
         {
             tp.Invoke();
-            Debug.Log("动画完成");
+            //Debug.Log("动画完成");
         }
     }
 }

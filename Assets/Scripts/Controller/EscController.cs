@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class EscController : MonoBehaviour
 {
+
     [SerializeField] private UnityEvent openPanel;
     private void OnEnable()
     {
-        openPanel.Invoke();
+        openPanel.Invoke();       
     }
 }
