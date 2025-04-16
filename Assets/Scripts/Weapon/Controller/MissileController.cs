@@ -55,7 +55,7 @@ public class MissileController : WeaponController
             case 5:
                 damage *= 2;
                 GetComponent<Weapon>().isLevelMax = true;
-                WeaponSelectController.instance.LevelMaxRemove("Missile");
+                WeaponSelectController.instance.LevelMaxRemove("Missle");
                 weapon.weaponLevel++;
                 break;
         }

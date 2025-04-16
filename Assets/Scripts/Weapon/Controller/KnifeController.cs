@@ -60,7 +60,7 @@ public class KnifeController : WeaponController
             case 5:
                 speed *= 2;
                 GetComponent<Weapon>().isLevelMax = true;
-                WeaponSelectController.instance.LevelMaxRemove("Knife");
+                WeaponSelectController.instance.LevelMaxRemove("Knifle");
                 weapon.weaponLevel++;
                 break;
         }

@@ -63,11 +63,11 @@ public class TornadoController : WeaponController
         switch (level)
         {
             case 0:
-                count++;
+
                 level++;
                 break;
             case 1:
-                count++;
+                damage++;
                 level++;
                 break;
             case 2:
@@ -75,14 +75,15 @@ public class TornadoController : WeaponController
                 level++;
                 break;
             case 3:
-                count++;
+                moveRange--;
                 level++;
                 break;
             case 4:
-                count++;
+                damage+=2;
                 level++;
                 break;
             case 5:
+                moveRange -= 2;
                 GetComponent<Weapon>().isLevelMax = true;
                 WeaponSelectController.instance.LevelMaxRemove("Funnel");
                 weapon.weaponLevel++;
