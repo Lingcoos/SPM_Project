@@ -203,6 +203,14 @@ MonoBehaviour:
     m_Key: tornadoLevel5
     m_Metadata:
       m_Items: []
+  - m_Id: 17368833890320384
+    m_Key: TimeText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17368921123454976
+    m_Key: KillNumText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

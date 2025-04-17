@@ -18,63 +18,63 @@ Pixel Fantasy II is a pixel anime game based on Unity.
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">"Pixel Fantasy II</h3>
+  <h3 align="center">Pixel Fantasy II</h3>
   <p align="center">
     A pixel anime game！
     <br />
-    <a href="https://github.com/Lingcoos/SPM_Project"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/Lingcoos/SPM_Project"><strong>Project Document »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Lingcoos/SPM_Project">查看Demo</a>
+    <a href="https://github.com/Lingcoos/SPM_Project/releases">Game Demo</a>
     ·
-    <a href="https://github.com/Lingcoos/SPM_Project/issues">报告Bug</a>
+    <a href="https://github.com/Lingcoos/SPM_Project/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Lingcoos/SPM_Project/issues">提出新特性</a>
+    <a href="https://github.com/Lingcoos/SPM_Project/issues">New Feature</a>
   </p>
 
 </p>
 
 
- 本篇README.md面向开发者
+ This README.md file is for developers.
  
-## 目录
+## Content
 
 - [Pixel Fantasy II](#pixel-fantasy-ii)
-  - [目录](#目录)
-    - [上手指南](#上手指南)
-          - [开发前的配置要求](#开发前的配置要求)
-          - [**安装步骤**](#安装步骤)
-    - [文件目录说明](#文件目录说明)
-    - [开发手册](#开发手册)
-    - [部署](#部署)
-    - [使用到的框架](#使用到的框架)
-    - [贡献者](#贡献者)
-      - [如何参与开源项目](#如何参与开源项目)
-    - [版本控制](#版本控制)
-    - [作者](#作者)
-    - [版权说明](#版权说明)
-    - [鸣谢](#鸣谢)
+  - [Content](#content)
+    - [Quick Guide](#quick-guide)
+          - [Environment](#environment)
+          - [**Starting**](#starting)
+    - [File Tree](#file-tree)
+    - [Develop Guide](#develop-guide)
+    - [Develop Platform](#develop-platform)
+    - [Framework](#framework)
+    - [Contributors](#contributors)
+      - [Join Us Now](#join-us-now)
+    - [Version Control](#version-control)
+    - [Author](#author)
+    - [License](#license)
+    - [Acknowledgment](#acknowledgment)
 
-### 上手指南
-参考[开发手册](#开发手册)
-请在`dev`分支进行开发！
+### Quick Guide
+Please Refer [Develop Guide](#develop-guide)
+**Please develop in `dev` branch!**
 
 
-###### 开发前的配置要求
+###### Environment
 
 1. Unity 2022.3.55f1
 2. Visual Studio 2022
 
-###### **安装步骤**
+###### **Starting**
 
 1. Download [Unity](https://unity.com/)
 2. Clone the repo
 ```sh
 git clone https://github.com/Lingcoos/SPM_Project.git
 ```
-1. Use Unity to open the project
+3. Use Unity to open the project
 
-### 文件目录说明
+### File Tree
 
 ```
 filetree 
@@ -84,41 +84,39 @@ filetree
 ├── /Assets/
 ├────── /Animation/
 ├────── /Animator/
+├────── /Language/
 ├────── /Materials/
 ├────── /Prefabs/
 ├────── /Scenes/
 ├────── /Scripts/
+├────── /.../
 ├── /Packages/
 ├── /ProjectSettings/
 └── /images/
 ```
 
-
-
-
-
-### 开发手册
+### Develop Guide
 
 Please read [ARCHITECTURE.md](https://github.com/Lingcoos/SPM_Project/blob/master/ARCHITECTURE.md) to check the architecture of the project.
 
-### 部署
+### Develop Platform
 
 Windows
 
-### 使用到的框架
+### Framework
 
-- [暂无]()
+- [Mirror](https://github.com/MirrorNetworking/Mirror)
 
 
-### 贡献者
+### Contributors
 
 + [WEI TAO](https://github.com/Lingcoos)
 + [Wang Zhenghan](https://github.com/wnagbi)
 + [Qiu Zixi](https://github.com/vousmevoyez7)
 
-#### 如何参与开源项目
+#### Join Us Now
 
-贡献使开源社区成为一个学习、激励和创造的绝佳场所。你所作的任何贡献都是**非常感谢**的。
+Contributions make the open source community a great place to learn, inspire, and create. Any contribution you make is **very much appreciated**.
 
 
 1. Fork the Project
@@ -127,29 +125,27 @@ Windows
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+### Version Control
 
+This project uses `Git` for version management. You can view the currently available versions in the `repository`.
 
-### 版本控制
+For beginners, you can also use `Github Desktop` for visual management.
+> Again, don't develop in the `main` branch! Be sure to switch to the `dev` branch for development!
 
-该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
-
-对于初学者，当然也可以使用Github Desktop来进行可视化管理。
-> 再次提醒，不要再main分支开发！一定要求换到dev分支进行开发！
-
-### 作者
+### Author
 
 + [WEI TAO](https://github.com/Lingcoos)
 
+  *You can also see all the developers involved in the project in the Contributors list.*
 
- *您也可以在贡献者名单中参看所有参与该项目的开发者。*
+### License
 
-### 版权说明
 
-该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt)
+This project is licensed under the GPL license, see [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE) for details.
 
-### 鸣谢
+### Acknowledgment
 
-- [wt](https://github.com/Lingcoos)
+- Li Zixu (Evaluation Team)
 
 
 <!-- links -->
@@ -163,4 +159,4 @@ Windows
 [issues-shield]: https://img.shields.io/github/issues/Lingcoos/SPM_Project.svg?style=flat-square
 [issues-url]: https://img.shields.io/github/issues/Lingcoos/SPM_Project.svg
 [license-shield]: https://img.shields.io/github/license/Lingcoos/SPM_Project.svg?style=flat-square
-[license-url]: https://github.com/Lingcoos/SPM_Project/blob/master/LICENSE.txt
+[license-url]: https://github.com/Lingcoos/SPM_Project/blob/main/LICENSE

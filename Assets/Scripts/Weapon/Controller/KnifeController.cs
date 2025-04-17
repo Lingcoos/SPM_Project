@@ -38,29 +38,29 @@ public class KnifeController : WeaponController
     {
         switch (level)
         {
-            case 0:
-                count++;
+            case 0:               
                 level++;
                 break;
             case 1:
-                count++;
+                damage += 5;        
                 level++;
                 break;
             case 2:
-                count++;
+                count += 2;            
                 level++;
                 break;
             case 3:
-                count++;
+                count += 2;
                 level++;
                 break;
             case 4:
-                count++;
+                count += 2;                
                 level++;
                 break;
             case 5:
+                speed *= 2;
                 GetComponent<Weapon>().isLevelMax = true;
-                WeaponSelectController.instance.LevelMaxRemove("Knife");
+                WeaponSelectController.instance.LevelMaxRemove("Knifle");
                 weapon.weaponLevel++;
                 break;
         }

@@ -1,50 +1,51 @@
-# 开发文档
-## 说明
-本篇文档用于介绍开发过程中，项目的基本架构以及各个函数使用的方法。
-> 所有的文档都可以根据实际情况进行修改和完善
+# Development Document
+## Description
 
+This document is used to introduce the basic architecture of the project and the methods of using each function during the development process.
 
+> All documents can be modified and improved according to actual conditions
 
-## 架构
-### 项目架构
-基于组件的自底向上架构
+## Architecture
+### Project Architecture
++ Component-based
++ bottom-up architecture
 
-玩家（与I/O系统直接交互） - 屏幕（显示画面） - 系统（处理数据）
+Player (directly interacts with the I/O system) - Screen (displays the screen) - System (processes data)
 
-### 文件架构
+### File Tree
 #### Assets
-用于储存所有项目相关的素材和资源
-+ Animation: 动画资源
-+ Animator: 动画资源
-+ Materials: 素材源文件
-  + characters: 角色相关
-  + items: 物品、道具相关
-  + monsters: 怪物、敌人相关
-  + tilemaps: 地图
-+ Prefabs: 预制体
-+ Scenes: 场景
-+ Scrips: 脚本
+Used to store all project-related materials and resources
++ Animation: animation resources
++ Animator: animation resources
++ Materials: material source files
++ characters: character-related
++ items: items and props-related
++ monsters: monsters and enemies-related
++ tilemaps: maps
++ Prefabs: prefabs
++ Scenes: scenes
++ Scrips: scripts
 #### images
-存放项目文档中的相关图片
+Store related pictures in project documents
 #### ARCHITECTURE.md
-开发手册，即本篇文档
+Development Manual, which is this document
 #### README.md
-项目说明文档
+Project description document
 #### LICENCE.txt
-软件许可协议。本项暂未开源。若开源，请遵守 `MIT协议`
-#### 其他
-未说明的文件一般情况下**不需要**手动修改。
+Software License Agreement. This project is not open source yet. If open source, please comply with the `GPL`
+#### Others
+Undocumented files generally **do not need** to be modified manually.
 
 
-<!-- 以下部分可自行添加您打算或已经实现的功能 -->
-## 函数
-### 功能类
-#### 移动
-#### 攻击
-#### PlayerData 玩家数据储存
-储存玩家数据，一般情况下使用该函数的方法来调用或改变变量。
-##### 常量定义
-定义角色数值的最大值。一般情况下 **不要** 变更常量。
+
+<!-- You can add the functions you intend to or have already implemented in the following part -->
+## Functions
+### Main Features
+#### About Player Data
+`./Assets/Scripts/.PlayerData.cs`
+Stores player data. Generally, this function is used to call or change variables.
+##### Define Constant
+Defines the maximum value for the character. Normally, **do not** change constants.
 + MAX_GOLD
 + MAX_CRYSTAL
 + MAX_LEVEL
@@ -55,8 +56,8 @@
 + MAX_DEFFENSE
 + MAX_SPEED
 
-##### 储存的角色数据
-函数对以下变量进行操作：
+##### Stored Character Data
+The function operates on the following variables:
 + gold
 + crystal
 + level
@@ -78,45 +79,70 @@
 + currentDefense
 + currentSpeed
 
-##### 构造器
-使用get/set方法定义构造器。
-一般情况下， **不要修改** 构造器的逻辑处理方法。
+##### Constructor
+Use get/set methods to define the constructor.
+In general, **do not modify** the logic processing method of the constructor.
 
-##### 调用方法
-使用 `PlayerData.getInstance().[Variable];`  来调用。
+##### Calling method
+Use `PlayerData.getInstance().[Variable];` to call.
 ```c#
-// 数据处理: Gold, Crystal, Exp, KillNum, HealthBuff, AttackBuff, DefenseBuff, SpeedBuff, CurrentMaxHealth, CurrentHealth, CurrentAttack, CurrentDefense, CurrentSoeed, X_pos, Y_pos
-int currentgold = PlayerData.getInstance().Gold;   // 获取 `gold 并且赋值给 `currentgold
-PlayerData.getInstance().Gold = 0;   // 设置 `gold 为 0
-PlayerData.getInstance().Gold += 100;   // 增加 100 `gold
+// Data processing: Gold, Crystal, Exp, KillNum, HealthBuff, AttackBuff, DefenseBuff, SpeedBuff, CurrentMaxHealth, CurrentHealth, CurrentAttack, CurrentDefense, CurrentSoeed, X_pos, Y_pos
+int currentgold = PlayerData.getInstance().Gold;   // Get `gold and assign it to `currentgold
+PlayerData.getInstance().Gold = 0;   // Set `gold as 0
+PlayerData.getInstance().Gold += 100;   // Add 100 `gold
 ```
 
-使用 `PlayerData.getInstance().[Function()];`  来调用。
-+ UpgradeAttribute: 更新角色属性值
-+ Upgrade: 进行升级处理
-+ UpdateAllData: 更新所有角色数据
+Use `PlayerData.getInstance().[Function()];` to call.
++ UpgradeAttribute: Update character attribute values
++ Upgrade: Perform upgrade processing
++ UpdateAllData: Update all character data
 
-一般情况下只需要调用 `PlayerData.getInstance().UpdateAllData();` 方法即可。
-+ InitData: 初始化角色数据
-+ SaveData: 存档
-+ LoadData: 读档
+Generally, you only need to call the `PlayerData.getInstance().UpdateAllData();` method.
++ InitData: Initialize character data
++ SaveData: Save data
++ LoadData: Read data
 
 ```c#
-// 数据操作: UpgradeAttribute, Upgrade, UpdateAllData, InitData, SaveData, LoadData
+//Data operations: UpgradeAttribute, Upgrade, UpdateAllData, InitData, SaveData, LoadData
 PlayerData.getInstance().UpdateAllData();
 ```
 
+#### About New Weapons
+If you want to design new weapon, please locate the two file first. 
+`./Assets/Scripts/Weapon`: create the object of weapon (e.g., NewWep.cs)
+`./Assets/Scripts/Weapon/Controller`: create the controller of the weapon (e.g., NewWepController.cs)
 
+You can refer other code to design.
 
+#### About New Monsters
+<!-- Add Here -->
 
+#### About New Characters
+<!-- Add Here -->
 
-#### 音效
+#### BGM/SE
+<!-- Add Here -->
 
-### 非功能类
-#### SingleBaseManager 单例化基类
-用途：声明调用单例化
-> 经常需要调用的变量/函数建议使用单例化
-定义单例化：
+#### About Level Up Bonus
+<!-- Add Here -->
+
+#### About Game Flow Control
+<!-- Add Here -->
+
+#### About Multi-Player
+<!-- Add Here -->
+
+#### About Localization
+<!-- Add Here -->
+
+#### About GameSetting
+<!-- Add Here -->
+
+### Helper Function
+#### SingleBaseManager
+Purpose: Declare and call singleton
+> It is recommended to use singleton for variables/functions that need to be called frequently
+Define singleton: 
 ```c#
 public class CLASS : SingleBaseManager<CLASS>       // 定义需要单例化的类 `CLASS
 {
@@ -125,7 +151,8 @@ public class CLASS : SingleBaseManager<CLASS>       // 定义需要单例化的�
 }
 ```
 
-调用单例化：
+
+Calling singleton:
 ```c#
 public class ANY_CLASS      // 在任意类中调用单例化的数据
 {

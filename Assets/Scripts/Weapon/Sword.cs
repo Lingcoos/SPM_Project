@@ -14,8 +14,9 @@ public class Sword : MonoBehaviour
         {
             if (collision.transform == enemy)
             {
-                float damage = collision.GetComponent<Enemy>().Health;
+                float damage = collision.GetComponent<Enemy>().maxHealht;
                 collision.GetComponent<Enemy>().GetDamage(damage);
+                DamageNumberController.instance.SpawnDamage(damage, collision.transform.position);
 
             }
             else

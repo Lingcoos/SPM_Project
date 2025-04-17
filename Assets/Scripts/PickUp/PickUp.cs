@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum PickUpTpye 
 {
-    Exp, Coin, Blood
+    Exp, Blood
 }
 public class PickUp : MonoBehaviour
 {
@@ -13,10 +13,19 @@ public class PickUp : MonoBehaviour
 
     public float pickUpDistance;
     public float moveSpeed;
-    public Transform player;
 
+    private float originDistance;
+    private float originSpeed;
+    public Transform player;
+    private void Awake()
+    {
+        originDistance = pickUpDistance;
+        originSpeed = moveSpeed;
+    }
     private void OnEnable()
     {
+        pickUpDistance = originDistance;
+        moveSpeed = originSpeed;
         if (pickUpTpye == PickUpTpye.Exp) 
         {
             float scale = Random.Range(1, 2f);
@@ -48,14 +57,12 @@ public class PickUp : MonoBehaviour
         {
             case PickUpTpye.Exp:
                 PlayerData.getInstance().Exp += (int)value;
-                //Debug.Log("Exp: "+ PlayerData.getInstance().Exp);
-                
-                break;
-            case PickUpTpye.Coin:
+                //Debug.Log("Exp: "+ PlayerData.getInstance().Exp);          
                 break;
             case PickUpTpye.Blood:
                 break;
-             
+
+
         }
         ObjPoolManager.instance.ReturnObj(gameObject);
 

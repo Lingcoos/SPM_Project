@@ -312,4 +312,9 @@ public class PlayerData : SingleBaseManager<PlayerData>
         Resolution = PlayerPrefs.GetInt("Resolution");
         Language = PlayerPrefs.GetInt("Language");
     }
+
+    public void SaveKillNum() 
+    {
+        PlayerPrefs.SetInt("KillNum", KillNum);
+    }
 }

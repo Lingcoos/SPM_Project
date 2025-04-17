@@ -4,6 +4,7 @@ using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -19,12 +20,13 @@ public class UIController : MonoBehaviour
     [Header("Kill Number")]
     public Text killNumber;
 
-
+    public LocalizedString nameString;
 
     private bool isEsc;
     private void Awake()
     {       
         originalSize = hpMaskimage.rectTransform.rect.width;
+        nameString.TableEntryReference = "KillNumText";
     }
 
     public void OnEsc()
@@ -57,7 +59,7 @@ public class UIController : MonoBehaviour
     }
     public void setKillNumber() 
     {
-        killNumber.text = "Kill Number " + PlayerData.getInstance().KillNum.ToString();
+        killNumber.text = $"{nameString.GetLocalizedString()} : " + PlayerData.getInstance().KillNum.ToString();
     }
     public void QuitGame() 
     {
