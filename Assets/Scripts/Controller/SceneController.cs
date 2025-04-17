@@ -10,6 +10,7 @@ public class SceneController : MonoBehaviour
     public void TimePause() 
     {
         Time.timeScale = 0f;
+     
     }
     public void TimeDisPause()
     {

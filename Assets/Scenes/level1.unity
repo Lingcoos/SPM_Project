@@ -6594,6 +6594,7 @@ MonoBehaviour:
   curMaxHealth: 100
   curHealth: 100
   curSpeed: 5
+  isSkill1: 0
   onHurt:
     m_PersistentCalls:
       m_Calls:
@@ -6624,6 +6625,7 @@ MonoBehaviour:
           m_StringArgument: GameOver
           m_BoolArgument: 0
         m_CallState: 2
+  pickUpSet: {fileID: 0}
   isRuning: 0
   isHurt: 0
   ani: {fileID: 0}
@@ -8762,7 +8764,23 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: a4c7526f-2cd0-4d93-a270-272685615f18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: Player/Skill1[/Keyboard/q]
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
@@ -8774,6 +8792,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 375291412}
@@ -8782,7 +8804,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 375291413}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1620409355}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
@@ -8794,12 +8824,20 @@ PrefabInstance:
       value: TimePause
       objectReference: {fileID: 0}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSkill1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -8817,6 +8855,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6641255985497813138, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6971781710473631014, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: count
       value: 2
@@ -8825,6 +8867,14 @@ PrefabInstance:
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7484645982479593668, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: isSkill1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484645982479593668, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+      propertyPath: pickUpSet
+      value: 
+      objectReference: {fileID: 777574389}
     - target: {fileID: 7484645982479593668, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8888,6 +8938,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelectedUI: {fileID: 0}
+--- !u!114 &1620409355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7484645982479593668, guid: 3f8bbddc5d2b42547bc770ed719b1148, type: 3}
+  m_PrefabInstance: {fileID: 1620409347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620409349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c406fbf3ee079184981358e834b0550e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628013359
 GameObject:
   m_ObjectHideFlags: 0

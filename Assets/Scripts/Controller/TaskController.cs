@@ -65,7 +65,6 @@ public class TaskController : MonoBehaviour
             //Debug.Log("ID" + int.Parse(node.SelectSingleNode("ID").InnerText));
             task.Name = node.SelectSingleNode("Name").InnerText;
             task.Description = node.SelectSingleNode("Description").InnerText;
-            task.Type = int.Parse(node.SelectSingleNode("Type").InnerText);
             task.Goal = int.Parse(node.SelectSingleNode("Goal").InnerText);
             task.Reward = node.SelectSingleNode("Reward").InnerText;
             tasks.Add(task);
@@ -102,7 +101,6 @@ public class TaskController : MonoBehaviour
             //Debug.Log("ID" + int.Parse(node.SelectSingleNode("ID").InnerText));
             task.Name = node.SelectSingleNode("Name").InnerText;
             task.Description = node.SelectSingleNode("Description").InnerText;
-            task.Type = int.Parse(node.SelectSingleNode("Type").InnerText);
             task.Goal = int.Parse(node.SelectSingleNode("Goal").InnerText);
             task.Reward = node.SelectSingleNode("Reward").InnerText;
             tasks.Add(task);
@@ -210,7 +208,6 @@ public class Task
     public int ID { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
-    public int Type { get; set; }
     public int Goal { get; set; }
     public string Reward { get; set; }
 }
