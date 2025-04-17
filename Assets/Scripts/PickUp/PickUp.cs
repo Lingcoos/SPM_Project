@@ -13,10 +13,19 @@ public class PickUp : MonoBehaviour
 
     public float pickUpDistance;
     public float moveSpeed;
-    public Transform player;
 
+    private float originDistance;
+    private float originSpeed;
+    public Transform player;
+    private void Awake()
+    {
+        originDistance = pickUpDistance;
+        originSpeed = moveSpeed;
+    }
     private void OnEnable()
     {
+        pickUpDistance = originDistance;
+        moveSpeed = originSpeed;
         if (pickUpTpye == PickUpTpye.Exp) 
         {
             float scale = Random.Range(1, 2f);

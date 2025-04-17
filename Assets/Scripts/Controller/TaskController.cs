@@ -18,11 +18,9 @@ public class TaskController : MonoBehaviour
     public bool isHaveTask;
     [HideInInspector]public int taskIndex = 1;
     public UnityEvent selectWeapon;
-
     public int status;
-
+    public TextAsset xmlTaskFile;
     private int num;
-    private bool isChinese = true;
     private void Awake()
     {
         InitTaskText();
@@ -49,7 +47,7 @@ public class TaskController : MonoBehaviour
         }
         XmlDocument xml = new XmlDocument();
         XmlNodeList nodes;
-        xml.Load("Assets/Tasks.xml");
+        xml.LoadXml(xmlTaskFile.text);
         if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
         {
             nodes = xml.SelectNodes($"/TaskList/Task{index}/Task_English");

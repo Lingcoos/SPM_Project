@@ -13,13 +13,16 @@ public class GameController : MonoBehaviour
     public void EscOpen() 
     {
         EventSystem.current.SetSelectedGameObject(EscFirst);
+        InputController.instance.firstSelectedUI = EscFirst;
     }
     public void SettingOpen() 
     {
         EventSystem.current.SetSelectedGameObject(settingFirst);
+        InputController.instance.firstSelectedUI = settingFirst;
     }
     public void SelectOpen() 
     {
         EventSystem.current.SetSelectedGameObject(selectFirst);
+        InputController.instance.firstSelectedUI = selectFirst;
     }
 }
