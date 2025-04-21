@@ -95,8 +95,11 @@ public class Player : MonoBehaviour
     }
     public void OnSkill1() 
     {
-        if(isSkill1)
+        if (isSkill1 && PlayerPrefs.GetInt("Skill1") == 1) 
+        {
             PickUpAllItem();
+            Debug.Log("发动技能");
+        }       
     }
 
     #endregion
@@ -132,8 +135,7 @@ public class Player : MonoBehaviour
         if (PlayerData.getInstance().CurrentHealth <= 0) 
         {
             onDie?.Invoke();
-        }
-        
+        }  
     }
     public void PlayerHurt() 
     {
@@ -148,7 +150,6 @@ public class Player : MonoBehaviour
     }
     private void ResetColor()
     {
-
         sr.material.color = originColor;
     }
 }

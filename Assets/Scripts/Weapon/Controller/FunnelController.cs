@@ -63,7 +63,7 @@ public class FunnelController : WeaponController
         switch (level)
         {
             case 0:
-                count++;
+                
                 level++;
                 break;
             case 1:
@@ -71,7 +71,7 @@ public class FunnelController : WeaponController
                 level++;
                 break;
             case 2:
-                count ++;
+                damage+=5;
                 level++;
                 break;
             case 3:
@@ -79,10 +79,11 @@ public class FunnelController : WeaponController
                 level++;
                 break;
             case 4:
-                count++;
+                speed*=2;
                 level++;
                 break;
             case 5:
+                cooldownDuration /= 2;
                 GetComponent<Weapon>().isLevelMax = true;
                 WeaponSelectController.instance.LevelMaxRemove("Funnel");
                 weapon.weaponLevel++;
