@@ -1,3 +1,4 @@
+using Mirror.BouncyCastle.Crypto;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,12 +9,18 @@ using UnityEngine.UI;
 
 public class GameSettingController : MonoBehaviour
 {
+    public static GameSettingController instance;
     [Header("语言")]
     public Dropdown languageDropDown;
     
     [Header("分辨率")]
     public TMP_Dropdown resolutionDropDown;
-    [SerializeField]private Resolution[] resolutions;
+    [SerializeField] private Resolution[] resolutions;
+
+    [Header("手柄震动")]
+    public Toggle controllerVibraton;
+    public bool isVibration;
+
 
     private float timeDelta = 0.5f;
     private float prevTime;
@@ -34,6 +41,7 @@ public class GameSettingController : MonoBehaviour
         style = new GUIStyle();
         style.fontSize = 30;
         style.normal.textColor = new Color(255, 255, 255);
+        judgeVibrate();
        
     }
     private void OnGUI()
@@ -103,6 +111,38 @@ public class GameSettingController : MonoBehaviour
         PlayerData.getInstance().SaveGameSetting();
     }
 
+    public void statusCheck() 
+    {
+        judgeVibrate();
+    }
+    public void judgeVibrate() 
+    {
+        if (PlayerPrefs.GetInt("isVibrate") == 0)
+        {
+            controllerVibraton.isOn = false;
+            isVibration = false;
+        }
+        else 
+        {
+            controllerVibraton.isOn = true;
+            isVibration = true;
+        }
+
+    }
+
+    public void ToggleVibrate(bool isVibrate) 
+    {
+        Debug.Log(isVibrate);
+        isVibration = isVibrate;
+        if (isVibrate)
+        {
+            PlayerPrefs.SetInt("isVibrate", 1);
+        }
+        else 
+        {
+            PlayerPrefs.SetInt("isVibrate", 0);
+        }
+    }
 
 }
 

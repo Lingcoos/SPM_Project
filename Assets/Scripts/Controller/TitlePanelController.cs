@@ -10,6 +10,7 @@ public class TitlePanelController : MonoBehaviour
     [SerializeField] private GameObject titileFirst;
     [SerializeField] private GameObject settingFirst;
     [SerializeField] private GameObject selectFirst;
+    [SerializeField] private Animator[] anis;
     private void Start()
     {
         TitleOpen();
@@ -32,6 +33,13 @@ public class TitlePanelController : MonoBehaviour
         InputController.instance.firstSelectedUI = selectFirst;
     }
 
+    public void InitButton() 
+    {
+        foreach (var ani in anis) 
+        {
+            ani.Play("Normal");
+        }
+    }
     public void QuitGame() 
     {
         Application.Quit();
