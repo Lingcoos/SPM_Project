@@ -218,6 +218,22 @@ MonoBehaviour:
     m_Localized: 1
     m_Metadata:
       m_Items: []
+  - m_Id: 22250038574055424
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250138050363392
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250218979459072
+    m_Localized: FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250312344666112
+    m_Localized: Controller Vibration
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

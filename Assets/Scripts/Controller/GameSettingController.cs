@@ -17,6 +17,9 @@ public class GameSettingController : MonoBehaviour
     public TMP_Dropdown resolutionDropDown;
     [SerializeField] private Resolution[] resolutions;
 
+    [Header("全屏化")]
+    public Toggle fullScreenController;
+
     [Header("手柄震动")]
     public Toggle controllerVibraton;
     public bool isVibration;
@@ -30,6 +33,7 @@ public class GameSettingController : MonoBehaviour
     private GUIStyle style;
     private void Awake()
     {
+        instance =this;
         Screen.fullScreen = true;
         Application.targetFrameRate = 280;
     }
@@ -41,7 +45,7 @@ public class GameSettingController : MonoBehaviour
         style = new GUIStyle();
         style.fontSize = 30;
         style.normal.textColor = new Color(255, 255, 255);
-        judgeVibrate();
+        statusCheck();
        
     }
     private void OnGUI()
@@ -64,10 +68,7 @@ public class GameSettingController : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    public void ToggleFullScreen(bool isFullScreen) 
-    {
-        Screen.fullScreen =isFullScreen;
-    }
+
     private void InitialzieResolutionDropDown() //分辨率初始化
     {
         resolutions = Screen.resolutions;
@@ -102,6 +103,7 @@ public class GameSettingController : MonoBehaviour
         }
         PlayerData.getInstance().LoadGameSetting();
         languageDropDown.value = PlayerData.getInstance().Language;
+        languageDropDown.onValueChanged.Invoke(PlayerData.getInstance().Language);
         languageDropDown.RefreshShownValue();
     }
     public void SetLanguage(int index) 
@@ -113,7 +115,9 @@ public class GameSettingController : MonoBehaviour
 
     public void statusCheck() 
     {
+        InitializeLanguageDropDown();
         judgeVibrate();
+        judgeFullScreen();
     }
     public void judgeVibrate() 
     {
@@ -144,5 +148,33 @@ public class GameSettingController : MonoBehaviour
         }
     }
 
+    public void judgeFullScreen()
+    {
+        if (PlayerPrefs.GetInt("isFullScreen") == 0)
+        {
+            fullScreenController.isOn = false;
+            isVibration = false;
+        }
+        else
+        {
+            fullScreenController.isOn = true;
+            isVibration = true;
+        }
+
+    }
+
+    public void ToggleFullScreen(bool isFullScreen)
+    {
+        Debug.Log(isFullScreen);
+        Screen.fullScreen = isFullScreen;
+        if (isFullScreen)
+        {
+            PlayerPrefs.SetInt("isFullScreen", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("FullScreenate", 0);
+        }
+    }
 }
 

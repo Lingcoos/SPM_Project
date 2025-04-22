@@ -14,6 +14,7 @@ public class StartGameController : MonoBehaviour
     }
     public void Tp() 
     {
+        if (startGameTarget == null) return;
         SceneManager.LoadScene(startGameTarget);
     }
 }

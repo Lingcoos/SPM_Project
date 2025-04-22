@@ -134,7 +134,9 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDestroy() 
     {
-        PlayerData.getInstance().KillNum++;
+        int kill = PlayerPrefs.GetInt("KillNum");
+        kill++;
+        PlayerPrefs.SetInt("KillNum", kill);
         pickUpGenerator.DropItems();
         isDie = false;
         ObjPoolManager.instance.ReturnObj(gameObject);

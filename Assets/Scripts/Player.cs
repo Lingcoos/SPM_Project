@@ -53,8 +53,7 @@ public class Player : MonoBehaviour
         PlayerData.getInstance().CurrentMaxHealth = curMaxHealth;
         PlayerData.getInstance().CurrentHealth = curHealth;
         PlayerData.getInstance().CurrentSpeed = curSpeed;
-
-
+        
         originColor = sr.color;
         states.Add(PlayerStateType.Idle, new PlayerIdleState(this));
         states.Add(PlayerStateType.Move, new PlayerMoveState(this));

@@ -261,9 +261,6 @@ public class PlayerData : SingleBaseManager<PlayerData>
     /// </summary>
     public void InitData()  // init data for a new game
     {
-        
-        PlayerPrefs.SetInt("Gold", 0);
-        //PlayerPrefs.SetInt("Crystal", 0);     // global crystal
         PlayerPrefs.SetInt("Level", 1);
         PlayerPrefs.SetInt("Exp", 0);
         PlayerPrefs.SetInt("KillNum", 0);
@@ -272,6 +269,7 @@ public class PlayerData : SingleBaseManager<PlayerData>
         //PlayerPrefs.SetFloat("CurrentAttack", baseAttack);
         PlayerPrefs.SetFloat("CurrentDefense", baseDefense);
         PlayerPrefs.SetFloat("CurrentSpeed", baseSpeed);
+        PlayerPrefs.SetInt("Skill1", 0);
     }
 
     /// <summary>

@@ -18,6 +18,8 @@ public class Skill : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
+        PlayerPrefs.SetInt("Skill1", 0);
+        PlayerPrefs.SetInt("Score", 100);
     }
 
     private void Start()
@@ -42,15 +44,15 @@ public class Skill : MonoBehaviour
         }
         else 
         {
-            if(PlayerPrefs.GetInt($"Skill{ID}")>=price)
-            Debug.Log("¹ºÂò");
-            int money = PlayerPrefs.GetInt($"Skill{ID}");
-            money -= price;
-            PlayerPrefs.SetInt($"Skill{ID}", money);
-            image.sprite = originImage;
-            isAlreadyBuy = true;
-
-            PlayerData.getInstance().ChangeSkill(1);
+            if (PlayerPrefs.GetInt("Score") >= price) 
+            {
+                int money = PlayerPrefs.GetInt($"Score");
+                money -= price;
+                PlayerPrefs.SetInt("Score", money);
+                image.sprite = originImage;
+                isAlreadyBuy = true;
+                PlayerData.getInstance().ChangeSkill(1);
+            }   
         }
     }
 

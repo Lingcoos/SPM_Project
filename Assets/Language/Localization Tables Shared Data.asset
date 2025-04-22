@@ -215,6 +215,22 @@ MonoBehaviour:
     m_Key: KillNumText
     m_Metadata:
       m_Items: []
+  - m_Id: 22250038574055424
+    m_Key: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250138050363392
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250218979459072
+    m_Key: FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250312344666112
+    m_Key: ControllerVibration
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

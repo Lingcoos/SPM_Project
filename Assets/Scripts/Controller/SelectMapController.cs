@@ -7,11 +7,15 @@ public class SelectMapController : MonoBehaviour
 {
     public Text scoreText;
 
-
+    private void Start()
+    {
+        //PlayerData.getInstance().InitData();
+    }
     private void Update()
     {
-        scoreText.text = PlayerData.getInstance().Score.ToString();
-        Debug.Log("技能1: " + PlayerPrefs.GetInt("Skill1"));
+        scoreText.text = "Score: "+ PlayerPrefs.GetInt("Score").ToString();
+
+        Debug.Log("得分" + PlayerPrefs.GetInt("Score"));
     }
 
 }

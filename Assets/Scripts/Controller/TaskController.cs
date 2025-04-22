@@ -25,8 +25,13 @@ public class TaskController : MonoBehaviour
     {
         InitTaskText();
         instance = this;
-        LoadTasks(taskIndex);
+        PlayerPrefs.SetInt("KillNum", 0);
 
+
+    }
+    private void Start()
+    {
+        LoadTasks(taskIndex);
     }
     private void Update()
     {
@@ -83,7 +88,7 @@ public class TaskController : MonoBehaviour
         }
         XmlDocument xml = new XmlDocument();
         XmlNodeList nodes;
-        xml.Load("Assets/Tasks.xml");
+        xml.LoadXml(xmlTaskFile.text);
         if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
         {
             nodes = xml.SelectNodes($"/TaskList/Task{index}/Task_English");
@@ -155,7 +160,7 @@ public class TaskController : MonoBehaviour
         {
 
             case 1:
-                num = PlayerData.getInstance().KillNum;
+                num = PlayerPrefs.GetInt("KillNum");
                 break;
             case 2:
                 break;
@@ -171,11 +176,10 @@ public class TaskController : MonoBehaviour
         {
             
             case 1:
-                
-                if (num +1 == PlayerData.getInstance().KillNum )
+ 
+                if (num + 1 == PlayerPrefs.GetInt("KillNum"))
                 {
-                    num = PlayerData.getInstance().KillNum;
-                    //Debug.Log("任务进度+1");
+                    num = PlayerPrefs.GetInt("KillNum");
                     status++;
                     LoadTaskText();
                 }
