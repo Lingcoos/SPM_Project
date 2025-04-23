@@ -206,6 +206,34 @@ MonoBehaviour:
     m_Localized: 2
     m_Metadata:
       m_Items: []
+  - m_Id: 17368833890320384
+    m_Localized: Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17368921123454976
+    m_Localized: Kill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873704278556672
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250038574055424
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250138050363392
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250218979459072
+    m_Localized: FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250312344666112
+    m_Localized: Controller Vibration
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

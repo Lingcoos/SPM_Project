@@ -23,11 +23,11 @@ public class Player : MonoBehaviour
     public float curMaxHealth;
     public float curHealth;
     public float curSpeed;
-
+    public bool isSkill1;
     public UnityEvent onHurt;
     public UnityEvent onDie;
 
-
+    public GameObject pickUpSet;
     [HideInInspector] public bool isRuning;
     [HideInInspector] public bool isHurt;
 
@@ -53,8 +53,7 @@ public class Player : MonoBehaviour
         PlayerData.getInstance().CurrentMaxHealth = curMaxHealth;
         PlayerData.getInstance().CurrentHealth = curHealth;
         PlayerData.getInstance().CurrentSpeed = curSpeed;
-
-
+        
         originColor = sr.color;
         states.Add(PlayerStateType.Idle, new PlayerIdleState(this));
         states.Add(PlayerStateType.Move, new PlayerMoveState(this));
@@ -76,7 +75,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-
         Move();
         currentState.OnUpData();
         curMaxHealth = PlayerData.getInstance().CurrentMaxHealth;
@@ -92,7 +90,15 @@ public class Player : MonoBehaviour
     public void OnMove(InputAction.CallbackContext ctx)
     {
         InputValue = ctx.ReadValue<Vector2>();
-        //Debug.Log("ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ý£ï¿½" + InputValue);
+        
+    }
+    public void OnSkill1() 
+    {
+        if (isSkill1 && PlayerPrefs.GetInt("Skill1") == 1) 
+        {
+            PickUpAllItem();
+            Debug.Log("·¢¶¯¼¼ÄÜ");
+        }       
     }
 
     #endregion
@@ -108,6 +114,17 @@ public class Player : MonoBehaviour
         rig.velocity = InputValue * PlayerData.getInstance().CurrentSpeed;
         
     }
+    public void PickUpAllItem() 
+    {
+        for (int i = 0; i < pickUpSet.transform.childCount; i++) 
+        {
+            if (pickUpSet.transform.GetChild(i).gameObject.activeSelf)
+            {
+                pickUpSet.transform.GetChild(i).GetComponent<PickUp>().pickUpDistance = 1000000;
+                pickUpSet.transform.GetChild(i).GetComponent<PickUp>().moveSpeed *= 4;
+            }
+        }  
+    }
     public void GetDamage(float damage) 
     {
         if (damage <= 0)
@@ -117,12 +134,12 @@ public class Player : MonoBehaviour
         if (PlayerData.getInstance().CurrentHealth <= 0) 
         {
             onDie?.Invoke();
-        }
-        
+        }  
     }
     public void PlayerHurt() 
     {
         isHurt = true;
+        Controller.instance.StartVibration(1f, 1f, 0.5f);
         FlashColor(0.5f);
     }
     private void FlashColor(float time)
@@ -132,7 +149,6 @@ public class Player : MonoBehaviour
     }
     private void ResetColor()
     {
-
         sr.material.color = originColor;
     }
 }

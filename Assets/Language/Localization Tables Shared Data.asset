@@ -151,10 +151,6 @@ MonoBehaviour:
     m_Key: MutiStartButton
     m_Metadata:
       m_Items: []
-  - m_Id: 4523613880451072
-    m_Key: funnel
-    m_Metadata:
-      m_Items: []
   - m_Id: 4523767459086336
     m_Key: funnelLevel0
     m_Metadata:
@@ -169,6 +165,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 4523856768401408
     m_Key: funnelLevel3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21873704278556672
+    m_Key: funnelLevel4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523613880451072
+    m_Key: funnel
     m_Metadata:
       m_Items: []
   - m_Id: 4523873969242112
@@ -201,6 +205,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 5385428256555008
     m_Key: tornadoLevel5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17368833890320384
+    m_Key: TimeText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17368921123454976
+    m_Key: KillNumText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250038574055424
+    m_Key: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250138050363392
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250218979459072
+    m_Key: FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22250312344666112
+    m_Key: ControllerVibration
     m_Metadata:
       m_Items: []
   m_Metadata:

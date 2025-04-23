@@ -32,29 +32,30 @@ public class MissileController : WeaponController
     {
         switch (level)
         {
-            case 0:
-                count++;
+            case 0:     
                 level++;
                 break;
             case 1:
-                count++;
+                cooldownDuration -= 1;
+                
                 level++;
                 break;
             case 2:
-                count++;
+                damage += 10;
                 level++;
                 break;
             case 3:
-                count++;
+                
                 level++;
                 break;
             case 4:
-                count++;
+                timer /= 2;
                 level++;
                 break;
             case 5:
+                damage *= 2;
                 GetComponent<Weapon>().isLevelMax = true;
-                WeaponSelectController.instance.LevelMaxRemove("Missile");
+                WeaponSelectController.instance.LevelMaxRemove("Missle");
                 weapon.weaponLevel++;
                 break;
         }

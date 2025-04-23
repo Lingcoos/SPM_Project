@@ -16,11 +16,17 @@ public class WeaponSelectController : MonoBehaviour
     private GameObject mid;
     public List<GameObject> selectWeapon;
     public static WeaponSelectController instance;
+    public Animator ani;
 
     private void Awake()
     {
         instance = this;
        
+    }
+    private void Start()
+    {
+        GameObject player= FindObjectOfType<Player>().gameObject;
+        ani = player.GetComponent<Animator>();
     }
     public void GenerateSelect() // π”√œ¥≈∆À„∑®
     {
@@ -40,6 +46,7 @@ public class WeaponSelectController : MonoBehaviour
         left = Instantiate(selectWeapon[0], leftPosition.transform.position, Quaternion.identity, leftPosition.transform);
         mid = Instantiate(selectWeapon[1], midPosition.transform.position, Quaternion.identity, midPosition.transform);
         right = Instantiate(selectWeapon[2], rightPosition.transform.position, Quaternion.identity, rightPosition.transform);
+        ani.enabled = false;
     }
 
     public void WeapSelect() 
@@ -58,20 +65,25 @@ public class WeaponSelectController : MonoBehaviour
         left.GetComponent<WeaponSelect>().LevelUp();
         Time.timeScale = 1f;
         box.SetActive(false);
+        ani.enabled = true;
         FinishSelect();
+        
     }
     public void CheckMid()//Mid button check event
     {
         mid.GetComponent<WeaponSelect>().LevelUp();
         Time.timeScale = 1f;
         box.SetActive(false);
+        ani.enabled = true;
         FinishSelect();
+        
     }
     public void CheckRight()//Right button check event
     {
         right.GetComponent<WeaponSelect>().LevelUp();
         Time.timeScale = 1f;
         box.SetActive(false);
+        ani.enabled = true;
         FinishSelect();
 
     }

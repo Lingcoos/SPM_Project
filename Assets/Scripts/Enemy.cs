@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
         isHurt = false;
         sr.color = originColor;
         TransitionState(EnemyStateType.Move);
-        Debug.Log("生命" + Health + "是否死亡"+isDie+"是否受伤" +isHurt);
+        //Debug.Log("生命" + Health + "是否死亡"+isDie+"是否受伤" +isHurt);
 
     }
     public void TransitionState(EnemyStateType type) 
@@ -134,7 +134,9 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDestroy() 
     {
-        PlayerData.getInstance().KillNum++;
+        int kill = PlayerPrefs.GetInt("KillNum");
+        kill++;
+        PlayerPrefs.SetInt("KillNum", kill);
         pickUpGenerator.DropItems();
         isDie = false;
         ObjPoolManager.instance.ReturnObj(gameObject);
