@@ -1899,8 +1899,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initalSpawnInterval: 1
   minSpawnInterval: 0.001
-  accelerationFactor: 0.2
-  maxDifficultyTime: 300
+  accelerationFactor: 0.1
+  maxDifficultyTime: 200
   player: {fileID: 0}
   enemyToSpawn: {fileID: 9215741157100996140, guid: f2b92c45529b4c8499464d44df202041, type: 3}
   maxSpawnOffset: {x: 17, y: 9, z: 0}
@@ -2461,6 +2461,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 621450864}
   runTime: 0
+  tpTime: 10
+  tpEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 375291413}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: Teleport
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GameOver
+          m_BoolArgument: 0
+        m_CallState: 2
   nameString:
     m_TableReference:
       m_TableCollectionName: GUID:92eacca65da8b5849a46d7196a3f294f

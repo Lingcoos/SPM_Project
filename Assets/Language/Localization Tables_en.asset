@@ -211,7 +211,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17368921123454976
-    m_Localized: Kill
+    m_Localized: 'Kill: '
     m_Metadata:
       m_Items: []
   - m_Id: 21873704278556672
@@ -232,6 +232,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 22250312344666112
     m_Localized: Controller Vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22820215090970624
+    m_Localized: 'Score:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22822749167812608
+    m_Localized: Game Over
     m_Metadata:
       m_Items: []
   references:

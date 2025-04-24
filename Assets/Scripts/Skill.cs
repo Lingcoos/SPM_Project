@@ -18,8 +18,8 @@ public class Skill : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
-        PlayerPrefs.SetInt("Skill1", 0);
-        PlayerPrefs.SetInt("Score", 100);
+        //PlayerPrefs.SetInt("Skill1", 0);
+        //PlayerPrefs.SetInt("Score", 100);
     }
 
     private void Start()
@@ -38,7 +38,7 @@ public class Skill : MonoBehaviour
 
     public void HandleClickSkill()
     {
-        if (isAlreadyBuy)
+        if (isAlreadyBuy || PlayerPrefs.GetInt($"Skill{ID}") == 1)
         {
             Debug.Log("¼¤»îÌì¸³");
         }

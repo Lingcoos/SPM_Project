@@ -136,7 +136,7 @@ public class GameSettingController : MonoBehaviour
 
     public void ToggleVibrate(bool isVibrate) 
     {
-        Debug.Log(isVibrate);
+        //Debug.Log(isVibrate);
         isVibration = isVibrate;
         if (isVibrate)
         {
