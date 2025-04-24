@@ -75,63 +75,63 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2303323339358208
-    m_Localized: 1
+    m_Localized: Flight speed increased
     m_Metadata:
       m_Items: []
   - m_Id: 2303367010451456
-    m_Localized: 1
+    m_Localized: Quantity +1
     m_Metadata:
       m_Items: []
   - m_Id: 2303375461974016
-    m_Localized: 1
+    m_Localized: Base damage +5
     m_Metadata:
       m_Items: []
   - m_Id: 2303383221436416
-    m_Localized: 1
+    m_Localized: Quantity +1
     m_Metadata:
       m_Items: []
   - m_Id: 2303391400329216
-    m_Localized: 1
+    m_Localized: Quantity +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303306180460544
-    m_Localized: 1
+    m_Localized: Rotation speed increased
     m_Metadata:
       m_Items: []
   - m_Id: 2303297447919616
-    m_Localized: 1
+    m_Localized: Quantity +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303288933482496
-    m_Localized: 1
+    m_Localized: Quantity +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303245321109504
-    m_Localized: 1
+    m_Localized: Quantity +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303175032963072
-    m_Localized: 
+    m_Localized: Base damage +5
     m_Metadata:
       m_Items: []
   - m_Id: 2303170461171712
-    m_Localized: 1
+    m_Localized: Base damage doubled
     m_Metadata:
       m_Items: []
   - m_Id: 2303166468194304
-    m_Localized: 1
+    m_Localized: Preparation time halved
     m_Metadata:
       m_Items: []
   - m_Id: 2303162357776384
-    m_Localized: 1
+    m_Localized: Range increased
     m_Metadata:
       m_Items: []
   - m_Id: 2303156439613440
-    m_Localized: 1
+    m_Localized: Base damage +10
     m_Metadata:
       m_Items: []
   - m_Id: 2303081260908544
-    m_Localized: 1
+    m_Localized: CD-1S
     m_Metadata:
       m_Items: []
   - m_Id: 2310380914343936
