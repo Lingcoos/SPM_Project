@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -9,11 +10,11 @@ public class TitlePanelController : MonoBehaviour
     [SerializeField] private GameObject titileFirst;
     [SerializeField] private GameObject settingFirst;
     [SerializeField] private GameObject selectFirst;
-
-
+    [SerializeField] private Animator[] anis;
     private void Start()
     {
         TitleOpen();
+        
     }
     public void TitleOpen()
     {
@@ -32,6 +33,13 @@ public class TitlePanelController : MonoBehaviour
         InputController.instance.firstSelectedUI = selectFirst;
     }
 
+    public void InitButton() 
+    {
+        foreach (var ani in anis) 
+        {
+            ani.Play("Normal");
+        }
+    }
     public void QuitGame() 
     {
         Application.Quit();

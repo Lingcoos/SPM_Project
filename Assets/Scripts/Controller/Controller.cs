@@ -19,7 +19,7 @@ public class Controller : MonoBehaviour
     public void StartVibration(float lowFequency, float highFequency, float duration) 
     {
         pad = Gamepad.current;
-        if (pad == null) return; 
+        if (pad == null || !GameSettingController.instance.isVibration) return; 
         pad.SetMotorSpeeds(lowFequency, highFequency);
         isVibration = true;
         Invoke("StopVibration",duration);
@@ -27,7 +27,7 @@ public class Controller : MonoBehaviour
     public void StopVibration() 
     {
         pad = Gamepad.current;
-        if (pad == null) return;
+        if (pad == null || !GameSettingController.instance.isVibration) return;
         pad.SetMotorSpeeds(0f, 0f);
         isVibration = false;
 

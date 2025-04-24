@@ -4,7 +4,6 @@
 			<ID>1</ID>
 			<Name>清除目标</Name>
 			<Description>杀死10名敌人</Description>
-			<Type>1</Type>
 			<Goal>10</Goal>
 			<Reward>获得一次武器</Reward>
 		</Task_Chinese>
@@ -12,7 +11,6 @@
 			<ID>1</ID>
 			<Name>Eliminate Target</Name>
 			<Description>Kill 10 enemy</Description>
-			<Type>1</Type>
 			<Goal>10</Goal>
 			<Reward>Get a weapon</Reward>
 		</Task_English>
@@ -22,7 +20,6 @@
 			<ID>1</ID>
 			<Name>清除目标</Name>
 			<Description>杀死10名敌人</Description>
-			<Type>1</Type>
 			<Goal>10</Goal>
 			<Reward>获得一次武器</Reward>
 		</Task_Chinese>
@@ -30,7 +27,6 @@
 			<ID>1</ID>
 			<Name>Eliminate Target</Name>
 			<Description>Kill 10 enemy</Description>
-			<Type>1</Type>
 			<Goal>10</Goal>
 			<Reward>Get a weapon</Reward>
 		</Task_English>

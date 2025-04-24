@@ -25,8 +25,13 @@ public class TaskController : MonoBehaviour
     {
         InitTaskText();
         instance = this;
-        LoadTasks(taskIndex);
+        PlayerPrefs.SetInt("KillNum", 0);
 
+
+    }
+    private void Start()
+    {
+        LoadTasks(taskIndex);
     }
     private void Update()
     {
@@ -65,7 +70,6 @@ public class TaskController : MonoBehaviour
             //Debug.Log("ID" + int.Parse(node.SelectSingleNode("ID").InnerText));
             task.Name = node.SelectSingleNode("Name").InnerText;
             task.Description = node.SelectSingleNode("Description").InnerText;
-            task.Type = int.Parse(node.SelectSingleNode("Type").InnerText);
             task.Goal = int.Parse(node.SelectSingleNode("Goal").InnerText);
             task.Reward = node.SelectSingleNode("Reward").InnerText;
             tasks.Add(task);
@@ -84,7 +88,7 @@ public class TaskController : MonoBehaviour
         }
         XmlDocument xml = new XmlDocument();
         XmlNodeList nodes;
-        xml.Load("Assets/Tasks.xml");
+        xml.LoadXml(xmlTaskFile.text);
         if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
         {
             nodes = xml.SelectNodes($"/TaskList/Task{index}/Task_English");
@@ -102,7 +106,6 @@ public class TaskController : MonoBehaviour
             //Debug.Log("ID" + int.Parse(node.SelectSingleNode("ID").InnerText));
             task.Name = node.SelectSingleNode("Name").InnerText;
             task.Description = node.SelectSingleNode("Description").InnerText;
-            task.Type = int.Parse(node.SelectSingleNode("Type").InnerText);
             task.Goal = int.Parse(node.SelectSingleNode("Goal").InnerText);
             task.Reward = node.SelectSingleNode("Reward").InnerText;
             tasks.Add(task);
@@ -157,7 +160,7 @@ public class TaskController : MonoBehaviour
         {
 
             case 1:
-                num = PlayerData.getInstance().KillNum;
+                num = PlayerPrefs.GetInt("KillNum");
                 break;
             case 2:
                 break;
@@ -173,11 +176,10 @@ public class TaskController : MonoBehaviour
         {
             
             case 1:
-                
-                if (num +1 == PlayerData.getInstance().KillNum )
+ 
+                if (num + 1 == PlayerPrefs.GetInt("KillNum"))
                 {
-                    num = PlayerData.getInstance().KillNum;
-                    //Debug.Log("任务进度+1");
+                    num = PlayerPrefs.GetInt("KillNum");
                     status++;
                     LoadTaskText();
                 }
@@ -210,7 +212,6 @@ public class Task
     public int ID { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
-    public int Type { get; set; }
     public int Goal { get; set; }
     public string Reward { get; set; }
 }

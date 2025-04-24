@@ -31,6 +31,8 @@ public class PlayerData : SingleBaseManager<PlayerData>
     private int killNum;    // the number of killed monsters
     private int x_pos;  // the x position of player
     private int y_pos;  // the y position of player
+    private int skill1;
+    private int score = 100;
 
     [Header("Player Base Attributes")]
     private float baseMaxHealth = 100;    // the basic curHealth of player
@@ -66,6 +68,11 @@ public class PlayerData : SingleBaseManager<PlayerData>
             else
                 gold = value;
         }
+    }
+    public int Score
+    {
+        get { return score; }
+        set { score = value;}
     }
 
     public int Crystal
@@ -254,8 +261,6 @@ public class PlayerData : SingleBaseManager<PlayerData>
     /// </summary>
     public void InitData()  // init data for a new game
     {
-        PlayerPrefs.SetInt("Gold", 0);
-        //PlayerPrefs.SetInt("Crystal", 0);     // global crystal
         PlayerPrefs.SetInt("Level", 1);
         PlayerPrefs.SetInt("Exp", 0);
         PlayerPrefs.SetInt("KillNum", 0);
@@ -264,6 +269,7 @@ public class PlayerData : SingleBaseManager<PlayerData>
         //PlayerPrefs.SetFloat("CurrentAttack", baseAttack);
         PlayerPrefs.SetFloat("CurrentDefense", baseDefense);
         PlayerPrefs.SetFloat("CurrentSpeed", baseSpeed);
+        PlayerPrefs.SetInt("Skill1", 0);
     }
 
     /// <summary>
@@ -316,5 +322,9 @@ public class PlayerData : SingleBaseManager<PlayerData>
     public void SaveKillNum() 
     {
         PlayerPrefs.SetInt("KillNum", KillNum);
+    }
+    public void ChangeSkill(int ID) 
+    {
+        PlayerPrefs.SetInt($"Skill{ID}", 1);
     }
 }

@@ -53,8 +53,7 @@ public class Player : MonoBehaviour
         PlayerData.getInstance().CurrentMaxHealth = curMaxHealth;
         PlayerData.getInstance().CurrentHealth = curHealth;
         PlayerData.getInstance().CurrentSpeed = curSpeed;
-
-
+        
         originColor = sr.color;
         states.Add(PlayerStateType.Idle, new PlayerIdleState(this));
         states.Add(PlayerStateType.Move, new PlayerMoveState(this));
@@ -95,8 +94,11 @@ public class Player : MonoBehaviour
     }
     public void OnSkill1() 
     {
-        if(isSkill1)
+        if (isSkill1 && PlayerPrefs.GetInt("Skill1") == 1) 
+        {
             PickUpAllItem();
+            Debug.Log("发动技能");
+        }       
     }
 
     #endregion
@@ -132,8 +134,7 @@ public class Player : MonoBehaviour
         if (PlayerData.getInstance().CurrentHealth <= 0) 
         {
             onDie?.Invoke();
-        }
-        
+        }  
     }
     public void PlayerHurt() 
     {
@@ -148,7 +149,6 @@ public class Player : MonoBehaviour
     }
     private void ResetColor()
     {
-
         sr.material.color = originColor;
     }
 }

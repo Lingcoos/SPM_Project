@@ -13,6 +13,7 @@ public class InputController : MonoBehaviour
     private EventSystem eventSystem;
     private InputDevice currentDevice;
     private InputDevice lastDevice;
+    private GameObject lastSelect;
     private void Awake()
     {
         instance = this;
@@ -22,8 +23,8 @@ public class InputController : MonoBehaviour
     private void Update()
     {
         DetectInputDevice();
-        HandleUIInteraction();
-        
+        KeyboardUI();
+        //HandleUIInteraction();
     }
     void DetectInputDevice()
     {
@@ -64,7 +65,14 @@ public class InputController : MonoBehaviour
         bool isSwitchingFromGamepad = lastDevice is Gamepad;
         bool isSwitchingStay = currentDevice is null;
 
-        if (isSwitchingToGamepad)
+
+        if (isSwitchingStay && isSwitchingFromGamepad) 
+        {
+            lastSelect = eventSystem.currentSelectedGameObject;
+            eventSystem.SetSelectedGameObject(lastSelect);
+            return;
+        }
+        if (isSwitchingToGamepad && eventSystem.currentSelectedGameObject == null)
         {
             //Debug.Log("À¯ Û±Í");
             SetGamepadUIState(true);
@@ -76,8 +84,9 @@ public class InputController : MonoBehaviour
         Cursor.visible = !enableGamepadMode;
         Cursor.lockState = enableGamepadMode ? CursorLockMode.Locked : CursorLockMode.None;
 
-        if (enableGamepadMode)
+        if (enableGamepadMode  )
         {
+            Debug.Log("…Ë÷√≥ı º");
             eventSystem.SetSelectedGameObject(firstSelectedUI);
         }
         else
@@ -85,13 +94,14 @@ public class InputController : MonoBehaviour
             eventSystem.SetSelectedGameObject(null);
         }
     }
-    void HandleUIInteraction()
+    void KeyboardUI()
     {
 
-        if (lastDevice is Keyboard || eventSystem.currentSelectedGameObject == null &&firstSelectedUI != null)
+        if (lastDevice is Keyboard || eventSystem.currentSelectedGameObject == null && firstSelectedUI != null)
         {
             eventSystem.SetSelectedGameObject(null);
         }
 
     }
+
 }
