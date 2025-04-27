@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f44e7e66baa0849a4c6053ad721e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  a: {fileID: 8300000, guid: 808b1c1bb474b2e4e81f482b61c5af1f, type: 3}
   pickUpTpye: 0
   value: 2
   potionHealing: 0

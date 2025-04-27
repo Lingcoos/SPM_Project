@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class Skill : MonoBehaviour
@@ -11,6 +12,12 @@ public class Skill : MonoBehaviour
     public bool isAlreadyBuy;
     public Sprite normImage;
     public Sprite lockImage;
+    public Text priceText;
+    public Text nameText;
+    public Text descibleText;
+    public LocalizedString priceString;
+    public LocalizedString nameSkillString;
+    public LocalizedString describleString;
     private Sprite originImage;
     private Image image;
     
@@ -18,13 +25,18 @@ public class Skill : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
-        //PlayerPrefs.SetInt("Skill1", 0);
-        //PlayerPrefs.SetInt("Score", 100);
+        PlayerPrefs.SetInt("Skill1", 0);
+        PlayerPrefs.SetInt("Skill2", 0);
+        PlayerPrefs.SetInt("Score", 100);
+        priceString.TableEntryReference = "Price";
     }
 
     private void Start()
     {
         originImage = image.sprite;
+        priceText.text = priceString.GetLocalizedString() + price.ToString();
+        nameText.text = nameSkillString.GetLocalizedString();
+        descibleText.text = describleString.GetLocalizedString();
         if (isAlreadyBuy || PlayerPrefs.GetInt($"Skill{ID}") == 1)
         {
 

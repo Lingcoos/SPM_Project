@@ -48,8 +48,8 @@ public class Tornado : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().GetDamage(weapon.damage);
-            DamageNumberController.instance.SpawnDamage(weapon.damage, collision.transform.position);
+            collision.GetComponent<Enemy>().GetDamage(weapon.damage + PlayerData.getInstance().ExtraDamge/10);
+            DamageNumberController.instance.SpawnDamage(weapon.damage + PlayerData.getInstance().ExtraDamge / 10, collision.transform.position);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

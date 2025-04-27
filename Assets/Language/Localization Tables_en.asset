@@ -242,6 +242,26 @@ MonoBehaviour:
     m_Localized: Game Over
     m_Metadata:
       m_Items: []
+  - m_Id: 23143148808175616
+    m_Localized: 'Price:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23160930564177920
+    m_Localized: Magnet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161004312625152
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161292931072000
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161360656498688
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ButtonControl : MonoBehaviour
 {
     private Animator ani;
-    public string aniName;
+    public AudioClip AudioClip;
     public UnityEvent tp;
     private void Awake()
     {
@@ -14,16 +14,11 @@ public class ButtonControl : MonoBehaviour
     }
     private void Update()
     {
-        WaitAnimator(aniName);
+        
     }
 
-    public void WaitAnimator(string name) 
+    public void WaitAnimator() 
     {
-        AnimatorStateInfo info = ani.GetCurrentAnimatorStateInfo(0);
-        if (info.IsName(name)&& info.normalizedTime >= 0.5f) 
-        {
-            tp.Invoke();
-            //Debug.Log("¶¯»­Íê³É");
-        }
+            AudioController.instance.PlaySE(AudioClip);
     }
 }

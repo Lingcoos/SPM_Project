@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level1_Grass.unity
     guid: e7ecdcbcc75dd354687faa84199f4e56
+  - enabled: 1
+    path: Assets/Scenes/level1_Desert.unity
+    guid: 25c5b9d8a2cff1a4f94a55cfb7ad8952
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 52ecf3a4950b7c140b53a53abb17e6bb, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 3d5049a931f49fd4789ca02400916990, type: 2}

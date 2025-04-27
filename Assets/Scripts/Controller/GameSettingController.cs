@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class GameSettingController : MonoBehaviour
@@ -24,6 +26,14 @@ public class GameSettingController : MonoBehaviour
     public Toggle controllerVibraton;
     public bool isVibration;
 
+
+    [Header("“Ù∆µ")]
+    public AudioMixer masterMixer;
+    public AudioMixer musicMixer;
+    public AudioMixer vfMixer;
+    public Slider master;
+    public Slider music;
+    public Slider vf;
 
     private float timeDelta = 0.5f;
     private float prevTime;
@@ -115,6 +125,7 @@ public class GameSettingController : MonoBehaviour
 
     public void statusCheck() 
     {
+        InitVolume();
         InitializeLanguageDropDown();
         judgeVibrate();
         judgeFullScreen();
@@ -175,6 +186,30 @@ public class GameSettingController : MonoBehaviour
         {
             PlayerPrefs.SetInt("FullScreenate", 0);
         }
+    }
+    public void InitVolume() 
+    {
+        masterMixer.SetFloat("MasterMixer", PlayerPrefs.GetFloat("MasterMixer"));
+        master.value = PlayerPrefs.GetFloat("MasterMixer");
+        musicMixer.SetFloat("MusicMixer", PlayerPrefs.GetFloat("MusicMixer"));
+        music.value = PlayerPrefs.GetFloat("MusicMixer");
+        vfMixer.SetFloat("VFMixer", PlayerPrefs.GetFloat("VFMixer"));
+        vf.value = PlayerPrefs.GetFloat("VFMixer");
+    }
+    public void SetMaserMixerVolume(float volume) 
+    {
+        masterMixer.SetFloat("MasterMixer", volume);
+        PlayerPrefs.SetFloat("MasterMixer", volume);
+    }
+    public void SetMusicMixerVolume(float volume)
+    {
+        musicMixer.SetFloat("MusicMixer", volume);
+        PlayerPrefs.SetFloat("MusicMixer", volume);
+    }
+    public void SetVFMixerVolume(float volume)
+    {
+        vfMixer.SetFloat("VFMixer", volume);
+        PlayerPrefs.SetFloat("VFMixer", volume);
     }
 }
 

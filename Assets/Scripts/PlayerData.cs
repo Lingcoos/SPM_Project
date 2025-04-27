@@ -33,6 +33,7 @@ public class PlayerData : SingleBaseManager<PlayerData>
     private int y_pos;  // the y position of player
     private int skill1;
     private int score = 100;
+    private int extraAttack;
 
     [Header("Player Base Attributes")]
     private float baseMaxHealth = 100;    // the basic curHealth of player
@@ -56,6 +57,11 @@ public class PlayerData : SingleBaseManager<PlayerData>
     // HealthBuff, AttackBuff, DefenseBuff, SpeedBuff,
     // MaxHealth, CurrentHealth, CurrentAttack, CurrentDefense, CurrentSpeed,
     // X_pos, Y_pos
+    public int ExtraDamge 
+    {
+        get { return extraAttack; }
+        set { extraAttack = value; }
+    }
     public int Gold
     {
         get { return gold; }
