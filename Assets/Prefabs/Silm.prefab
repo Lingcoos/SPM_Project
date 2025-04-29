@@ -109,6 +109,7 @@ MonoBehaviour:
     m_Bits: 128
   Health: 10
   maxHealht: 0
+  vfDie: {fileID: 8300000, guid: 37343d2cf778cd94487fb2f8bf8a9df4, type: 3}
   OnHurt:
     m_PersistentCalls:
       m_Calls:
@@ -142,6 +143,7 @@ MonoBehaviour:
   isHurt: 0
   isDie: 0
   ani: {fileID: 0}
+  live: 0
 --- !u!50 &581454857990019075
 Rigidbody2D:
   serializedVersion: 4

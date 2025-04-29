@@ -175,7 +175,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4523873969242112
-    m_Localized: 1
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 5385035183161344
@@ -259,6 +259,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23161360656498688
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24432268297764864
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24432327122878464
     m_Localized: 1
     m_Metadata:
       m_Items: []

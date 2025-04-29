@@ -59,7 +59,7 @@ public class UIController : MonoBehaviour
     }
     public void setKillNumber() 
     {
-        killNumber.text = $"{nameString.GetLocalizedString()} : " + PlayerPrefs.GetInt("KillNum").ToString();
+        killNumber.text = $"{nameString.GetLocalizedString()}" + PlayerPrefs.GetInt("KillNum").ToString();
     }
     public void QuitGame() 
     {

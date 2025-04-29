@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     public float Health;
     public float maxHealht;
 
+
+    public AudioClip vfDie;
     public UnityEvent OnHurt;
     public UnityEvent OnDie;
 
@@ -126,6 +128,7 @@ public class Enemy : MonoBehaviour
     public void EnemeyHurt() 
     {
         isHurt = true;
+        AudioController.instance.PlaySE(vfDie);
     }
     public void EnemyDie() 
     {

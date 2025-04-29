@@ -39,7 +39,7 @@ public class InputController : MonoBehaviour
         }
     }
 
-    InputDevice GetActiveInputDevice() 
+    public InputDevice GetActiveInputDevice() 
     {
         if (Gamepad.current != null && (Gamepad.current.leftStick.ReadValue().magnitude > 0.1f ||
             Gamepad.current.buttonSouth.isPressed)) 
@@ -86,7 +86,7 @@ public class InputController : MonoBehaviour
 
         if (enableGamepadMode  )
         {
-            Debug.Log("设置初始");
+            //Debug.Log("设置初始");
             eventSystem.SetSelectedGameObject(firstSelectedUI);
         }
         else

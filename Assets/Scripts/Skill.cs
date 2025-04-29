@@ -27,6 +27,7 @@ public class Skill : MonoBehaviour
         image = GetComponent<Image>();
         PlayerPrefs.SetInt("Skill1", 0);
         PlayerPrefs.SetInt("Skill2", 0);
+        PlayerPrefs.SetInt("Skill3", 0);
         PlayerPrefs.SetInt("Score", 100);
         priceString.TableEntryReference = "Price";
     }
@@ -47,6 +48,10 @@ public class Skill : MonoBehaviour
             PlayerPrefs.SetInt($"Skill{ID}", 0);
         }
     }
+    private void Update()
+    {
+        //Debug.Log("1: " + PlayerPrefs.GetInt("Skill1") + " 2: " + PlayerPrefs.GetInt("Skill2") + " 3: " + PlayerPrefs.GetInt("Skill3"));
+    }
 
     public void HandleClickSkill()
     {
@@ -63,7 +68,7 @@ public class Skill : MonoBehaviour
                 PlayerPrefs.SetInt("Score", money);
                 image.sprite = originImage;
                 isAlreadyBuy = true;
-                PlayerData.getInstance().ChangeSkill(1);
+                PlayerData.getInstance().ChangeSkill(ID);
             }   
         }
     }
