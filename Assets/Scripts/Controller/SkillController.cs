@@ -31,7 +31,6 @@ public class SkillController : MonoBehaviour
 
     [Header("次元斩")]
     public float dsCD;
-    public float dsDutation;
     public Transform position;
     public GameObject ds;
     public GameObject uiFilter;
@@ -97,7 +96,7 @@ public class SkillController : MonoBehaviour
             Debug.Log("发动技能3 ");
             uiFilter.SetActive(true);
             Instantiate(particle,position.position,Quaternion.identity);
-            DSCD(100);
+            DSCD(dsCD);
             isDSCD = true;
 
         }

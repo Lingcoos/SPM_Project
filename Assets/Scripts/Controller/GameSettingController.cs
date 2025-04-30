@@ -16,7 +16,7 @@ public class GameSettingController : MonoBehaviour
     public Dropdown languageDropDown;
     
     [Header("分辨率")]
-    public TMP_Dropdown resolutionDropDown;
+    public Dropdown resolutionDropDown;
     [SerializeField] private Resolution[] resolutions;
 
     [Header("全屏化")]
@@ -43,6 +43,7 @@ public class GameSettingController : MonoBehaviour
     private GUIStyle style;
     private void Awake()
     {
+        style = new GUIStyle();
         instance =this;
         Screen.fullScreen = true;
         Application.targetFrameRate = 280;

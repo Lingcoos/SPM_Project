@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ public class Skill : MonoBehaviour
         image = GetComponent<Image>();
         PlayerPrefs.SetInt("Skill1", 0);
         PlayerPrefs.SetInt("Skill2", 0);
-        PlayerPrefs.SetInt("Skill3", 0);
+        //PlayerPrefs.SetInt("Skill3", 0);
         PlayerPrefs.SetInt("Score", 100);
         priceString.TableEntryReference = "Price";
     }
@@ -35,9 +36,7 @@ public class Skill : MonoBehaviour
     private void Start()
     {
         originImage = image.sprite;
-        priceText.text = priceString.GetLocalizedString() + price.ToString();
-        nameText.text = nameSkillString.GetLocalizedString();
-        descibleText.text = describleString.GetLocalizedString();
+
         if (isAlreadyBuy || PlayerPrefs.GetInt($"Skill{ID}") == 1)
         {
 
@@ -48,8 +47,12 @@ public class Skill : MonoBehaviour
             PlayerPrefs.SetInt($"Skill{ID}", 0);
         }
     }
+    
     private void Update()
     {
+        priceText.text = priceString.GetLocalizedString() + price.ToString();
+        nameText.text = nameSkillString.GetLocalizedString();
+        descibleText.text = describleString.GetLocalizedString();
         //Debug.Log("1: " + PlayerPrefs.GetInt("Skill1") + " 2: " + PlayerPrefs.GetInt("Skill2") + " 3: " + PlayerPrefs.GetInt("Skill3"));
     }
 

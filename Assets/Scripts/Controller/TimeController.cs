@@ -32,6 +32,7 @@ public class TimeController : MonoBehaviour
             string minutes = ((int)runTime / 60).ToString("00");
             string seconds = (runTime % 60).ToString("00");
             text.text = $"{nameString.GetLocalizedString()} : " + minutes + " : " + seconds;
+            PlayerPrefs.SetFloat("Time", runTime);
         }
        
     }

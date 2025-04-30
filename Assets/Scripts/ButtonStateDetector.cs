@@ -56,6 +56,8 @@ public class ButtonStateDetector : MonoBehaviour,
     }
     public void OnSelect(BaseEventData eventData)
     {
+        if (button == null)
+            return;
         if (button.interactable)
         {
             currentState = ButtonState.Selected;
