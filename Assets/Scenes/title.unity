@@ -583,8 +583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 791, y: 323}
-  m_SizeDelta: {x: 209.3007, y: 57.9814}
+  m_AnchoredPosition: {x: 722.577, y: 321}
+  m_SizeDelta: {x: 294.4547, y: 57.9814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &109776973
 MonoBehaviour:
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   nameSkill: Rage
   price: 10
   isAlreadyBuy: 0
-  normImage: {fileID: 21300000, guid: 26bd0ed403e22054bbf7d1bc0025ccb5, type: 3}
+  normImage: {fileID: 21300000, guid: 53d75d3292fcabe4286267dd006e184d, type: 3}
   lockImage: {fileID: 21300000, guid: 794d0bcc56253cc44af41d33a0d53173, type: 3}
   priceText: {fileID: 356475153}
   nameText: {fileID: 1027094634}
@@ -7381,7 +7381,7 @@ MonoBehaviour:
   nameSkill: Slash Dimension
   price: 10
   isAlreadyBuy: 0
-  normImage: {fileID: 21300000, guid: 26bd0ed403e22054bbf7d1bc0025ccb5, type: 3}
+  normImage: {fileID: 21300000, guid: 03fc6aa10828cc1478e4009838065512, type: 3}
   lockImage: {fileID: 21300000, guid: 794d0bcc56253cc44af41d33a0d53173, type: 3}
   priceText: {fileID: 1674319982}
   nameText: {fileID: 644976982}
@@ -10998,7 +10998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2132517080
 RectTransform:
   m_ObjectHideFlags: 0

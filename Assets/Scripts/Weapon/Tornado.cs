@@ -32,7 +32,7 @@ public class Tornado : MonoBehaviour
             {
                 isAttack = false;
                 originPos = transform.position;
-                Debug.Log("切换目标");
+                //Debug.Log("切换目标");
             }
 
         }

@@ -26,10 +26,10 @@ public class Skill : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
-        PlayerPrefs.SetInt("Skill1", 0);
-        PlayerPrefs.SetInt("Skill2", 0);
+        //PlayerPrefs.SetInt("Skill1", 0);
+        //PlayerPrefs.SetInt("Skill2", 0);
         //PlayerPrefs.SetInt("Skill3", 0);
-        PlayerPrefs.SetInt("Score", 100);
+        //PlayerPrefs.SetInt("Score", 100);
         priceString.TableEntryReference = "Price";
     }
 

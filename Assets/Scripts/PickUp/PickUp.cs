@@ -62,6 +62,9 @@ public class PickUp : MonoBehaviour
                 //Debug.Log("Exp: "+ PlayerData.getInstance().Exp);          
                 break;
             case PickUpTpye.Blood:
+                if (PlayerData.getInstance().CurrentHealth == PlayerData.getInstance().CurrentMaxHealth)
+                    return;
+                PlayerData.getInstance().CurrentHealth += potionHealing;
                 break;
 
 

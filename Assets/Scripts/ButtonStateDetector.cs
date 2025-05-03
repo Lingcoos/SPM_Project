@@ -67,6 +67,8 @@ public class ButtonStateDetector : MonoBehaviour,
 
     public void OnDeselect(BaseEventData eventData)
     {
+        if (button == null)
+            return;
         if (button.interactable)
             currentState = ButtonState.Normal;
         
