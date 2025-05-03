@@ -7,6 +7,7 @@ public enum PickUpTpye
 }
 public class PickUp : MonoBehaviour
 {
+    public AudioClip a;
     public PickUpTpye pickUpTpye;
     public float value;
     public float potionHealing;
@@ -56,10 +57,14 @@ public class PickUp : MonoBehaviour
         switch (pickUpTpye)
         {
             case PickUpTpye.Exp:
+                AudioController.instance.PlaySE(a);
                 PlayerData.getInstance().Exp += (int)value;
                 //Debug.Log("Exp: "+ PlayerData.getInstance().Exp);          
                 break;
             case PickUpTpye.Blood:
+                if (PlayerData.getInstance().CurrentHealth == PlayerData.getInstance().CurrentMaxHealth)
+                    return;
+                PlayerData.getInstance().CurrentHealth += potionHealing;
                 break;
 
 

@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
     public float curMaxHealth;
     public float curHealth;
     public float curSpeed;
-    public bool isSkill1;
     public UnityEvent onHurt;
     public UnityEvent onDie;
 
@@ -91,14 +90,6 @@ public class Player : MonoBehaviour
     {
         InputValue = ctx.ReadValue<Vector2>();
         
-    }
-    public void OnSkill1() 
-    {
-        if (isSkill1 && PlayerPrefs.GetInt("Skill1") == 1) 
-        {
-            PickUpAllItem();
-            Debug.Log("发动技能");
-        }       
     }
 
     #endregion

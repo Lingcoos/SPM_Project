@@ -54,8 +54,8 @@ public class Missile : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().GetDamage(weapon.damage);
-            DamageNumberController.instance.SpawnDamage(weapon.damage, collision.transform.position);
+            collision.GetComponent<Enemy>().GetDamage(weapon.damage + PlayerData.getInstance().ExtraDamge);
+            DamageNumberController.instance.SpawnDamage(weapon.damage + PlayerData.getInstance().ExtraDamge, collision.transform.position);
         }
     }
     public void Fire() 

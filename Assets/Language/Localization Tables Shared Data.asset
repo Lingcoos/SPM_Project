@@ -231,6 +231,58 @@ MonoBehaviour:
     m_Key: ControllerVibration
     m_Metadata:
       m_Items: []
+  - m_Id: 22820215090970624
+    m_Key: ScoreText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22822749167812608
+    m_Key: GameOverText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23143148808175616
+    m_Key: Price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23160930564177920
+    m_Key: Magnet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161004312625152
+    m_Key: Magnetdescrible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161292931072000
+    m_Key: Rage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161360656498688
+    m_Key: Ragedescrible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24432268297764864
+    m_Key: SlashDimension
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24432327122878464
+    m_Key: SlashDimensionDescirble
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25150101344354304
+    m_Key: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25150103269539840
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25150107493203968
+    m_Key: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25174040103747584
+    m_Key: SurvieTime
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

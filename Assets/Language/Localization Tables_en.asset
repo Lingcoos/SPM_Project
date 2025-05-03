@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2151975377567744
-    m_Localized: ATT + 5
+    m_Localized: DMG + 5
     m_Metadata:
       m_Items: []
   - m_Id: 2152270388133888
@@ -75,63 +75,63 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2303323339358208
-    m_Localized: 1
+    m_Localized: Flight speed increased
     m_Metadata:
       m_Items: []
   - m_Id: 2303367010451456
-    m_Localized: 1
+    m_Localized: NUM +1
     m_Metadata:
       m_Items: []
   - m_Id: 2303375461974016
-    m_Localized: 1
+    m_Localized: DMG + 5
     m_Metadata:
       m_Items: []
   - m_Id: 2303383221436416
-    m_Localized: 1
+    m_Localized: NUM +1
     m_Metadata:
       m_Items: []
   - m_Id: 2303391400329216
-    m_Localized: 1
+    m_Localized: NUM +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303306180460544
-    m_Localized: 1
+    m_Localized: Rotation speed increased
     m_Metadata:
       m_Items: []
   - m_Id: 2303297447919616
-    m_Localized: 1
+    m_Localized: NUM +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303288933482496
-    m_Localized: 1
+    m_Localized: NUM +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303245321109504
-    m_Localized: 1
+    m_Localized: NUM +2
     m_Metadata:
       m_Items: []
   - m_Id: 2303175032963072
-    m_Localized: 
+    m_Localized: DMG +5
     m_Metadata:
       m_Items: []
   - m_Id: 2303170461171712
-    m_Localized: 1
+    m_Localized: DMG doubled
     m_Metadata:
       m_Items: []
   - m_Id: 2303166468194304
-    m_Localized: 1
+    m_Localized: Preparation time halved
     m_Metadata:
       m_Items: []
   - m_Id: 2303162357776384
-    m_Localized: 1
+    m_Localized: Range increased
     m_Metadata:
       m_Items: []
   - m_Id: 2303156439613440
-    m_Localized: 1
+    m_Localized: DMG +10
     m_Metadata:
       m_Items: []
   - m_Id: 2303081260908544
-    m_Localized: 1
+    m_Localized: CD-1S
     m_Metadata:
       m_Items: []
   - m_Id: 2310380914343936
@@ -163,19 +163,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4523831086678016
-    m_Localized: 1
+    m_Localized: NUM + 1
     m_Metadata:
       m_Items: []
   - m_Id: 4523835792687104
-    m_Localized: 1
+    m_Localized: DMG + 5
     m_Metadata:
       m_Items: []
   - m_Id: 4523856768401408
-    m_Localized: 1
+    m_Localized: NUM + 1
     m_Metadata:
       m_Items: []
   - m_Id: 4523873969242112
-    m_Localized: 1
+    m_Localized: CD / 2
     m_Metadata:
       m_Items: []
   - m_Id: 5385035183161344
@@ -187,23 +187,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5385322937581568
-    m_Localized: 2
+    m_Localized: DMG + 1
     m_Metadata:
       m_Items: []
   - m_Id: 5385345024786432
-    m_Localized: 2
+    m_Localized: NUM + 1
     m_Metadata:
       m_Items: []
   - m_Id: 5385373701242880
-    m_Localized: 4
+    m_Localized: Range of motion -1
     m_Metadata:
       m_Items: []
   - m_Id: 5385410053275648
-    m_Localized: 5
+    m_Localized: DMG + 1
     m_Metadata:
       m_Items: []
   - m_Id: 5385428256555008
-    m_Localized: 2
+    m_Localized: Range of motion - 2
     m_Metadata:
       m_Items: []
   - m_Id: 17368833890320384
@@ -211,11 +211,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17368921123454976
-    m_Localized: Kill
+    m_Localized: 'Kill: '
     m_Metadata:
       m_Items: []
   - m_Id: 21873704278556672
-    m_Localized: 1
+    m_Localized: Double the speed
     m_Metadata:
       m_Items: []
   - m_Id: 22250038574055424
@@ -232,6 +232,58 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 22250312344666112
     m_Localized: Controller Vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22820215090970624
+    m_Localized: 'Score:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22822749167812608
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23143148808175616
+    m_Localized: 'Price:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23160930564177920
+    m_Localized: Magnet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161004312625152
+    m_Localized: When activating a skill, you can pick up all dropped objects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161292931072000
+    m_Localized: Power up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23161360656498688
+    m_Localized: Abilities can increase damage when activated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24432268297764864
+    m_Localized: Dimension cut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24432327122878464
+    m_Localized: Kill all enemies in sight when activated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25150101344354304
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25150103269539840
+    m_Localized: Musci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25150107493203968
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25174040103747584
+    m_Localized: "Survival Time\uFF1A "
     m_Metadata:
       m_Items: []
   references:

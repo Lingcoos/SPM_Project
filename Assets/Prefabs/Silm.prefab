@@ -109,6 +109,7 @@ MonoBehaviour:
     m_Bits: 128
   Health: 10
   maxHealht: 0
+  vfDie: {fileID: 8300000, guid: 37343d2cf778cd94487fb2f8bf8a9df4, type: 3}
   OnHurt:
     m_PersistentCalls:
       m_Calls:
@@ -142,6 +143,7 @@ MonoBehaviour:
   isHurt: 0
   isDie: 0
   ani: {fileID: 0}
+  live: 0
 --- !u!50 &581454857990019075
 Rigidbody2D:
   serializedVersion: 4
@@ -207,6 +209,9 @@ MonoBehaviour:
   - prefabName: Exp
     prefab: {fileID: 5387252906530313811, guid: 561f3a3f50ff57e41aa4be94fa0c2228, type: 3}
     PropPercentage: 40
+  - prefabName: Potion
+    prefab: {fileID: 5412705589930679493, guid: 9c1319b2c1238cc44ac66a63ce39ffad, type: 3}
+    PropPercentage: 1
 --- !u!61 &1021163275186765755
 BoxCollider2D:
   m_ObjectHideFlags: 0

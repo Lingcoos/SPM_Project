@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class GameSettingController : MonoBehaviour
@@ -14,7 +16,7 @@ public class GameSettingController : MonoBehaviour
     public Dropdown languageDropDown;
     
     [Header("分辨率")]
-    public TMP_Dropdown resolutionDropDown;
+    public Dropdown resolutionDropDown;
     [SerializeField] private Resolution[] resolutions;
 
     [Header("全屏化")]
@@ -25,6 +27,14 @@ public class GameSettingController : MonoBehaviour
     public bool isVibration;
 
 
+    [Header("音频")]
+    public AudioMixer masterMixer;
+    public AudioMixer musicMixer;
+    public AudioMixer vfMixer;
+    public Slider master;
+    public Slider music;
+    public Slider vf;
+
     private float timeDelta = 0.5f;
     private float prevTime;
     private float fps;
@@ -33,6 +43,7 @@ public class GameSettingController : MonoBehaviour
     private GUIStyle style;
     private void Awake()
     {
+        style = new GUIStyle();
         instance =this;
         Screen.fullScreen = true;
         Application.targetFrameRate = 280;
@@ -115,6 +126,7 @@ public class GameSettingController : MonoBehaviour
 
     public void statusCheck() 
     {
+        InitVolume();
         InitializeLanguageDropDown();
         judgeVibrate();
         judgeFullScreen();
@@ -136,7 +148,7 @@ public class GameSettingController : MonoBehaviour
 
     public void ToggleVibrate(bool isVibrate) 
     {
-        Debug.Log(isVibrate);
+        //Debug.Log(isVibrate);
         isVibration = isVibrate;
         if (isVibrate)
         {
@@ -175,6 +187,30 @@ public class GameSettingController : MonoBehaviour
         {
             PlayerPrefs.SetInt("FullScreenate", 0);
         }
+    }
+    public void InitVolume() 
+    {
+        masterMixer.SetFloat("MasterMixer", PlayerPrefs.GetFloat("MasterMixer"));
+        master.value = PlayerPrefs.GetFloat("MasterMixer");
+        musicMixer.SetFloat("MusicMixer", PlayerPrefs.GetFloat("MusicMixer"));
+        music.value = PlayerPrefs.GetFloat("MusicMixer");
+        vfMixer.SetFloat("VFMixer", PlayerPrefs.GetFloat("VFMixer"));
+        vf.value = PlayerPrefs.GetFloat("VFMixer");
+    }
+    public void SetMaserMixerVolume(float volume) 
+    {
+        masterMixer.SetFloat("MasterMixer", volume);
+        PlayerPrefs.SetFloat("MasterMixer", volume);
+    }
+    public void SetMusicMixerVolume(float volume)
+    {
+        musicMixer.SetFloat("MusicMixer", volume);
+        PlayerPrefs.SetFloat("MusicMixer", volume);
+    }
+    public void SetVFMixerVolume(float volume)
+    {
+        vfMixer.SetFloat("VFMixer", volume);
+        PlayerPrefs.SetFloat("VFMixer", volume);
     }
 }
 
