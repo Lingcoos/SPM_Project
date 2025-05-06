@@ -8864,7 +8864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: -39}
+  m_AnchoredPosition: {x: 16, y: -37}
   m_SizeDelta: {x: 720, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386040845
@@ -12873,6 +12873,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  tipText: {fileID: 1386040845}
+  tipString:
+  - m_TableReference:
+      m_TableCollectionName: GUID:92eacca65da8b5849a46d7196a3f294f
+    m_TableEntryReference:
+      m_KeyId: 27175369445605376
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:92eacca65da8b5849a46d7196a3f294f
+    m_TableEntryReference:
+      m_KeyId: 27175638359212032
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:92eacca65da8b5849a46d7196a3f294f
+    m_TableEntryReference:
+      m_KeyId: 27175762758074368
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:92eacca65da8b5849a46d7196a3f294f
+    m_TableEntryReference:
+      m_KeyId: 27175892785692672
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &2139931783
 GameObject:
   m_ObjectHideFlags: 0

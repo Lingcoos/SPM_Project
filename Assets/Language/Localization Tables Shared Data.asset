@@ -283,6 +283,22 @@ MonoBehaviour:
     m_Key: SurvieTime
     m_Metadata:
       m_Items: []
+  - m_Id: 27175369445605376
+    m_Key: Tips1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27175638359212032
+    m_Key: Tip2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27175762758074368
+    m_Key: Tip3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27175892785692672
+    m_Key: Tip4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
