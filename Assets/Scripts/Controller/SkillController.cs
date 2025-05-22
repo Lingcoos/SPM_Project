@@ -69,7 +69,7 @@ public class SkillController : MonoBehaviour
     }
     public void OnSkill1()
     {
-        if (PlayerPrefs.GetInt("Skill1") == 1 && !isMagnetCD)
+        if (PlayerPrefs.GetInt("Skill1") == 1 && !isMagnetCD && Time.timeScale == 1)
         {
             pickUpAll.Invoke();
             Debug.Log("发动技能1");
@@ -79,7 +79,7 @@ public class SkillController : MonoBehaviour
     }
     public void OnSkill2() 
     {
-        if (PlayerPrefs.GetInt("Skill2") == 1 && !isRageCD)
+        if (PlayerPrefs.GetInt("Skill2") == 1 && !isRageCD && Time.timeScale == 1)
         {
             PlayerData.getInstance().ExtraDamge = 20;
             Debug.Log("发动技能2 " + PlayerData.getInstance().ExtraDamge);
@@ -90,7 +90,7 @@ public class SkillController : MonoBehaviour
     }
     public void OnSkill3() 
     {
-        if (PlayerPrefs.GetInt("Skill3") == 1 && !isDSCD)
+        if (PlayerPrefs.GetInt("Skill3") == 1 && !isDSCD && Time.timeScale == 1)
         {
 
             Debug.Log("发动技能3 ");
