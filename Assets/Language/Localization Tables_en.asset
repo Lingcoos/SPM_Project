@@ -286,6 +286,22 @@ MonoBehaviour:
     m_Localized: "Survival Time\uFF1A "
     m_Metadata:
       m_Items: []
+  - m_Id: 27175369445605376
+    m_Localized: Defeating monsters may drop health potions and experience orbs.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27175638359212032
+    m_Localized: Defeating monsters grants you points.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27175762758074368
+    m_Localized: Points are your key to unlocking powerful abilities!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27175892785692672
+    m_Localized: 'Upgrade and arm yourself: Gain a weapon every time you level up!'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
